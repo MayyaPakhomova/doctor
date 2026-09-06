@@ -1,0 +1,750 @@
+@use 'mixin'as *;
+@use 'fonts'as *;
+@use 'variable'as *;
+
+.header {
+  position: absolute;
+  top     : 0;
+  left    : 0;
+  z-index : 100;
+  width   : 100%;
+
+  &.fixed {
+    @include main {
+      position        : fixed;
+      top             : 0;
+      left            : 0;
+      right           : 0;
+      width           : 100%;
+      background-color: var(--dark);
+      box-shadow      : 0 1rem 3rem rgba(var(--dark-rgb), .2);
+      animation       : header-down .35s ease forwards;
+    }
+  }
+
+  &[data-open] {
+    @include main {
+      position        : fixed;
+      background-color: var(--dark);
+
+      .header__nav {
+        transform: translateX(0);
+      }
+
+      .header__burger {
+        span {
+          &:nth-child(1) {
+            transform: translateY(.6rem) rotate(45deg);
+          }
+
+          &:nth-child(2) {
+            opacity: 0;
+          }
+
+          &:nth-child(3) {
+            transform: translateY(-.6rem) rotate(-45deg);
+          }
+        }
+      }
+    }
+  }
+
+  &__top {
+    position: relative;
+    z-index : 5;
+
+    @include main {
+      background-color: var(--dark);
+    }
+  }
+
+  &__top-container {
+    display        : flex;
+    align-items    : baseline;
+    justify-content: center;
+    border-bottom  : .1rem solid rgba(var(--accent-light-rgb), .2);
+
+    @include main {
+      justify-content: stretch;
+    }
+  }
+
+  &__info {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    gap            : 2rem;
+    padding        : 1.2rem 0;
+    color          : var(--light-soft);
+    font-size      : 0.9em;
+
+    >* {
+      position   : relative;
+      white-space: nowrap;
+
+      &:not(:first-child) {
+        padding-left: 2rem;
+
+        &::before {
+          content         : '';
+          position        : absolute;
+          top             : 50%;
+          left            : 0;
+          width           : .1rem;
+          height          : 1.4rem;
+          background-color: rgba(var(--accent-light-rgb), .35);
+          transform       : translateY(-50%);
+        }
+      }
+    }
+
+    @include xs {
+      width         : 100%;
+      gap           : 1rem;
+      flex-direction: column;
+
+      >* {
+        &:not(:first-child) {
+          padding-left: 0;
+
+          &::before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  &__address {
+    color: inherit;
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    @include main {
+      min-width    : 0;
+      overflow     : hidden;
+      text-overflow: ellipsis;
+      white-space  : nowrap;
+    }
+  }
+
+  &__schedule {
+    @include main {
+      display: none;
+    }
+  }
+
+  &__phone {
+    flex-shrink: 0;
+    color      : var(--light-soft);
+
+
+    @include hover {
+      color: var(--accent);
+    }
+  }
+
+  &__bottom {
+    position: relative;
+    z-index : 5;
+    padding : 2.8rem 0;
+
+    &.fixed {
+      position: fixed;
+      top     : 0;
+      left    : 0;
+      right   : 0;
+      padding : 2rem 0;
+
+      z-index         : 100;
+      width           : 100%;
+      background-color: var(--bg-light);
+      box-shadow      : 0 1rem 3rem rgba(var(--dark-rgb), .2);
+      animation       : header-down .35s ease forwards;
+
+      .header__mega {
+        max-height: calc(100dvh - var(--header-bottom-height));
+      }
+    }
+
+    @include main {
+      padding         : 1.6rem 0;
+      background-color: var(--dark);
+    }
+  }
+
+  &__bottom-container {
+    display              : grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap                  : 4rem;
+    align-items: center;
+
+    @include main {
+      display        : flex;
+      align-items    : center;
+      justify-content: space-between;
+      gap            : 2rem;
+    }
+  }
+
+  &__logo {
+    display    : none;
+    align-items: center;
+    gap        : .8rem;
+    color      : var(--white);
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    @include main {
+      position: relative;
+      z-index : 6;
+    }
+  }
+
+  &__logo-main {
+    @include logo-main;
+  }
+
+  &__logo-caption {
+    color: currentColor;
+
+    @include logo-caption;
+  }
+&__emblem {
+  margin  : 1rem;
+  display : block;
+    width         : 6.5rem;
+    height        : 6.5rem;
+  position: relative;
+  z-index : 5;
+
+  @include main {
+    width : 6rem;
+    height: 6rem;
+  }
+
+  @include xs {
+    width : 4.5rem;
+    height: 4.5rem;
+    margin: 1rem;
+  }
+
+  &-center {
+    position   : absolute;
+    top        : 50%;
+    left       : 50%;
+    transform  : translate(-50%, -50%);
+    color      : var(--light-soft);
+    font-family: $font-family-secondary;
+      font-size     : 1.8rem;
+    line-height: 1;
+    z-index    : 2;
+  }
+
+  &-text {
+    position      : absolute;
+    top           : 50%;
+    left          : 50%;
+    width         : 6.5rem;
+    height        : 6.5rem;
+    transform     : translate(-50%, -50%);
+    overflow      : visible;
+    text-rendering: geometricPrecision;
+
+    text {
+      fill          : var(--light-soft);
+      font-size     : 1.5rem;
+      font-weight   : 500;
+      letter-spacing: .17em;
+      font-family   : $font-family-secondary;
+      text-rendering: geometricPrecision;
+    }
+
+    @include main {
+      width : 7rem;
+      height: 7rem;
+    }
+
+    @include xs {
+      width : 5.5rem;
+      height: 5.5rem;
+    }
+  }
+}
+  &__nav {
+    min-width : 0;
+    align-self: stretch;
+
+    @include main {
+      position        : fixed;
+      top             : 0;
+      right           : 0;
+      z-index         : 4;
+      display         : flex;
+      flex-direction  : column;
+      width           : min(100%, 48rem);
+      height          : 100dvh;
+      padding         : calc(var(--header-height) + 3rem) 3rem 3rem;
+      background-color: var(--dark-secondary);
+      overflow-y      : auto;
+      transform       : translateX(100%);
+      transition      : transform .25s ease;
+    }
+
+    @include xs {
+      padding-right: 2rem;
+      padding-left : 2rem;
+    }
+  }
+
+  &__list {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    height         : 100%;
+    gap            : 3rem;
+
+    @include laptop {
+      gap: 2rem;
+    }
+
+    @include main {
+      flex-direction: column;
+      align-items   : stretch;
+      gap           : 0;
+      height        : auto;
+    }
+  }
+
+  &__item {
+    &[data-services] {
+      position: static;
+
+      &[data-open] {
+        .header__mega {
+          opacity       : 1;
+          visibility    : visible;
+          pointer-events: auto;
+          transform     : translateY(0);
+        }
+
+        .header__toggle {
+          svg {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+
+    @include main {
+      display      : block;
+      height       : auto;
+      border-bottom: .1rem solid rgba(var(--white-rgb), .1);
+
+      &[data-services][data-open] {
+        .header__mega {
+          display       : block;
+          opacity       : 1;
+          visibility    : visible;
+          pointer-events: auto;
+        }
+      }
+    }
+  }
+
+  &__link {
+    display    : flex;
+    align-items: center;
+    height     : 100%;
+    color      : var(--white);
+    white-space: nowrap;
+
+
+
+    &:not(&--com) {
+      @include link-underline(1px);
+
+      @include hover {
+        color: var(--accent);
+      }
+    }
+
+
+
+    @include main {
+      width    : 100%;
+      max-width: 100%;
+      height   : auto;
+      padding  : 1.8rem 0;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  &__service {
+    display       : flex;
+    align-items   : center;
+    gap           : .6rem;
+    position      : relative;
+    max-width     : max-content;
+    padding-bottom: 5px;
+
+
+    &::before {
+      content         : "";
+      position        : absolute;
+      bottom          : 0;
+      left            : 50%;
+      width           : 100%;
+      height          : 1px;
+      background-color: currentColor;
+      transform       : translateX(-50%) scaleX(0);
+      transform-origin: center;
+      transition      : transform .3s ease-in-out;
+      pointer-events  : none;
+
+      @include main {
+        display: none;
+      }
+    }
+
+    @include hover {
+      color: var(--accent);
+
+      &::before {
+        transform: translateX(-50%) scaleX(1);
+      }
+
+      svg {
+        color: var(--accent);
+      }
+
+      .header__link--com {
+        color: var(--accent);
+      }
+
+    }
+
+    @include main {
+      justify-content: space-between;
+      width          : 100%;
+    }
+  }
+
+  &__toggle {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    flex           : 0 0 auto;
+    width          : 2rem;
+    height         : 2rem;
+    color          : var(--white);
+    cursor         : pointer;
+
+    svg {
+      width       : 1rem;
+      height      : .7rem;
+      fill        : none;
+      stroke      : currentColor;
+      stroke-width: 1.5;
+      transition  : transform .25s ease;
+    }
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    @include main {
+      width : 4.4rem;
+      height: 4.4rem;
+    }
+  }
+
+  &__button {
+
+    @include main {
+      display: none;
+    }
+  }
+
+  &__burger {
+    display: none;
+
+    @include main {
+      position        : relative;
+      z-index         : 6;
+      display         : flex;
+      flex-direction  : column;
+      justify-content : center;
+      gap             : .5rem;
+      width           : 4rem;
+      height          : 4rem;
+      padding         : .9rem;
+      border          : .1rem solid var(--accent);
+      border-radius   : $border-radius-5;
+      background-color: transparent;
+      cursor          : pointer;
+
+      span {
+        display         : block;
+        width           : 100%;
+        height          : .1rem;
+        background-color: var(--accent);
+        transition      :
+          transform .25s ease,
+          opacity .25s ease,
+          background-color .25s ease;
+      }
+
+      @include hover {
+        background-color: var(--accent);
+
+        span {
+          background-color: var(--white);
+        }
+      }
+    }
+  }
+
+  &__mobile-button {
+    display: none;
+
+    @include main {
+      display      : block;
+      width        : 100%;
+      max-width    : 100%;
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__mobile-info {
+    display: none;
+
+    @include main {
+      display       : flex;
+      flex-direction: column;
+      gap           : 1.2rem;
+      padding-top   : 3rem;
+      color         : var(--light-soft);
+      font-size     : $font-size-14;
+    }
+  }
+
+  &__mobile-address {
+    color: inherit;
+
+    @include hover {
+      color: var(--accent);
+    }
+  }
+
+  &__mobile-schedule {
+    color: inherit;
+  }
+
+  &__mobile-phone {
+    color      : var(--white);
+    font-weight: 600;
+
+    @include hover {
+      color: var(--accent);
+    }
+  }
+
+  &__mega {
+    position        : absolute;
+    top             : 100%;
+    left            : 1rem;
+    width           : calc(100% - 2rem);
+    max-height      : calc(100dvh - var(--header-height));
+    overflow-y      : auto;
+    padding         : 4rem 0;
+    background-color: var(--dark-secondary);
+    border-radius   : $border-radius-12;
+    box-shadow      : 0 2rem 4rem rgba(var(--dark-rgb), .25);
+    opacity         : 0;
+    visibility      : hidden;
+    pointer-events  : none;
+    transform       : translateY(.8rem);
+    transition      :
+      opacity .25s ease,
+      visibility .25s ease,
+      transform .25s ease;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include main {
+      position      : static;
+      display       : none;
+      width         : 100%;
+      max-height    : none;
+      overflow      : visible;
+      padding       : 0 0 3rem;
+      background    : transparent;
+      border-radius : 0;
+      box-shadow    : none;
+      opacity       : 0;
+      visibility    : hidden;
+      pointer-events: none;
+      transform     : none;
+      transition    : none;
+
+      >.container {
+        width    : 100%;
+        max-width: none;
+        padding  : 0;
+      }
+    }
+  }
+
+  &__grid {
+    display              : grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap           : 6rem;
+    row-gap              : 4rem;
+
+    @include main {
+      grid-template-columns: 1fr;
+      gap                  : 3rem;
+    }
+  }
+
+  &__column {
+    position : relative;
+    min-width: 0;
+
+    &:nth-child(n + 4) {
+      padding-top: 3rem;
+
+      &::before {
+        content         : '';
+        position        : absolute;
+        top             : 0;
+        left            : 0;
+        width           : 6rem;
+        height          : .1rem;
+        background-color: rgba(var(--white-rgb), .16);
+      }
+    }
+
+    @include main {
+      padding: 0;
+
+      &:nth-child(n + 4) {
+        padding-top: 0;
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__title {
+    display      : block;
+    max-width    : max-content;
+    margin-bottom: 2.4rem;
+    color        : var(--accent);
+
+    @include small-title;
+
+    @include hover {
+      color: var(--accent-light);
+    }
+
+    @include main {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__links {
+    display  : grid;
+    gap      : 1rem;
+    font-size: $font-size-14;
+
+    >li {
+      display: grid;
+      gap    : .8rem;
+    }
+
+    a {
+      display    : block;
+      max-width  : max-content;
+      color      : var(--light-soft);
+      line-height: 1.4;
+
+      @include link-underline(1px, --accent-light);
+
+      @include main {
+        max-width: 100%;
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+
+    ul {
+      display     : grid;
+      gap         : .7rem;
+      padding-left: 1.6rem;
+
+      a {
+        color: rgba(var(--white-rgb), .6);
+      }
+    }
+  }
+}
+
+
+
+@keyframes header-down {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.header__bottom.fixed {
+
+  .header__link {
+    color    : var(--dark-secondary);
+    font-size: 0.9em;
+    @include hover{
+          color        : var(--accent-dark);
+    }
+  }
+
+  .header__toggle {
+    svg {
+      color: var(--dark-secondary);
+    }
+
+  }
+.header__service{
+      @include hover{
+         svg {
+      color: var(--accent-dark);
+    }
+    }
+}
+  .header__logo {
+    color: var(--accent-dark);
+    display: flex;
+  }
+  .header__emblem{
+   display: none;
+  }
+}

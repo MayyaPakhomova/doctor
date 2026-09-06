@@ -1,0 +1,417 @@
+@use 'mixin'as *;
+@use 'fonts'as *;
+@use 'variable'as *;
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display         : flex;
+  flex-direction  : column;
+  min-height      : 100vh;
+  font-family     : $font-family-default;
+  font-size       : 1.8rem;
+  font-style      : normal;
+  font-weight     : 400;
+  line-height     : 130%;
+  color           : var(--dark-secondary);
+  background-color: var(--bg-light);
+  overflow-x      : hidden;
+
+  @include xs {
+    font-size: 1.4rem;
+  }
+
+  @supports (font-size: clamp(1rem, 2rem, 3rem)) {
+    @include fluid(font-size, 1.4, 1.8);
+  }
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: fadeOut 0.8s ease forwards;
+}
+
+::view-transition-new(root) {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width   : 1px;
+  height  : 1px;
+  margin  : -1px;
+  overflow: hidden;
+  clip    : rect(0 0 0 0);
+  border  : 0;
+  padding : 0;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+  margin     : 0;
+  padding    : 0;
+  font-family: $font-family-secondary;
+  font-weight: 500;
+}
+
+h1,
+.h1 {
+  @include h1;
+}
+
+h2,
+.h2 {
+  @include h2;
+}
+
+h3,
+.h3 {
+  @include h3;
+}
+
+.button {
+  position        : relative;
+  overflow        : hidden;
+  display         : block;
+  max-width       : max-content;
+  flex-shrink     : 0;
+  padding         : 2.5rem 2.8rem;
+  border          : .1rem solid var(--accent-dark);
+  border-radius   : 2.5rem;
+  background-color: var(--accent);
+  color           : var(--dark-secondary);
+  font-size       : 1.4rem;
+  font-weight     : 700;
+  line-height     : .9;
+  letter-spacing  : .09em;
+  text-decoration : none;
+  text-transform  : uppercase;
+  cursor          : pointer;
+  text-align      : center;
+  font-family     : $font-family-secondary;
+  box-shadow      :
+    0 .6rem 1.8rem rgba(var(--dark-rgb), .18),
+    inset 0 .1rem 0 rgba(var(--white-rgb), .18);
+
+  &::before {
+    content : '';
+    position: absolute;
+    top     : -50%;
+    left    : -60%;
+    width   : 35%;
+    height  : 200%;
+    opacity : .18;
+    filter  : blur(.8rem);
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(var(--white-rgb), .45) 50%,
+        transparent 100%);
+    transform     : rotate(12deg);
+    pointer-events: none;
+  }
+
+  @include hover {
+    background-color: var(--accent-hover);
+    box-shadow      : 0 .4rem 1.2rem rgba(var(--dark-rgb), .22);
+
+    &::before {
+      animation: button-glow 2s ease-in-out infinite;
+    }
+  }
+
+  &.dark {
+    background-color: var(--accent-dark);
+    color           : var(--white);
+
+    @include hover {
+      border-color    : var(--accent);
+      background-color: var(--accent);
+      color           : var(--white);
+    }
+  }
+
+  &.trans {
+    border-color    : var(--accent);
+    background-color: transparent;
+    color           : var(--accent);
+
+    @include hover {
+      background-color: var(--accent);
+      color           : var(--white);
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &.trans-light {
+    border-color    : var(--accent-light);
+    background-color: transparent;
+    color           : var(--accent-light);
+
+    @include hover {
+      background-color: var(--accent-light);
+      color           : var(--white);
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &.mini {
+    padding  : 1.2rem 2.2rem;
+    font-size: 1.3rem;
+  }
+
+  @include sm {
+    max-width: 100%;
+    padding  : 1rem 2rem;
+  }
+}
+
+@keyframes button-glow {
+  0% {
+    left: -60%;
+  }
+
+  35% {
+    left: 125%;
+  }
+
+  100% {
+    left: 125%;
+  }
+}
+
+.wysiwyg-component {
+  h1 {
+    margin: 0 0 2.5rem;
+  }
+
+  h2 {
+    position      : relative;
+    isolation     : isolate;
+    margin        : 0 0 2rem;
+    padding       : 1.5rem 2rem;
+    font-size     : 2.5rem;
+    line-height   : 1;
+    letter-spacing: 0.05em;
+    text-align    : center;
+
+    @include main {
+      font-size: 2.3rem;
+    }
+
+    @include sm {
+      font-size: 2rem;
+    }
+
+    @supports (font-size: clamp(1rem, 2rem, 3rem)) {
+      @include fluid(font-size, 2, 2.5);
+    }
+
+    &:not(:first-child) {
+      padding-top: 3.5rem;
+    }
+  }
+
+  h3 {
+    margin        : 0 0 1.5rem;
+    font-size     : 2.2rem;
+    letter-spacing: .02em;
+
+    @supports (font-size: clamp(1rem, 2rem, 3rem)) {
+      @include fluid(font-size, 1.7, 2.2);
+    }
+
+    &:not(:first-child) {
+      padding-top: 2rem;
+    }
+  }
+
+  h4,
+  h5,
+  h6 {
+    margin: 0 0 1.25rem;
+
+    &:not(:first-child) {
+      padding-top: 2rem;
+    }
+  }
+
+  p {
+    margin: 0 0 1.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul,
+  ol {
+    margin      : 1.5rem 0;
+    padding-left: 1.5rem;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    li {
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  a {
+    display   : inline;
+    font-style: italic;
+    color     : var(--accent-dark);
+    @include link-underline;
+  }
+
+  em,
+  i {
+    font-style: normal;
+  }
+
+  blockquote {
+    margin-bottom: 2rem;
+    padding-left : 1.5rem;
+    border-left  : 5px solid var(--accent-dark);
+
+    @include xs {
+      margin-bottom: 1.2rem;
+    }
+  }
+
+  .wp-element-caption {
+    font-size: 0.85em;
+  }
+
+  hr {
+    margin: 3rem 0;
+  }
+
+  img {
+    display   : block;
+    max-height: 50vh;
+    height    : auto;
+    width     : auto;
+    object-fit: cover;
+  }
+
+  figure {
+    margin-bottom: 2rem;
+
+    @include xs {
+      margin-bottom: 1.2rem;
+    }
+  }
+
+  figure img {
+    margin-bottom: 0;
+  }
+
+  table {
+    width          : 100%;
+    border-collapse: collapse;
+    margin-bottom  : 2rem;
+
+    @include xs {
+      margin-bottom: 1.2rem;
+    }
+
+    @include main {
+      display    : block;
+      overflow-x : auto;
+      white-space: nowrap;
+
+      &::-webkit-scrollbar {
+        width : 1px;
+        height: 1px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+      }
+    }
+
+    thead {
+      background   : rgba(209, 229, 255, 0.5);
+      border-bottom: 1px solid;
+    }
+
+    th,
+    td {
+      padding       : 1rem 1.2rem;
+      border        : 1px solid var(--border);
+      text-align    : left;
+      vertical-align: top;
+    }
+
+    th {
+      font-weight: 400;
+    }
+
+    tbody tr:nth-child(even) {
+      background: var(--white);
+    }
+  }
+
+  iframe,
+  video {
+    display  : block;
+    width    : 100%;
+    max-width: 100%;
+  }
+}

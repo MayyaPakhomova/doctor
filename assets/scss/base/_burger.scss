@@ -1,0 +1,82 @@
+@use 'mixin'as *;
+@use 'fonts'as *;
+
+.menu-burger {
+  position     : relative;
+  display      : none;
+  z-index      : 10;
+  width        : 5rem;
+  height       : 5rem;
+  cursor       : pointer;
+  background   : var(--gray-sky-bg);
+  border-radius: 0.6rem;
+
+  @include xs {
+    width : 3.4rem;
+    height: 3.4rem;
+  }
+
+  &:after {
+    position  : absolute;
+    content   : '';
+    height    : 2px;
+    background: var(--black);
+    width     : 2rem;
+    top       : 1.7rem;
+    left      : 1.5rem;
+    transition: all .4s ease;
+
+    @include xs {
+      width : 1.4rem;
+      top   : 1.3rem;
+      height: 1px;
+      left  : 1rem;
+    }
+  }
+
+  &:before {
+    position  : absolute;
+    content   : '';
+    height    : 2px;
+    background: var(--black);
+    width     : 2rem;
+    bottom    : 1.7rem;
+    left      : 1.5rem;
+    transition: all .4s ease;
+
+    @include xs {
+      width : 1.4rem;
+      height: 1px;
+      left  : 1rem;
+      bottom: 1.3rem;
+    }
+  }
+
+  &.active {
+    &:after {
+      top       : 2.5rem;
+      transform : rotate(-45deg);
+      transition: all .4s ease;
+
+      @include xs {
+              top       : 1.7rem;
+      }
+    }
+
+    &:before {
+      transform : rotate(45deg);
+      top       : 2.5rem;
+      transition: all .4s ease;
+
+      @include xs {
+            top       : 1.7rem;
+      }
+    }
+  }
+}
+
+@include main {
+  .menu-burger {
+    display: block;
+  }
+}

@@ -1,0 +1,174 @@
+@use 'mixin'as *;
+@use 'variable'as *;
+
+* {
+  margin    : 0;
+  padding   : 0;
+  box-sizing: border-box;
+}
+
+input,
+textarea {
+  outline         : none;
+  border          : none;
+  background-color: transparent;
+}
+
+button {
+  display   : block;
+  cursor    : pointer;
+  outline   : none;
+  border    : none;
+  background: transparent;
+}
+
+ul,
+ol {
+  margin    : 0;
+  padding   : 0;
+  list-style: none;
+}
+
+li {
+  margin : 0;
+  padding: 0;
+}
+
+address {
+  display   : block;
+  font-style: normal;
+  margin    : 0;
+}
+
+p {
+  margin : 0;
+  padding: 0;
+}
+
+a {
+  display        : block;
+  outline        : none;
+  border         : none;
+  text-decoration: none;
+  color          : inherit;
+}
+
+img {
+  max-width : 100%;
+  max-height: 100%;
+}
+
+.disable-scroll-menu {
+  position: relative;
+  overflow: hidden;
+  height  : 100vh;
+  position: fixed;
+  left    : 0;
+  top     : 0;
+  width   : 100%;
+}
+
+.disable-scroll {
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 152rem;
+  width    : 100%;
+  padding  : 0 7rem;
+  margin   : 0 auto;
+
+  @include main {
+    padding: 0 3rem;
+  }
+
+  @include xs {
+    padding: 0 1.2rem;
+  }
+
+  @supports (padding: clamp(1rem, 2rem, 3rem)) {
+    @include fluid(padding-right, 1.2, 7);
+    @include fluid(padding-left, 1.2, 7);
+  }
+}
+
+
+body.menu-open {
+  overflow: hidden;
+}
+
+.section {
+  padding-top: 10rem;
+
+  @include main {
+    padding-top: 7rem;
+  }
+
+  @include xs {
+    padding-top: 4rem;
+  }
+
+  @supports (padding-top: clamp(1rem, 2rem, 3rem)) {
+    @include fluid(padding-top, 4, 10);
+  }
+}
+
+.swiper-wrapper {
+  height: max-content !important;
+}
+
+.back-top {
+  position       : fixed;
+  bottom         : 60px;
+  right          : 10px;
+  opacity        : 0;
+  width          : 40px;
+  height         : 40px;
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  transition     : all 0.4s ease;
+  z-index        : 10;
+  border-radius  : $border-radius-12;
+  cursor         : pointer;
+  color          : var(--accent-dark);
+  border         : 2px solid currentColor;
+  transition     : all 0.4s ease
+}
+
+.back-top__svg {
+  width     : 100%;
+  height    : 100%;
+  transition: all 0.4s ease
+}
+
+.back-top.active {
+  opacity: 1
+}
+
+.section-heading {
+  margin-bottom: 5rem;
+
+  @include xs {
+    margin-bottom: 3rem;
+  }
+
+  @supports (font-size: clamp(1rem, 2rem, 3rem)) {
+    @include fluid(margin-bottom, 3, 5);
+  }
+
+  h2 {
+    margin-bottom: 2rem;
+  }
+
+  &__text {
+    font-size: 1.1em;
+    max-width: 95rem;
+  }
+
+  .subtitle {
+    margin-bottom: 1.7rem;
+    @include subtitle;
+  }
+}
