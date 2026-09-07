@@ -104,7 +104,7 @@ h3,
   display         : block;
   max-width       : max-content;
   flex-shrink     : 0;
-  padding         : 2.5rem 2.8rem;
+  padding         : 2.5rem 3.8rem;
   border          : .1rem solid var(--accent-dark);
   border-radius   : 2.5rem;
   background-color: var(--accent);
@@ -133,7 +133,7 @@ h3,
     filter  : blur(.8rem);
     background: linear-gradient(90deg,
         transparent 0%,
-        rgba(var(--white-rgb), .45) 50%,
+        rgba(var(--white-rgb), .75) 50%,
         transparent 100%);
     transform     : rotate(12deg);
     pointer-events: none;
@@ -146,6 +146,16 @@ h3,
     &::before {
       animation: button-glow 2s ease-in-out infinite;
     }
+  }
+
+  @include sm {
+    max-width: 100%;
+    padding  : 1.5rem 2.8rem;
+  }
+
+  @include xs {
+    padding: 1rem 2rem;
+      font-size       : 1.2rem;
   }
 
   &.dark {
@@ -192,12 +202,14 @@ h3,
   &.mini {
     padding  : 1.2rem 2.2rem;
     font-size: 1.3rem;
+
+    @include xs {
+      padding: 1rem 2rem;
+        font-size       : 1.1rem;
+    }
   }
 
-  @include sm {
-    max-width: 100%;
-    padding  : 1rem 2rem;
-  }
+
 }
 
 @keyframes button-glow {

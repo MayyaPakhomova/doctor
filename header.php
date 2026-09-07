@@ -2,7 +2,7 @@
   <div class="header__top">
     <div class="container">
       <div class="header__top-container">
-        <div class="header__info"><a class="header__address" href="#" target="_blank" rel="noopener"> Москва, ул. Вавилова, д. 79 к. 1 </a><span class="header__schedule"> Ежедневно с 9:00 до 21:00 </span><a class="header__phone" href="tel:+74993978888"> +7 499 397 88 88 </a></div>
+        <div class="header__info"><a class="header__address" href="https://yandex.ru/maps/-/CTdNUTJR" target="_blank" rel="noopener"> Москва, ул. Вавилова, д. 79 к. 1 </a><span class="header__schedule"> Ежедневно с 9:00 до 21:00 </span><a class="header__phone" href="tel:+74993978888"> +7 499 397 88 88 </a></div>
       </div>
     </div>
   </div>
@@ -11,123 +11,155 @@
       <div class="header__bottom-container">
         <a class="header__logo" href="/"><span class="header__logo-main"> MDC </span><span class="header__logo-caption"> Moscow<br>Dental<br>Clinic </span></a>
 
-<a class="header__emblem" href="/">
-  <span class="header__emblem-center">MDC</span>
+        <a class="header__emblem" href="/">
+          <span class="header__emblem-center">MDC</span>
 
-  <svg class="header__emblem-text" viewBox="0 0 100 100">
-    <defs>
-      <path
-        id="emblem-circle"
-        d="M50,3 a47,47 0 1,1 0,94 a47,47 0 1,1 0,-94"
-      />
-    </defs>
+          <svg class="header__emblem-text" viewBox="0 0 100 100">
+            <defs>
+              <path
+                id="emblem-circle"
+                d="M50,3 a47,47 0 1,1 0,94 a47,47 0 1,1 0,-94" />
+            </defs>
 
-    <g class="header__emblem-rotate">
-      <text class="header__emblem-item">
-        <textPath href="#emblem-circle" text-anchor="middle">MOSCOW</textPath>
-      </text>
+            <g class="header__emblem-rotate">
+              <text class="header__emblem-item">
+                <textPath href="#emblem-circle" text-anchor="middle">MOSCOW</textPath>
+              </text>
 
-      <text class="header__emblem-item header__emblem-dot">
-        <textPath href="#emblem-circle" text-anchor="middle">•</textPath>
-      </text>
+              <text class="header__emblem-item header__emblem-dot">
+                <textPath href="#emblem-circle" text-anchor="middle">•</textPath>
+              </text>
 
-      <text class="header__emblem-item">
-        <textPath href="#emblem-circle" text-anchor="middle">DENTAL</textPath>
-      </text>
+              <text class="header__emblem-item">
+                <textPath href="#emblem-circle" text-anchor="middle">DENTAL</textPath>
+              </text>
 
-      <text class="header__emblem-item header__emblem-dot">
-        <textPath href="#emblem-circle" text-anchor="middle">•</textPath>
-      </text>
+              <text class="header__emblem-item header__emblem-dot">
+                <textPath href="#emblem-circle" text-anchor="middle">•</textPath>
+              </text>
 
-      <text class="header__emblem-item">
-        <textPath href="#emblem-circle" text-anchor="middle">CLINIC</textPath>
-      </text>
+              <text class="header__emblem-item">
+                <textPath href="#emblem-circle" text-anchor="middle">CLINIC</textPath>
+              </text>
 
-      <text class="header__emblem-item header__emblem-dot">
-        <textPath href="#emblem-circle" text-anchor="middle">•</textPath>
-      </text>
-    </g>
-  </svg>
-</a>
+              <text class="header__emblem-item header__emblem-dot">
+                <textPath href="#emblem-circle" text-anchor="middle">•</textPath>
+              </text>
+            </g>
+          </svg>
+        </a>
 
         <nav class="header__nav" data-header-menu><a class="button header__mobile-button" href="#appointment"> Записаться </a>
           <ul class="header__list">
             <li class="header__item"><a class="header__link" href="/o-klinike/"> О клинике </a></li>
             <li class="header__item" data-services>
-              <div class="header__service"><a class="header__link header__link--com" href="/uslugi/"> Услуги </a><button class="header__toggle" type="button" aria-label="Открыть услуги" aria-expanded="false" data-submenu-toggle><svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5l5-5" /></svg>
-            </button>
-          </div>
+              <div class="header__service"><a class="header__link header__link--com" href="/uslugi/"> Услуги </a><button class="header__toggle" type="button" aria-label="Открыть услуги" aria-expanded="false" data-submenu-toggle><svg viewBox="0 0 12 8" aria-hidden="true">
+                    <path d="M1 1.5 6 6.5l5-5" />
+                  </svg>
+                </button>
+              </div>
               <div class="header__mega" data-mega>
                 <div class="container" data-mega-container>
                   <div class="header__grid">
-                    <div class="header__column"><a class="header__title" href="/uslugi/protezirovanie/"> Протезирование </a>
+                    <div class="header__column">
+                      <a class="header__title" href="#">Лечение и профилактика</a>
+
                       <ul class="header__links">
-                        <li><a href="/uslugi/protezirovanie/viniryi/"> Виниры </a>
+                        <li><a href="#">Консультация</a></li>
+
+                        <li>
+                          <a href="#">Диагностика</a>
                           <ul>
-                            <li><a href="/uslugi/protezirovanie/viniryi/kompozitnyie/"> Композитные </a></li>
-                            <li><a href="/uslugi/protezirovanie/viniryi/keramicheskie/"> Керамические </a></li>
+                            <li><a href="#">Снимок зубов</a></li>
                           </ul>
                         </li>
-                        <li><a href="/uslugi/protezirovanie/lyuminiryi/"> Люминиры </a></li>
-                        <li><a href="/uslugi/protezirovanie/tsirkonievyie-koronki/"> Циркониевые коронки </a></li>
-                        <li><a href="/uslugi/protezirovanie/tselnokeramicheskaya-koronka/"> Цельнокерамическая коронка </a></li>
-                        <li><a href="/uslugi/protezirovanie/metallokeramicheskaya-koronka/"> Металлокерамическая коронка </a>
+
+                        <li>
+                          <a href="#">Анестезия</a>
                           <ul>
-                            <li><a href="/uslugi/protezirovanie/metallokeramicheskaya-koronka/noritake/"> Noritake </a></li>
+                            <li><a href="#">Artject</a></li>
                           </ul>
                         </li>
-                        <li><a href="/uslugi/protezirovanie/koronki-na-implantah/"> Коронки на имплантах </a></li>
-                        <li><a href="/uslugi/protezirovanie/protezirovanie-nesemnoe/"> Протезирование несъёмное </a></li>
-                        <li><a href="/uslugi/protezirovanie/protezirovanie-semnoe/"> Протезирование съёмное </a></li>
-                        <li><a href="/uslugi/protezirovanie/mikroprotezirovanie/"> Микропротезирование </a></li>
-                        <li><a href="/uslugi/press-keramika-e-max/"> Пресс-керамика e-max </a></li>
-                      </ul>
-                    </div>
-                    <div class="header__column"><a class="header__title" href="/uslugi/implantatsiya-zubov/"> Имплантация зубов </a>
-                      <ul class="header__links">
-                        <li><a href="/uslugi/implantatsiya-zubov/zubnyie-implantyi/"> Зубные импланты </a>
+
+                        <li><a href="#">Эндодонтия</a></li>
+                        <li><a href="#">Пломбирование</a></li>
+
+                        <li>
+                          <a href="#">Хирургия</a>
                           <ul>
-                            <li><a href="/uslugi/implantatsiya-zubov/zubnyie-implantyi/straumann/"> Straumann </a></li>
-                            <li><a href="/uslugi/implantatsiya-zubov/zubnyie-implantyi/astra/"> Astra </a></li>
-                            <li><a href="/uslugi/implantatsiya-zubov/zubnyie-implantyi/shveytsarskie/"> Швейцарские </a></li>
+                            <li><a href="#">Синуслифтинг</a></li>
+                            <li><a href="#">Удаление зубов</a></li>
                           </ul>
                         </li>
-                        <li><a href="/uslugi/implantatsiya-zubov/hirurgiya/"> Хирургия </a>
+
+                        <li><a href="#">Гигиена</a></li>
+                      </ul>
+                    </div>
+                    <div class="header__column">
+                      <a class="header__title" href="#">Протезирование</a>
+
+                      <ul class="header__links">
+                        <li>
+                          <a href="#">Виниры</a>
                           <ul>
-                            <li><a href="/uslugi/implantatsiya-zubov/hirurgiya/sinuslifting/"> Синуслифтинг </a></li>
-                            <li><a href="/uslugi/endodontiya/"> Эндодонтия </a></li>
-                            <li><a href="/uslugi/implantatsiya-zubov/hirurgiya/udalenie-zubov/"> Удаление зубов </a></li>
+                            <li><a href="#">Композитные</a></li>
+                            <li><a href="#">Керамические</a></li>
                           </ul>
                         </li>
-                        <li><a href="/uslugi/implantatsiya-zubov/implantatsiya-verhnih-zubov/"> Имплантация верхних зубов </a></li>
-                        <li><a href="/uslugi/implantatsiya-zubov/implantatsiya-perednih-verhnih-zubov/"> Имплантация передних верхних зубов </a></li>
-                        <li><a href="/uslugi/implantatsiya-zubov/implantatsiya-perednih-zubov/"> Имплантация передних зубов </a></li>
-                        <li><a href="/uslugi/implantatsiya-zubov/implantatsiya-pri-polnom-otsutstvii-zubov/"> Имплантация при полном отсутствии зубов </a></li>
-                        <li><a href="/uslugi/implantatsiya-zubov/odnogo-zuba/"> Одного зуба </a></li>
+
+                        <li><a href="#">Люминиры</a></li>
+                        <li><a href="#">Циркониевые коронки</a></li>
+                        <li><a href="#">Цельнокерамическая коронка</a></li>
+
+                        <li>
+                          <a href="#">Металлокерамическая коронка</a>
+                          <ul>
+                            <li><a href="#">Noritake</a></li>
+                          </ul>
+                        </li>
+
+                        <li><a href="#">Коронки на имплантах</a></li>
+                        <li><a href="#">Протезирование несъёмное</a></li>
+                        <li><a href="#">Протезирование съёмное</a></li>
+                        <li><a href="#">Микропротезирование</a></li>
+                        <li><a href="#">Пресс-керамика e-max</a></li>
+                        <li><a href="#">Голливудская улыбка</a></li>
                       </ul>
                     </div>
-                    <div class="header__column"><a class="header__title" href="/uslugi/ispravlenie-prikusa/"> Исправление прикуса </a>
+
+                    <div class="header__column">
+                      <a class="header__title" href="#">Имплантация зубов</a>
+
                       <ul class="header__links">
-                        <li><a href="/uslugi/ispravlenie-prikusa/ustanovka-breketov/"> Установка брекетов </a></li>
-                        <li><a href="/uslugi/ispravlenie-prikusa/lingvalnaya-breket-sistema/"> Лингвальная брекет-система </a></li>
-                        <li><a href="/uslugi/ispravlenie-prikusa/ustanovka-plastinok-na-zubyi/"> Установка пластинок на зубы </a></li>
-                        <li><a href="/uslugi/ispravlenie-prikusa/ispravlenie-prikusa-u-vzroslyih/"> Исправление прикуса у взрослых </a></li>
-                        <li><a href="/uslugi/plombirovanie/"> Пломбирование </a></li>
-                        <li><a href="/uslugi/gollivudskaya-ulyibka/"> Голливудская улыбка </a></li>
-                        <li><a href="/uslugi/snimok-zubov/"> Снимок зубов </a></li>
+                        <li>
+                          <a href="#">Зубные импланты</a>
+                          <ul>
+                            <li><a href="#">Straumann</a></li>
+                            <li><a href="#">Astra</a></li>
+                            <li><a href="#">Швейцарские</a></li>
+                          </ul>
+                        </li>
+
+                        <li><a href="#">Имплантация верхних зубов</a></li>
+                        <li><a href="#">Имплантация передних верхних зубов</a></li>
+                        <li><a href="#">Имплантация передних зубов</a></li>
+                        <li><a href="#">Имплантация при полном отсутствии зубов</a></li>
+                        <li><a href="#">Одного зуба</a></li>
                       </ul>
-                    </div>
-                    <div class="header__column"><a class="header__title" href="#"> Седация </a>
+                            <a class="header__title" href="#">Исправление прикуса</a>
+
                       <ul class="header__links">
-                        <li><a href="#"> Artject </a></li>
+                        <li><a href="#">Установка брекетов</a></li>
+                        <li><a href="#">Лингвальная брекет-система</a></li>
+                        <li><a href="#">Установка пластинок на зубы</a></li>
+                        <li><a href="#">Исправление прикуса у взрослых</a></li>
                       </ul>
                     </div>
-                    <div class="header__column"><a class="header__title" href="#"> Консультация </a>
-                      <ul class="header__links">
-                        <li><a href="#"> Диагностика </a></li>
-                      </ul>
-                    </div>
-                    <div class="header__column"><a class="header__title" href="#"> Гигиена </a></div>
+
+
+
+
+
                   </div>
                 </div>
               </div>
