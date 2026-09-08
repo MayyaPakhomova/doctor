@@ -187,6 +187,7 @@ if (header) {
   const fixedOffset = 300;
 
   let closeTimer;
+  let megaScrollLocked = false;
 
   const setHeaderSizes = () => {
     const topHeight = headerTop?.offsetHeight || 0;
@@ -203,72 +204,33 @@ if (header) {
     );
   };
 
-let lockedScrollY = 0;
-let megaScrollLocked = false;
+  const lockMegaMenuScroll = () => {
+    if (megaScrollLocked) {
+      return;
+    }
 
-const scrollKeys = [
-  'ArrowUp',
-  'ArrowDown',
-  'PageUp',
-  'PageDown',
-  'Home',
-  'End',
-  ' '
-];
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
 
-const preventMegaScroll = event => {
-  event.preventDefault();
-};
+    document.documentElement.style.setProperty(
+      '--scrollbar-width',
+      `${scrollbarWidth}px`
+    );
 
-const preventMegaScrollKeys = event => {
-  if (scrollKeys.includes(event.key)) {
-    event.preventDefault();
-  }
-};
+    megaScrollLocked = true;
+    document.documentElement.classList.add('mega-menu-lock');
+  };
 
-const keepMegaScrollPosition = () => {
-  if (!megaScrollLocked) {
-    return;
-  }
+  const unlockMegaMenuScroll = () => {
+    if (!megaScrollLocked) {
+      return;
+    }
 
-  window.scrollTo(0, lockedScrollY);
-};
+    megaScrollLocked = false;
 
-const lockMegaMenuScroll = () => {
-  if (megaScrollLocked) {
-    return;
-  }
-
-  lockedScrollY = window.scrollY;
-  megaScrollLocked = true;
-
-  window.addEventListener('wheel', preventMegaScroll, {
-    passive: false
-  });
-
-  window.addEventListener('touchmove', preventMegaScroll, {
-    passive: false
-  });
-
-  window.addEventListener('keydown', preventMegaScrollKeys);
-
-  window.addEventListener('scroll', keepMegaScrollPosition, {
-    passive: true
-  });
-
-  document.body.classList.add('mega-menu-lock');
-};
-
-const unlockMegaMenuScroll = () => {
-  megaScrollLocked = false;
-
-  window.removeEventListener('wheel', preventMegaScroll);
-  window.removeEventListener('touchmove', preventMegaScroll);
-  window.removeEventListener('keydown', preventMegaScrollKeys);
-  window.removeEventListener('scroll', keepMegaScrollPosition);
-
-  document.body.classList.remove('mega-menu-lock');
-};
+    document.documentElement.classList.remove('mega-menu-lock');
+    document.documentElement.style.removeProperty('--scrollbar-width');
+  };
 
   const openServices = () => {
     clearTimeout(closeTimer);
@@ -329,14 +291,6 @@ const unlockMegaMenuScroll = () => {
     closeServices();
   });
 
-  megaGrid?.addEventListener('mouseleave', () => {
-    if (mobile.matches) {
-      return;
-    }
-
-    closeServices();
-  });
-
   services?.addEventListener('focusin', () => {
     if (mobile.matches) {
       return;
@@ -355,7 +309,21 @@ const unlockMegaMenuScroll = () => {
 
     closeServices();
   });
+megaGrid?.addEventListener('mouseenter', () => {
+  if (mobile.matches) {
+    return;
+  }
 
+  clearTimeout(closeTimer);
+});
+
+megaGrid?.addEventListener('mouseleave', () => {
+  if (mobile.matches) {
+    return;
+  }
+
+  closeServices();
+});
   mega?.addEventListener('click', event => {
     if (
       mobile.matches ||
@@ -382,7 +350,7 @@ const unlockMegaMenuScroll = () => {
     const isOpen = !header.hasAttribute('data-open');
 
     header.toggleAttribute('data-open', isOpen);
-    burger.setAttribute('aria-expanded', isOpen);
+    burger?.setAttribute('aria-expanded', isOpen);
     document.body.toggleAttribute('data-menu-lock', isOpen);
 
     if (!isOpen) {

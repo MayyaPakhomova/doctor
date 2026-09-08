@@ -3,8 +3,42 @@
 @use 'variable'as *;
 
 html {
-  font-size: 62.5%;
+  font-size      : 62.5%;
+  scrollbar-color: var(--bg-light) var(--dark);
+
+  &.mega-menu-lock {
+    overflow: hidden;
+
+    body {
+      padding-right: var(--scrollbar-width);
+    }
+
+    .header {
+      width: calc(100% - var(--scrollbar-width, 0));
+    }
+
+    .header__bottom.fixed {
+      width: calc(100% - var(--scrollbar-width, 0));
+    }
+
+    .header__bottom.fixed {
+      box-shadow: none;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--dark);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--bg-light);
+  }
 }
+
 
 body {
   display         : flex;
@@ -154,8 +188,8 @@ h3,
   }
 
   @include xs {
-    padding: 1rem 2rem;
-      font-size       : 1.2rem;
+    padding  : 1rem 2rem;
+    font-size: 1.2rem;
   }
 
   &.dark {
@@ -204,8 +238,8 @@ h3,
     font-size: 1.3rem;
 
     @include xs {
-      padding: 1rem 2rem;
-        font-size       : 1.1rem;
+      padding  : 1rem 2rem;
+      font-size: 1.1rem;
     }
   }
 
