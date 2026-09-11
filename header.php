@@ -1,4 +1,4 @@
- <header class="header header__white" data-header> <!--header__white -->
+ <header class="header" data-header> <!--header__white -->
   <div class="header__top">
     <div class="container">
       <div class="header__top-container">
@@ -10,7 +10,7 @@
     <div class="container">
       <div class="header__bottom-container">
         <a class="header__logo" href="/"><span class="header__logo-main"> MDC </span><span class="header__logo-caption"> Moscow<br>Dental<br>Clinic </span></a>
-        <a class="header__emblem" href="/">
+        <!-- <a class="header__emblem" href="/">
           <span class="header__emblem-center">MDC</span>
 
           <svg class="header__emblem-text" viewBox="0 0 100 100">
@@ -46,11 +46,10 @@
               </text>
             </g>
           </svg>
-        </a>
+        </a> -->
 
         <nav class="header__nav" data-header-menu>
           <a class="button header__mobile-button" href="#appointment"> Записаться </a>
-          <div class="header__inner">
           <ul class="header__list">
             <li class="header__item"><a class="header__link" href="/o-klinike/"> О клинике </a></li>
             <li class="header__item" data-services>
@@ -182,7 +181,6 @@
             <li class="header__item"><a class="header__link" href="/kontakty/"> Контакты </a></li>
           </ul>
           <div class="header__mobile-info"><a class="header__mobile-address"  href="https://yandex.ru/maps/-/CTdNUTJR" target="_blank" rel="noopener"> Москва, ул. Вавилова, д. 79 к. 1 </a> </a><span class="header__mobile-schedule"> Ежедневно с 10:00 до 22:00 </span><a class="header__mobile-phone" href="tel:+74993978888"> +7 499 397 88 88 </a></div>
-          </div>
         </nav>
         <a class="button mini header__button" href="#appointment"> Записаться </a>
         <button class="header__burger" type="button" aria-label="Открыть меню" aria-expanded="false" data-header-burger><span></span><span></span><span></span></button>

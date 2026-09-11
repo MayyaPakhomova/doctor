@@ -1,0 +1,219 @@
+@use 'base/index'as *;
+
+.hero {
+  position        : relative;
+  min-height      : 100dvh;
+  padding-top     : var(--header-height);
+  overflow        : hidden;
+  background-color: var(--dark);
+
+  @include main {
+    min-height: auto;
+  }
+
+  &__wrapper {
+    display              : grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items          : center;
+    min-height           : calc(100dvh - var(--header-height));
+
+    @include main {
+      display       : flex;
+      flex-direction: column;
+      min-height    : auto;
+    }
+  }
+
+  &__content {
+    position : relative;
+    z-index  : 2;
+    max-width: 67rem;
+    padding  : 6rem 0;
+
+    @include main {
+      width    : 100%;
+      max-width: 100%;
+    }
+
+    @include md {
+      padding: 5rem 0 3rem;
+    }
+
+    @include xs {
+      padding: 3rem 0 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 3rem;
+    color        : var(--white);
+
+    span {
+      display    : block;
+      padding    : .5rem 0;
+      font-size  : 80%;
+      line-height: 1;
+    }
+
+    @include xs {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__text {
+    color    : var(--light-soft);
+    font-size: 1.2em;
+
+    @include margin;
+
+    @include main {
+      max-width   : 50rem;
+      margin-left : auto;
+      margin-right: auto;
+      text-align  : center;
+    }
+
+    @include xs {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__actions {
+    display    : flex;
+    align-items: center;
+    flex-wrap  : wrap;
+    gap        : 2rem;
+
+    &-mob {
+      display: none;
+             position: absolute;
+        width: 100%;
+        bottom  : 1rem;
+        z-index : 4;
+        gap     : 1rem;
+    }
+
+    @include main {
+      justify-content: center;
+    }
+
+    @include xs {
+      flex-direction: column;
+      align-items   : stretch;
+
+      &-mob {
+        display : flex;
+
+        .trans {
+          background: var(--dark);
+        }
+      }
+
+      &-desc {
+        display: none;
+      }
+    }
+  }
+
+  &__visual {
+    position  : relative;
+    z-index   : 3;
+    align-self: stretch;
+    min-width : 0;
+
+    @include main {
+      width     : 100%;
+      min-height: 55rem;
+    }
+
+    @include xs {
+      min-height: 0;
+    }
+
+    .fluid-decor {
+      position      : absolute;
+      inset         : 0;
+      pointer-events: none;
+      z-index       : 1;
+    }
+
+    .fluid-glow {
+      position        : absolute;
+      bottom          : -5rem;
+      right           : -2.5rem;
+      width           : calc(var(--doctor-width) + 5rem);
+      height          : 65%;
+      background-color: rgba(var(--accent-rgb), .30);
+      filter          : blur(12rem);
+      animation       : glow-pulse 5s ease-in-out infinite;
+      pointer-events  : none;
+      border-radius   : 50%;
+
+      @supports (background: color-mix(in oklab, red, white)) {
+        background-color: color-mix(in oklab, var(--accent) 30%, transparent);
+      }
+
+      @include main {
+        bottom   : 0;
+        width    : var(--doctor-width);
+        left     : 50%;
+        right    : auto;
+        transform: translateX(-50%);
+        animation: none;
+
+        @supports (background: color-mix(in oklab, red, white)) {
+          background-color: color-mix(in oklab, var(--accent) 40%, transparent);
+        }
+      }
+
+      @include xs {
+      @supports (background: color-mix(in oklab, red, white)) {
+          background-color: color-mix(in oklab, var(--accent) 80%, transparent);
+        }
+      }
+
+    }
+  }
+
+  &__doctor {
+    position       : absolute;
+    right          : 0;
+    bottom         : -2px;
+    z-index        : 2;
+    display        : block;
+    width          : auto;
+    max-width      : none;
+    height         : 94%;
+    object-fit     : contain;
+    object-position: bottom center;
+    max-width      : 100%;
+
+    @include main {
+      height   : 88%;
+      left     : 50%;
+      right    : auto;
+      transform: translateX(-50%);
+    }
+
+    @include xs {
+      position: relative;
+      height  : auto;
+      width   : 85%;
+    }
+
+  }
+}
+
+@keyframes glow-pulse {
+
+  0%,
+  100% {
+    opacity  : .75;
+    transform: scale(.96);
+  }
+
+  50% {
+    opacity  : 1;
+    transform: scale(1.04);
+  }
+}

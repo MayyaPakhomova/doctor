@@ -140,7 +140,7 @@ h3,
   flex-shrink     : 0;
   padding         : 2.5rem 3.8rem;
   border          : .1rem solid var(--accent-dark);
-  border-radius   : 2.5rem;
+  border-radius   : 0.5rem;
   background-color: var(--accent);
   color           : var(--dark-secondary);
   font-size       : 1.4rem;
@@ -188,18 +188,18 @@ h3,
   }
 
   @include xs {
-    padding  : 1rem 2rem;
+    padding  : 1.4rem 2rem;
     font-size: 1.2rem;
   }
 
   &.dark {
-    background-color: var(--accent-dark);
-    color           : var(--white);
+    border-color    : var(--accent);
+    background-color: var(--dark);
+    color           : var(--accent-light);
 
     @include hover {
       border-color    : var(--accent);
       background-color: var(--accent);
-      color           : var(--white);
     }
   }
 
@@ -207,15 +207,7 @@ h3,
     border-color    : var(--accent);
     background-color: transparent;
     color           : var(--accent);
-
-    @include hover {
-      background-color: var(--accent);
-      color           : var(--white);
-    }
-
-    &::before {
-      display: none;
-    }
+    backdrop-filter : blur(3px);
   }
 
   &.trans-light {
@@ -234,16 +226,16 @@ h3,
   }
 
   &.mini {
-    padding  : 1.2rem 2.2rem;
-    font-size: 1.3rem;
+    padding       : 1.2rem 2.2rem;
+    text-transform: none;
+    font-size     : 0.9em;
+    font-weight   : 500;
+    letter-spacing: .02em;
 
     @include xs {
-      padding  : 1rem 2rem;
-      font-size: 1.1rem;
+      padding: 1rem 2rem;
     }
   }
-
-
 }
 
 @keyframes button-glow {
