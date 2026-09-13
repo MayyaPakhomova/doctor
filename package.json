@@ -9,6 +9,7 @@
     "license": "ISC",
     "dependencies": {
         "gulp-babel": "^8.0.0",
+        "lucide": "^1.45.0",
         "node-fetch": "^2.7.0"
     },
     "devDependencies": {

@@ -1,0 +1,564 @@
+[
+  {
+    "key": "group_mdc_general_settings",
+    "title": "Общие настройки",
+    "fields": [
+      {
+        "key": "field_mdc_tab_contacts",
+        "label": "Контакты",
+        "name": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_mdc_clinic_phone",
+        "label": "Телефон",
+        "name": "clinic_phone",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "+7 499 397 88 88",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_mdc_clinic_email",
+        "label": "Email",
+        "name": "clinic_email",
+        "type": "email",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "info@moscowdentalclinic.ru",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_mdc_clinic_address",
+        "label": "Адрес",
+        "name": "clinic_address",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "117335, г. Москва, ул. Вавилова, д. 79, корп. 1, кв. 6",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_mdc_clinic_schedule",
+        "label": "Режим работы",
+        "name": "clinic_schedule",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Ежедневно с 10:00 до 22:00",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+
+      {
+        "key": "field_mdc_tab_requisites",
+        "label": "Реквизиты",
+        "name": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_mdc_company_full_name",
+        "label": "Полное наименование",
+        "name": "company_full_name",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Общество с ограниченной ответственностью «Москоу Дентал Клиник»",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_mdc_company_short_name",
+        "label": "Сокращённое наименование",
+        "name": "company_short_name",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "ООО «Москоу Дентал Клиник»",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_mdc_company_inn",
+        "label": "ИНН",
+        "name": "company_inn",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "33",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "7736641990",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_mdc_company_kpp",
+        "label": "КПП",
+        "name": "company_kpp",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "33",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "773601001",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_mdc_company_ogrn",
+        "label": "ОГРН",
+        "name": "company_ogrn",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "34",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "1127746272510",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_mdc_company_legal_address",
+        "label": "Юридический адрес",
+        "name": "company_legal_address",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "117335, г. Москва, ул. Вавилова, д. 79, корп. 1, кв. 6",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+
+      {
+        "key": "field_mdc_tab_management",
+        "label": "Руководство",
+        "name": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_mdc_director_name",
+        "label": "ФИО руководителя",
+        "name": "director_name",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Воронов Дмитрий Анатольевич",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_mdc_director_position",
+        "label": "Должность",
+        "name": "director_position",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Генеральный директор",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_mdc_reception_schedule",
+        "label": "График приёма граждан",
+        "name": "reception_schedule",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_mdc_reception_phone",
+        "label": "Телефон для обращений",
+        "name": "reception_phone",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_mdc_reception_email",
+        "label": "Email для обращений",
+        "name": "reception_email",
+        "type": "email",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_mdc_founders",
+        "label": "Учредители",
+        "name": "company_founders",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "maxlength": "",
+        "rows": 4,
+        "placeholder": "",
+        "new_lines": "br"
+      },
+      {
+        "key": "field_mdc_management_structure",
+        "label": "Структура управления",
+        "name": "management_structure",
+        "type": "textarea",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "",
+        "maxlength": "",
+        "rows": 4,
+        "placeholder": "",
+        "new_lines": "br"
+      },
+
+      {
+        "key": "field_mdc_tab_license",
+        "label": "Лицензия",
+        "name": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_mdc_license_number",
+        "label": "Номер лицензии",
+        "name": "license_number",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Л041-01137-77/00291875",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_mdc_license_date",
+        "label": "Дата лицензии",
+        "name": "license_date",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "50",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "19 марта 2014 года",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_mdc_license_authority",
+        "label": "Лицензирующий орган",
+        "name": "license_authority",
+        "type": "text",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Федеральная служба по надзору в сфере здравоохранения",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_mdc_license_pdf",
+        "label": "Лицензия PDF",
+        "name": "license_pdf",
+        "type": "file",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "url",
+        "library": "all",
+        "min_size": "",
+        "max_size": "",
+        "mime_types": "pdf"
+      },
+
+      {
+        "key": "field_mdc_tab_documents",
+        "label": "Документы",
+        "name": "",
+        "type": "tab",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "placement": "top",
+        "endpoint": 0
+      },
+      {
+        "key": "field_mdc_medical_contract_pdf",
+        "label": "Договор на оказание платных медицинских услуг",
+        "name": "medical_contract_pdf",
+        "type": "file",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "url",
+        "library": "all",
+        "min_size": "",
+        "max_size": "",
+        "mime_types": "pdf"
+      },
+      {
+        "key": "field_mdc_medical_rules_pdf",
+        "label": "Правила предоставления платных медицинских услуг",
+        "name": "medical_rules_pdf",
+        "type": "file",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "url",
+        "library": "all",
+        "min_size": "",
+        "max_size": "",
+        "mime_types": "pdf"
+      },
+      {
+        "key": "field_mdc_price_list_pdf",
+        "label": "Прейскурант медицинских услуг",
+        "name": "price_list_pdf",
+        "type": "file",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "url",
+        "library": "all",
+        "min_size": "",
+        "max_size": "",
+        "mime_types": "pdf"
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "options_page",
+          "operator": "==",
+          "value": "theme-general-settings"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+  }
+]

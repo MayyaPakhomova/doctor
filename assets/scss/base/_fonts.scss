@@ -10,15 +10,15 @@
 }
 
 
-@include font-face('Golos Text', '../fonts/GolosText/GolosText-DemiBold', 600, normal);
-@include font-face('Golos Text', '../fonts/GolosText/GolosText-Medium', 500, normal);
-@include font-face('Golos Text', '../fonts/GolosText/GolosText-Regular', 400, normal);
+// @include font-face('Golos Text', '../fonts/GolosText/GolosText-DemiBold', 600, normal);
+// @include font-face('Golos Text', '../fonts/GolosText/GolosText-Medium', 500, normal);
+// @include font-face('Golos Text', '../fonts/GolosText/GolosText-Regular', 400, normal);
 
-@include font-face('Manrope', '../fonts/Manrope/Manrope-ExtraBold', 900, normal);
-@include font-face('Manrope', '../fonts/Manrope/Manrope-Bold', 700, normal);
-@include font-face('Manrope', '../fonts/Manrope/Manrope-Semibold', 600, normal);
-@include font-face('Manrope', '../fonts/Manrope/Manrope-Medium', 500, normal);
-@include font-face('Manrope', '../fonts/Manrope/Manrope-Regular', 400, normal);
+// @include font-face('Manrope', '../fonts/Manrope/Manrope-ExtraBold', 900, normal);
+// @include font-face('Manrope', '../fonts/Manrope/Manrope-Bold', 700, normal);
+// @include font-face('Manrope', '../fonts/Manrope/Manrope-Semibold', 600, normal);
+// @include font-face('Manrope', '../fonts/Manrope/Manrope-Medium', 500, normal);
+// @include font-face('Manrope', '../fonts/Manrope/Manrope-Regular', 400, normal);
 
 $font-family-default: 'Golos Text', Arial, sans-serif;
 $font-family-secondary: 'Manrope', Arial, sans-serif;

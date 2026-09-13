@@ -86,8 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
     requestAnimationFrame(rotateEmblem);
   }
 
-});
-  const doctor = document.querySelector('.hero__doctor');
+    const doctor = document.querySelector('.hero__doctor');
   const visual = document.querySelector('.hero__visual');
   if (doctor && visual) {
     const setDoctorWidth = () => {
@@ -102,3 +101,5 @@ document.addEventListener('DOMContentLoaded', function () {
       doctor.addEventListener('load', setDoctorWidth);
     }
   }
+  
+});

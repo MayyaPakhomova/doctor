@@ -1,0 +1,64 @@
+@use 'mixin'as *;
+
+.not-found {
+  flex           : 1;
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+  flex-direction : column;
+  overflow: hidden;
+  min-height     : 100dvh;
+  background     : var(--dark);
+
+
+  &__content {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    flex-direction : column;
+    padding        : 2rem 0;
+    text-align     : center;
+      @include section;
+
+    h1 {
+      text-align   : center;
+      margin-bottom: 1.5rem;
+      color        : var(--white);
+    }
+
+    h3 {
+      text-align   : center;
+      margin-bottom: 3rem;
+      color        : var(--light-soft);
+    }
+
+    .button {
+      margin: 0 auto;
+    }
+
+    @include xs {
+
+      h1 {
+        margin-bottom: 1rem;
+      }
+    }
+
+    @include main {
+      padding: 3rem 0;
+    }
+  }
+
+  &__text {
+    margin-bottom: 3rem;
+     color        : var(--light-soft);
+
+    span {
+      font-size: 1.1em;
+      display  : block;
+
+      @include main {
+        display: inline;
+      }
+    }
+  }
+}

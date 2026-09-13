@@ -10,7 +10,15 @@ html {
     overflow: hidden;
 
     body {
-      padding-right: var(--scrollbar-width);
+      padding-right   : var(--scrollbar-width);
+      background-color: var(--dark);
+    }
+
+    &:has(.header__bottom.fixed),
+    &:has(.header__white) {
+      body {
+        background-color: var(--bg-light);
+      }
     }
 
     .header {
@@ -24,18 +32,7 @@ html {
     .header__bottom.fixed {
       box-shadow: none;
     }
-  }
 
-  &::-webkit-scrollbar {
-    width: 15px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: var(--dark);
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: var(--bg-light);
   }
 }
 
@@ -49,7 +46,7 @@ body {
   font-style      : normal;
   font-weight     : 400;
   line-height     : 130%;
-  color           : var(--dark-secondary);
+  color           : var(--text-muted);
   background-color: var(--bg-light);
   overflow-x      : hidden;
 
@@ -111,10 +108,13 @@ h2,
 .h2,
 h3,
 .h3 {
-  margin     : 0;
-  padding    : 0;
-  font-family: $font-family-secondary;
-  font-weight: 500;
+  margin        : 0;
+  padding       : 0;
+  font-family   : $font-family-secondary;
+  font-weight   : 500;
+  line-height   : 105%;
+  text-transform: uppercase;
+  color         : var(--dark-secondary);
 }
 
 h1,
@@ -198,7 +198,6 @@ h3,
     color           : var(--accent-light);
 
     @include hover {
-      border-color    : var(--accent);
       background-color: var(--accent);
     }
   }
@@ -214,15 +213,6 @@ h3,
     border-color    : var(--accent-light);
     background-color: transparent;
     color           : var(--accent-light);
-
-    @include hover {
-      background-color: var(--accent-light);
-      color           : var(--white);
-    }
-
-    &::before {
-      display: none;
-    }
   }
 
   &.mini {

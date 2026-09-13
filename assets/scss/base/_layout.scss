@@ -12,6 +12,7 @@ textarea {
   outline         : none;
   border          : none;
   background-color: transparent;
+    font            : inherit;
 }
 
 button {
@@ -58,19 +59,13 @@ img {
   max-height: 100%;
 }
 
-.disable-scroll-menu {
-  position: relative;
-  overflow: hidden;
-  height  : 100vh;
-  position: fixed;
-  left    : 0;
-  top     : 0;
-  width   : 100%;
-}
 
 .disable-scroll {
-  position: relative;
   overflow: hidden;
+  .header {
+    right: 0;
+    left : 0;
+  }
 }
 
 .container {

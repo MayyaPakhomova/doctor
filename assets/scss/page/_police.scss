@@ -1,0 +1,109 @@
+@use 'base/index'as *;
+
+.police {
+  @include mini-page;
+}
+
+.police-row {
+
+  &:not(:last-child) {
+    margin-bottom: 5rem;
+  }
+
+  &__title {
+    margin-bottom: 2rem;
+  }
+
+  &__content {
+    p {
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+
+    ul,
+    ol {
+      margin      : 1.5rem 0 2rem;
+      padding-left: 2rem;
+    }
+
+    ul {
+      list-style: disc;
+    }
+
+    ol {
+      list-style: decimal;
+    }
+
+    li {
+      display: list-item;
+
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+
+    &--link {
+      li {
+        color: var(--accent-dark);
+   @include hover {
+      color: var(--accent);
+    }
+      }
+
+      a {
+        color: inherit;
+      }
+    }
+  }
+
+  a {
+    display              : inline;
+    color                : var(--accent-dark);
+    text-decoration      : underline;
+    text-underline-offset: 3px;
+
+    @include hover {
+      color: var(--accent);
+    }
+  }
+
+  @include main {
+    &:not(:last-child) {
+      margin-bottom: 4rem;
+    }
+
+    &__title {
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+.police-table {
+  width     : 100%;
+  overflow-x: auto;
+
+  table {
+    width          : 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding       : 1.5rem;
+    border        : 0.1rem solid var(--border);
+    text-align    : left;
+    vertical-align: top;
+  }
+
+  th {
+    color      : var(--dark-secondary);
+    font-weight: 500;
+  }
+
+  @include main {
+    table {
+      min-width: 90rem;
+    }
+  }
+}

@@ -140,8 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
     requestAnimationFrame(rotateEmblem);
   }
 
-});
-  const doctor = document.querySelector('.hero__doctor');
+    const doctor = document.querySelector('.hero__doctor');
   const visual = document.querySelector('.hero__visual');
   if (doctor && visual) {
     const setDoctorWidth = () => {
@@ -156,7 +155,140 @@ document.addEventListener('DOMContentLoaded', function () {
       doctor.addEventListener('load', setDoctorWidth);
     }
   }
+  
+});
 
+document.addEventListener("DOMContentLoaded", function () {
+  let selectors = document.querySelectorAll('input[type="tel"]');
+if (typeof Inputmask !== 'undefined') {
+  let im = new Inputmask('+7 (999) 999-99-99');
+  setTimeout(() => {
+    if (selectors && selectors.length) {
+      selectors.forEach(function(selector) {
+        im.mask(selector);
+      });
+    }
+  }, 500);
+}
+  document.addEventListener(
+    'wpcf7mailsent',
+    function (response) {
+      // Удаляем классы у сообщений
+      const messages = document.querySelectorAll('.wpcf7-response-output');
+      messages.forEach((message) => {
+        message.classList.add('transparent-background', 'transparent-background-hidden');
+        setTimeout(function () {
+          message.textContent = '';
+          message.classList.remove('transparent-background', 'transparent-background-hidden');
+        }, 3500);
+      })
+    },
+    false
+  );
+  const forms = document.querySelectorAll('.wpcf7-submit');
+  const messages = document.querySelectorAll('.wpcf7-response-output');
+  forms.forEach((form) => {
+    form.addEventListener('click',() => {
+      messages.forEach((message) => {
+        if (message.textContent === '') {
+          message.classList.add('transparent-background');
+          setTimeout(() => {
+            messages.forEach((message) => {
+              message.textContent = '';
+              message.classList.remove('transparent-background');
+            });
+          },4000);
+        }
+      });
+    });
+  });
+});
+document.addEventListener('DOMContentLoaded', function () {
+  const modal = document.querySelector('.modal-form');
+
+  if (!modal) return;
+
+  const title = modal.querySelector('.modal-form__title');
+  const desc = modal.querySelector('.modal-form__desc');
+
+  if (title) {
+    modal.dataset.defaultTitle = title.innerHTML;
+  }
+
+  if (desc) {
+    modal.dataset.defaultDesc = desc.innerHTML;
+  }
+});
+
+document.addEventListener('click', e => {
+  const btn = e.target.closest('[data-path="modal-form"]');
+
+  if (!btn) return;
+
+  const modal = document.querySelector('.modal-form');
+
+  if (!modal) return;
+
+  const title = modal.querySelector('.modal-form__title');
+  const desc = modal.querySelector('.modal-form__desc');
+  const submitBtn = modal.querySelector('.feedback__btn');
+
+  const hasTitle = btn.dataset.title?.trim();
+  const hasDesc = btn.dataset.desc?.trim();
+  const hasBtn = btn.dataset.btn?.trim();
+
+  if (title) {
+    title.innerHTML = hasTitle
+      ? btn.dataset.title
+      : modal.dataset.defaultTitle;
+  }
+
+  if (desc) {
+    desc.innerHTML = hasDesc
+      ? btn.dataset.desc
+      : modal.dataset.defaultDesc;
+  }
+
+  if (submitBtn) {
+    submitBtn.textContent = hasBtn
+      ? btn.dataset.btn
+      : 'Отправить';
+  }
+
+  const inputTitle = modal.querySelector('input[name="form_title"]');
+
+  if (inputTitle) {
+    inputTitle.value = title?.textContent.trim() || '';
+  }
+});
+document.addEventListener('DOMContentLoaded', function () {
+  document.cookie = 'cf7_start_time=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+  const cf7Forms = document.querySelectorAll('.wpcf7 form');
+  if (!cf7Forms.length) {
+    return;
+  }
+  cf7Forms.forEach(function (form) {
+    let timeCookieSet = false;
+    function setStartTime() {
+      if (timeCookieSet) {
+        return;
+      }
+      timeCookieSet = true;
+      document.cookie = 'cf7_start_time=' + Math.floor(Date.now() / 1000) + '; path=/';
+    }
+    form.querySelectorAll('input, textarea, select').forEach(function (field) {
+      field.addEventListener('input', setStartTime, { once: true });
+      field.addEventListener('paste', setStartTime, { once: true });
+      field.addEventListener('change', setStartTime, { once: true });
+    });
+  });
+
+    const formUid = document.getElementById('form-uid');
+
+    if (formUid) {
+        formUid.value = Math.floor(Date.now() / 1000);
+    }
+});
 const header = document.querySelector('[data-header]');
 
 if (header) {
@@ -414,29 +546,39 @@ class Modal {
 
     this.disableScroll = () => {
       if (!this.fixBlocks || !this.fixBlocks.length) return;
-      let paddingOffset = window.innerWidth - document.body.offsetWidth + "px";
+      let paddingOffset = window.innerWidth - document.body.offsetWidth + 'px';
       this.fixBlocks.forEach((el) => {
         if (el) el.style.paddingRight = paddingOffset;
       });
       document.body.style.paddingRight = paddingOffset;
-      document.body.classList.add("disable-scroll");
+      document.body.classList.add('disable-scroll');
+      const header = document.querySelector('.header');
+
+      if (header) {
+        header.style.paddingRight = paddingOffset;
+      }
     };
 
     this.enableScroll = () => {
-      document.body.classList.remove("disable-scroll");
+      document.body.classList.remove('disable-scroll');
       if (this.fixBlocks && this.fixBlocks.length) {
         this.fixBlocks.forEach((el) => {
-          if (el) el.style.paddingRight = "0px";
+          if (el) el.style.paddingRight = '0px';
         });
       }
-      document.body.style.paddingRight = "0px";
+      document.body.style.paddingRight = '0px';
+      const header = document.querySelector('.header');
+
+      if (header) {
+        header.style.paddingRight = '0px';
+      }
     };
 
     this.events();
   }
 
   events() {
-    document.querySelectorAll('[data-path]').forEach(btn => {
+    document.querySelectorAll('[data-path]').forEach((btn) => {
       const anim = btn.getAttribute('data-animation');
       if (anim === null || anim.trim() === '') {
         btn.setAttribute('data-animation', 'fadeIn');
@@ -444,56 +586,46 @@ class Modal {
     });
 
     if (this.modal) {
-      document.addEventListener(
-        "click",
-        (e) => {
-          const clickedElement = e.target.closest("[data-path]");
-          if (clickedElement) {
-            let target = clickedElement.dataset.path;
-            let animation = clickedElement.dataset.animation;
-            let speed = clickedElement.dataset.speed;
+      document.addEventListener('click', (e) => {
+        const clickedElement = e.target.closest('[data-path]');
+        if (clickedElement) {
+          let target = clickedElement.dataset.path;
+          let animation = clickedElement.dataset.animation;
+          let speed = clickedElement.dataset.speed;
 
-            this.animation = animation ? animation : this.options.openAnimation;
-            this.closeAnimation = this.animation.replace('In', 'Out');
-            this.speed = speed ? parseInt(speed) : 400;
-            this.modalContainer = document.querySelector(`[data-target="${target}"]`);
+          this.animation = animation ? animation : this.options.openAnimation;
+          this.closeAnimation = this.animation.replace('In', 'Out');
+          this.speed = speed ? parseInt(speed) : 400;
+          this.modalContainer = document.querySelector(`[data-target="${target}"]`);
 
-            this.open();
-            return;
-          }
-
-          if (e.target.closest(".popup-close")) {
-            this.close();
-            return;
-          }
+          this.open();
+          return;
         }
-      );
 
-      this.modal.addEventListener(
-        "click",
-        (e) => {
-          if (
-            !e.target.classList.contains("popup-card") &&
-            !e.target.closest(".popup-card") &&
-            this.isOpen
-          ) {
-            this.close();
-          }
+        if (e.target.closest('.popup-close')) {
+          this.close();
+          return;
         }
-      );
+      });
+
+      this.modal.addEventListener('click', (e) => {
+        if (!e.target.classList.contains('popup-card') && !e.target.closest('.popup-card') && this.isOpen) {
+          this.close();
+        }
+      });
     }
   }
 
   open() {
     if (!this.modal) return;
     this.previousActiveElement = document.activeElement;
-    this.modal.style.setProperty("--transition-time", `${this.speed / 1000}s`);
-    this.modal.classList.add("is-open");
+    this.modal.style.setProperty('--transition-time', `${this.speed / 1000}s`);
+    this.modal.classList.add('is-open');
     this.disableScroll();
 
     if (this.modalContainer) {
       this.modalContainer.classList.remove(this.options.closeAnimation);
-      this.modalContainer.classList.add("modal-open", this.animation);
+      this.modalContainer.classList.add('modal-open', this.animation);
     }
 
     this.options.isOpen(this);
@@ -505,7 +637,7 @@ class Modal {
       this.modalContainer.classList.remove(this.animation);
       this.modalContainer.classList.add(this.closeAnimation);
     }
-    if (this.modal) this.modal.classList.remove("is-open");
+    if (this.modal) this.modal.classList.remove('is-open');
 
     // Сброс формы
     if (this.modal) {
@@ -516,7 +648,7 @@ class Modal {
 
     setTimeout(() => {
       if (this.modalContainer) {
-        this.modalContainer.classList.remove("modal-open", this.closeAnimation);
+        this.modalContainer.classList.remove('modal-open', this.closeAnimation);
       }
       this.enableScroll();
       this.options.isClose(this);
