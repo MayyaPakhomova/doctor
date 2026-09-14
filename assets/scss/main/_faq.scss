@@ -1,0 +1,117 @@
+@use 'base/index'as *;
+
+.faq {
+    position: relative;
+  z-index: 2;
+  @include section;
+}
+
+.faq-accordion {
+  display       : flex;
+  flex-direction: column;
+  gap           : 1.5rem;
+
+  &__item {
+    overflow        : hidden;
+    background-color:  rgba(var(--white-rgb), 0.5);
+    border          : 1px solid var(--border);
+    border-radius   : 1rem;
+
+    @include hover {
+      border-color: var(--accent);
+    }
+
+    &.is-open {
+      background-color:  var(--white);
+      .faq-accordion__icon {
+        &::after {
+          transform: translate(-50%, -50%) rotate(90deg);
+          opacity  : 0;
+        }
+      }
+
+      .faq-accordion__title {
+        color: var(--dark);
+      }
+    }
+  }
+
+  &__head {
+    display        : flex;
+    align-items    : center;
+    justify-content: space-between;
+    gap            : 3rem;
+    width          : 100%;
+    padding        : 2rem;
+    text-align     : left;
+
+    @include xs {
+      gap    : 2rem;
+      padding: 1.7rem 1.2rem;
+    }
+  }
+
+  &__title {
+    font-size: 1.2em;
+    color    : var(--text-muted);
+  }
+
+  &__icon {
+    position        : relative;
+    flex-shrink     : 0;
+    width           : 3.6rem;
+    height          : 3.6rem;
+    background-color: rgba(var(--accent-rgb ),0.15);
+    border-radius   : 50%;
+
+    &::before,
+    &::after {
+      content         : '';
+      position        : absolute;
+      top             : 50%;
+      left            : 50%;
+      width           : 1.4rem;
+      height          : .1rem;
+      background-color: var(--text-muted);
+      transform       : translate(-50%, -50%);
+
+      @include transition;
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    @include xs {
+      width : 3rem;
+      height: 3rem;
+    }
+  }
+
+  &__content {
+    overflow  : hidden;
+    max-height: 0;
+    opacity   : 0.85;
+    @include transition;
+
+    a {
+      display        : inline;
+      font-style     : italic;
+      color          : var(--accent-dark);
+      text-decoration: underline;
+
+      @include hover {
+        color: var(--accent);
+      }
+    }
+  }
+
+  &__inner {
+    max-width: 120rem;
+    padding  : 0 8rem 2.5rem 3rem;
+
+    @include xs {
+      padding: 0 1.2rem 2rem 1.2rem;
+    }
+  }
+}

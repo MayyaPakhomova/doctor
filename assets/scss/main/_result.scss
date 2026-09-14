@@ -1,0 +1,220 @@
+@use 'base/index'as *;
+
+.results {
+  background-color        : var(--bg-gray);
+box-shadow      : inset 0 0 14rem rgba(var(--dark-rgb), .08);
+  overflow                : hidden;
+  @include section;
+
+  & {
+    @include border-radius(3, 2);
+  }
+
+  &__inner {
+    @include margin-title;
+  }
+
+  &__slider {
+    width   : calc(100% + (50vw - 50%));
+    overflow: visible !important;
+  }
+
+
+  &__slide {
+    height: auto;
+    width : 68rem;
+
+    @include sm {
+      width: 32rem;
+    }
+
+    @include xs {
+      width: 80%;
+    }
+  }
+
+  &__bottom {
+    display        : flex;
+    align-items    : center;
+    justify-content: space-between;
+    gap            : 3rem;
+    margin-top     : 3rem;
+  }
+
+  &__pagination {
+    display : flex;
+    position: static;
+    width   : auto;
+
+    .swiper-pagination-bullet {
+      width           : .8rem;
+      height          : .8rem;
+      margin          : 0 .5rem;
+      opacity         : 1;
+      background-color: var(--border);
+
+      @include transition;
+    }
+
+    .swiper-pagination-bullet-active {
+      width           : 2.4rem;
+      border-radius   : 1rem;
+      background-color: var(--accent);
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    gap    : 1rem;
+  }
+
+  &__prev,
+  &__next {
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+    width           : 4.6rem;
+    height          : 4.6rem;
+    color           : var(--accent);
+    background-color: var(--white);
+    border          : 1px solid var(--border);
+    border-radius   : $border-radius-5;
+
+    @include hover {
+      color           : var(--white);
+      background-color: var(--accent);
+      border-color    : var(--accent);
+    }
+
+    svg {
+      width : 2rem;
+      height: 2rem;
+    }
+    &.swiper-button-disabled{
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+}
+
+.result-card {
+  // box-shadow           : inset 0 0 100px rgba(var(--accent-light-rgb), 0.8);
+  background           : var(--white);
+  overflow             : hidden;
+  display              : grid;
+  grid-template-columns: minmax(0, 1fr) minmax(30rem, 1.2fr);
+  gap                  : 2rem;
+  padding              : 2rem;
+  border-radius        : $border-radius-12;
+
+  @include sm {
+    grid-template-columns: 1fr;
+  }
+
+  @include xs {
+    padding: 2rem 1.2rem;
+  }
+
+  &__content {
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    @include safe-gap-column(1.5rem);
+
+  }
+}
+
+.before-after {
+  &__compare {
+    position    : relative;
+    min-width   : 0;
+    aspect-ratio: 1.2/1;
+    overflow    : hidden;
+    user-select : none;
+    cursor      : ew-resize;
+  }
+
+  &__after,
+  &__before {
+    position: absolute;
+    inset   : 0;
+
+    img {
+      display       : block;
+      width         : 100%;
+      height        : 100%;
+      object-fit    : cover;
+      pointer-events: none;
+      border-radius : 1rem;
+    }
+  }
+
+  &__before {
+    z-index  : 2;
+    clip-path: inset(0 92% 0 0);
+  }
+
+  &__drag {
+    left: 8%;
+  }
+
+  &__drag {
+    position        : absolute;
+    top             : 0;
+    left            : 0;
+    z-index         : 4;
+    width           : 3.6rem;
+    height          : 100%;
+    padding         : 0;
+    border          : 0;
+    background-color: transparent;
+    transform       : translateX(-50%);
+    cursor          : ew-resize;
+
+    &::before {
+      content         : '';
+      position        : absolute;
+      top             : 0;
+      bottom          : 0;
+      left            : 50%;
+      width           : 2px;
+      background-color: var(--white);
+      transform       : translateX(-50%);
+    }
+
+    svg {
+      position        : absolute;
+      top             : 50%;
+      left            : 50%;
+      z-index         : 2;
+      width           : 3.6rem;
+      height          : 3.6rem;
+      padding         : .8rem;
+      color           : var(--accent-dark);
+      background-color: var(--white);
+      border          : 1px solid var(--border);
+      border-radius   : 50%;
+      transform       : translate(-50%, -50%);
+    }
+  }
+
+  &__label {
+    position        : absolute;
+    top             : 1rem;
+    z-index         : 5;
+    padding         : .5rem .8rem;
+    color           : var(--white);
+    background-color: var(--dark);
+    pointer-events  : none;
+    font-size       : 0.9em;
+    border-radius   : $border-radius-5;
+
+    &--before {
+      left: 1rem;
+    }
+
+    &--after {
+      right: 1rem;
+    }
+  }
+}

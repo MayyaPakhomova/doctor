@@ -36,55 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     toggleButtonState();
   }
-  document.addEventListener('DOMContentLoaded', function () {
-    initTextFormatting();
     initBackToTop();
-  });
-  const emblem = document.querySelector('.header__emblem');
-  const emblemRotate = emblem?.querySelector('.header__emblem-rotate');
-  const emblemPath = emblem?.querySelector('#emblem-circle');
-  const emblemItems = emblem?.querySelectorAll('.header__emblem-item textPath');
-  if (emblem && emblemRotate && emblemPath && emblemItems.length) {
-    const duration = 38000;
-    let startTime = null;
-    let pausedAt = null;
-    const distributeItems = () => {
-      const pathLength = emblemPath.getTotalLength();
-      const widths = [...emblemItems].map((item) => {
-        return item.getComputedTextLength();
-      });
-      const totalWidth = widths.reduce((sum, width) => sum + width, 0);
-      const gap = (pathLength - totalWidth) / emblemItems.length;
-      let position = 0;
-      emblemItems.forEach((item, index) => {
-        position += widths[index] / 2;
-        item.setAttribute('startOffset', `${(position / pathLength) * 100}%`);
-        position += widths[index] / 2 + gap;
-      });
-    };
-    const rotateEmblem = (time) => {
-      if (startTime === null) {
-        startTime = time;
-      }
-      if (pausedAt === null) {
-        const angle = (((time - startTime) % duration) / duration) * 360;
-        emblemRotate.setAttribute('transform', `rotate(${angle} 50 50)`);
-      }
-      requestAnimationFrame(rotateEmblem);
-    };
-    emblem.addEventListener('mouseenter', () => {
-      pausedAt = performance.now();
-    });
-    emblem.addEventListener('mouseleave', () => {
-      if (pausedAt !== null) {
-        startTime += performance.now() - pausedAt;
-        pausedAt = null;
-      }
-    });
-    document.fonts.ready.then(distributeItems);
-    window.addEventListener('resize', distributeItems);
-    requestAnimationFrame(rotateEmblem);
-  }
 
     const doctor = document.querySelector('.hero__doctor');
   const visual = document.querySelector('.hero__visual');
@@ -101,5 +53,24 @@ document.addEventListener('DOMContentLoaded', function () {
       doctor.addEventListener('load', setDoctorWidth);
     }
   }
-  
+const about = document.querySelector('.about');
+
+if (about) {
+  const aboutTitle = about.querySelector('.about__title h2');
+
+  if (aboutTitle) {
+    const setAboutTitleHeight = () => {
+      about.style.setProperty(
+        '--about-title-height',
+        `${aboutTitle.offsetHeight}px`
+      );
+    };
+
+    setAboutTitleHeight();
+
+    const titleObserver = new ResizeObserver(setAboutTitleHeight);
+
+    titleObserver.observe(aboutTitle);
+  }
+}
 });

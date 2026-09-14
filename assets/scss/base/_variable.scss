@@ -1,29 +1,29 @@
 :root {
   --dark             : #040404;
   --dark-secondary   : #252321;
+  --text-muted       : #6A6A6A;
   // --accent      : #B78852;
   // --accent-dark : #976E3F;
   // --accent-light  : #F7E8C1;
-  --accent           : #BA936B;
-  --accent-hover     : #AA8158;
   --accent-dark      : #976E3F;
+  --accent-hover     : #AA8158;
+  --accent           : #BA936B;
   --accent-light     : #F7E8C1;
-  --light-soft       : #CEC2B7;
-  --bg-light         : #F7F5F1;
-  --border           : #E1DAD4;
-  --text-muted       : #6A6A6A;
-  --white            : #FFFFFF;
-
+  --light-soft: #CEC2B7;
+  --border    : #E1DAD4;
+  --bg-warm   : #EFE5D6;
+  --bg-gray   : #F0EFEC;
+  --bg-light  : #F7F5F1;
+  --white     : #FFFFFF;
   --red: #B33D51;
-
   --white-rgb           : 255, 255, 255;
   --dark-rgb            : 4, 4, 4;
   --accent-rgb          : 186, 147, 107;
   --accent-light-rgb    : 247, 232, 193;
   --header-height       : 15rem;
   --header-bottom-height: 10rem;
+  --about-title-height  : 4.6rem;
 }
-
 $bigDesktop       : 1921px;
 $laptop           : 1366px;
 $main             : 1160px;
@@ -36,4 +36,5 @@ $font-size-14     : 1.4rem;
 $font-size-15     : 1.5rem;
 $font-size-16     : 1.6rem;
 $border-radius-12 : 1.2rem;
+$border-radius-7  : 0.5rem;
 $border-radius-5  : 0.5rem;

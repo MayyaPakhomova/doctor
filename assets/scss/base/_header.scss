@@ -10,7 +10,7 @@
   width   : 100%;
 
   @include main {
-    box-shadow: 0 1rem 3rem rgba(var(--dark-rgb), .2);
+  box-shadow: 0 0.6rem 2rem rgba(var(--dark-rgb), 0.1);
   }
 
   &.fixed {
@@ -152,7 +152,7 @@
       z-index         : 100;
       width           : 100%;
       background-color: var(--bg-light);
-      box-shadow      : 0 1rem 3rem rgba(var(--dark-rgb), .2);
+ box-shadow: 0 0.6rem 2rem rgba(var(--dark-rgb), 0.1);
       animation       : header-down .35s ease forwards;
 
       .header__mega {
@@ -299,7 +299,7 @@
         height : 0;
       }
     }
-  
+
 
   @include xs {
     padding: 1.2rem;
@@ -669,7 +669,7 @@
 &__column {
   display      : grid;
   align-content: start;
-  gap          : 4rem;
+  gap          : 2rem;
   min-width    : 0;
 
   @include xs {
@@ -681,7 +681,7 @@
   position: relative;
 
   &+& {
-    padding-top: 3rem;
+    padding-top: 2rem;
 
     &::before {
       content         : '';
@@ -739,7 +739,7 @@
 &__title {
   display      : block;
   max-width    : max-content;
-  margin-bottom: 2.4rem;
+  margin-bottom: 1.8rem;
   color        : var(--accent);
 
   @include small-title;
@@ -760,9 +760,10 @@
 
   >li {
     display: grid;
-    gap    : .8rem;
   }
-
+ ul{
+  margin-top: .5rem;
+ }
   a {
     display    : block;
     max-width  : max-content;

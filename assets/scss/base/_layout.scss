@@ -12,7 +12,7 @@ textarea {
   outline         : none;
   border          : none;
   background-color: transparent;
-    font            : inherit;
+  font            : inherit;
 }
 
 button {
@@ -62,6 +62,7 @@ img {
 
 .disable-scroll {
   overflow: hidden;
+
   .header {
     right: 0;
     left : 0;
@@ -109,6 +110,22 @@ body.menu-open {
   }
 }
 
+.section-big {
+  padding-top: 14rem;
+
+  @include main {
+    padding-top: 10rem;
+  }
+
+  @include xs {
+    padding-top: 5.5rem;
+  }
+
+  @supports (padding-top: clamp(1rem, 2rem, 3rem)) {
+    @include fluid(padding-top, 5.5, 14);
+  }
+}
+
 .swiper-wrapper {
   height: max-content !important;
 }
@@ -125,9 +142,9 @@ body.menu-open {
   justify-content: center;
   transition     : all 0.4s ease;
   z-index        : 10;
-  border-radius  : $border-radius-12;
+  border-radius  : $border-radius-5;
   cursor         : pointer;
-  color          : var(--accent-dark);
+  color          : var(--accent);
   border         : 2px solid currentColor;
   transition     : all 0.4s ease
 }
@@ -142,28 +159,21 @@ body.menu-open {
   opacity: 1
 }
 
-.section-heading {
-  margin-bottom: 5rem;
+.top-title {
+  display       : flex;
+  flex-direction: column;
+  @include margin;
 
-  @include xs {
-    margin-bottom: 3rem;
-  }
-
-  @supports (font-size: clamp(1rem, 2rem, 3rem)) {
-    @include fluid(margin-bottom, 3, 5);
-  }
-
-  h2 {
-    margin-bottom: 2rem;
+  & {
+    @include safe-gap-column(2rem,1rem);
   }
 
   &__text {
-    font-size: 1.1em;
-    max-width: 95rem;
-  }
-
-  .subtitle {
-    margin-bottom: 1.7rem;
-    @include subtitle;
+    font-size  : 1.1em;
+    max-width  : 90rem;
+    padding-top: 1rem;
+    p{
+      @include p;
+    }
   }
 }

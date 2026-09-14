@@ -9,8 +9,18 @@ import {
   FileText,
   Handshake,
   ArrowUpRight,
-    Smile,
-  Scale
+  SquareCheckBig,
+  Smile,
+  ChevronDown,
+  ArrowRight,
+  ArrowLeft,
+  ChevronsLeftRight,
+  Scale,
+    Play,
+Settings,
+MapPin,
+Users
+
 } from 'lucide';
 
 createIcons({
@@ -21,11 +31,20 @@ createIcons({
     UsersRound,
     ArrowUpRight,
     ShieldCheck,
-      createIcons,
-  ScanSearch,
-  FileText,
-  Handshake,
+    createIcons,
+    ScanSearch,
+    FileText,
+    Handshake,
+    SquareCheckBig,
+    ChevronDown,
+    ArrowRight,
+    ArrowLeft,
+    ChevronsLeftRight,
     Smile,
-  Scale
-  }
+    Scale,
+    Play,
+Settings,
+MapPin,
+Users
+  },
 });

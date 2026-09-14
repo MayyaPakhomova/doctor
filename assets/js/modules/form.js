@@ -129,3 +129,33 @@ document.addEventListener('DOMContentLoaded', function () {
         formUid.value = Math.floor(Date.now() / 1000);
     }
 });
+
+const customSelects = document.querySelectorAll('[data-custom-select]');
+
+customSelects.forEach(select => {
+  const trigger = select.querySelector('[data-custom-select-trigger]');
+  const value = select.querySelector('[data-custom-select-value]');
+  const dropdown = select.querySelector('[data-custom-select-dropdown]');
+  const input = select.querySelector('[data-custom-select-input]');
+  const options = select.querySelectorAll('.custom-select__option');
+
+  trigger.addEventListener('click', () => {
+    const isOpen = select.classList.toggle('is-open');
+
+    trigger.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      value.textContent = option.textContent.trim();
+      input.value = option.dataset.value;
+
+      options.forEach(item => {
+        item.classList.toggle('is-selected', item === option);
+      });
+
+      select.classList.remove('is-open');
+      trigger.setAttribute('aria-expanded', 'false');
+    });
+  });
+});

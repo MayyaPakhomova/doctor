@@ -1,0 +1,117 @@
+@use 'base/index'as *;
+.reviews {
+  position: relative;
+  z-index : 2;
+  &__items {
+    display              : grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap                  : 2rem;
+    @include main {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @include sm {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+.reviews-card {
+  display         : flex;
+  flex-direction  : column;
+  padding         : 3rem;
+  min-height      : 100%;
+  border-radius   : $border-radius-12;
+  background-color: var(--white);
+  @include xs {
+    padding: 2rem 1.2rem;
+  }
+  &__top {
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
+    margin-bottom  : 2rem;
+  }
+  &__source {
+    display    : flex;
+    align-items: center;
+    width      : 12rem;
+    height     : 4rem;
+    @include hover {
+      .reviews-card__logo {
+        path:not([fill="white"]):not([fill="#fff"]):not([fill="#FFF"]):not([fill="#ffffff"]):not([fill="#FFFFFF"]) {
+          fill: var(--accent);
+        }
+      }
+    }
+  }
+  &__logo {
+    display: block;
+    flex   : 0 0 auto;
+    path {
+      transition: fill 0.4s ease;
+    }
+    &--yandex {
+      width : 8rem;
+      height: 2.5rem;
+    }
+    &--2gis {
+      width : 8rem;
+      height: 2.26rem;
+    }
+    &--prodoctorov {
+      width : 14rem;
+      height: 2rem;
+    }
+  }
+  &__rating {
+    font-size     : 2rem;
+    line-height   : 1;
+    letter-spacing: 0.4rem;
+    color         : rgba(var(--dark-rgb), 0.45);
+  }
+  &__text {
+    margin-bottom: 3rem;
+    p {
+      @include p;
+    }
+    @include xs {
+      margin-bottom: 2rem;
+    }
+  }
+  &__author {
+    margin-top: auto;
+  }
+}
+.reviews-faq {
+  position: relative;
+  overflow: hidden;
+  .fluid-decor {
+    position      : absolute;
+    inset         : 0;
+    pointer-events: none;
+    z-index       : 1;
+  }
+  .fluid-glow {
+    position        : absolute;
+    top             : 80rem;
+    right           : -20rem;
+    width           : 70rem;
+    height          : 70rem;
+    background-color: rgba(var(--accent-rgb), .30);
+    filter          : blur(12rem);
+    animation       : glow-pulse 5s ease-in-out infinite;
+    pointer-events  : none;
+    border-radius   : 50%;
+    @supports (background: color-mix(in oklab, red, white)) {
+      background-color: color-mix(in oklab, var(--accent) 30%, transparent);
+    }
+    @include main {
+      top   : 110rem;
+      right : -15rem;
+      width : 40rem;
+      height: 40rem;
+    }
+    @include xs {
+      display: none;
+    }
+  }
+}

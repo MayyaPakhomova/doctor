@@ -1,0 +1,108 @@
+@use 'base/index'as *;
+
+.appointment {
+  @include section;
+  &__inner {
+    display              : grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(30rem, 1fr);
+    grid-template-areas  :
+      "content img"
+      "benefits benefits";
+    overflow        : hidden;
+    background-color: var(--bg-warm);
+    @include border-radius(1.6, 1);
+
+    @include main {
+      grid-template-columns: 1fr;
+      grid-template-areas  :
+        "img"
+        "content"
+        "benefits";
+    }
+  }
+
+  &__content {
+    grid-area: content;
+    padding  : 5rem;
+
+    @include xs {
+      padding: 2rem 1.2rem;
+    }
+
+    @supports (padding: clamp(1rem, 2rem, 3rem)) {
+      @include fluid(padding-top, 2, 5);
+      @include fluid(padding-bottom, 2, 5);
+      @include fluid(padding-left, 1.2, 5);
+      @include fluid(padding-right, 1.2, 5);
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 1.2rem;
+    color        : var(--accent-dark);
+  }
+
+  &__title {
+    margin-bottom: 1.6rem;
+  }
+
+  &__text {
+    margin-bottom: 3.5rem;
+
+    @include xs {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__img {
+    grid-area: img;
+    min-width: 0;
+
+    img {
+      display   : block;
+      width     : 100%;
+      height    : 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__benefits {
+    grid-area            : benefits;
+    display              : grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap                  : 3rem;
+    padding              : 3rem 5rem;
+    border-top           : 1px solid var(--border);
+
+    @include main {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include xs {
+      grid-template-columns: 1fr;
+      padding              : 2rem 1.2rem;
+      gap                  : 1.5rem;
+    }
+
+    @supports (padding: clamp(1rem, 2rem, 3rem)) {
+      @include fluid(padding-top, 2, 3);
+      @include fluid(padding-bottom, 2, 3);
+      @include fluid(padding-left, 1.2, 5);
+      @include fluid(padding-right, 1.2, 5);
+    }
+  }
+
+  &__benefit {
+    display    : flex;
+    align-items: flex-start;
+    gap        : 1.2rem;
+
+    svg {
+      width       : 2.2rem;
+      height      : 2.2rem;
+      flex        : 0 0 auto;
+      color       : var(--accent-dark);
+      stroke-width: 1.6;
+    }
+  }
+}

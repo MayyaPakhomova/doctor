@@ -214,10 +214,10 @@ $fluid-max-screen: 1440;
     font-size: 3.2rem;
   }
   @include sm {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
   }
   @supports (font-size: clamp(1rem, 2rem, 3rem)) {
-    @include fluid(font-size, 2.4, 3.8);
+    @include fluid(font-size, 2.2, 3.8);
   }
 }
 @mixin h3 {
@@ -339,6 +339,15 @@ $fluid-max-screen: 1440;
   }
   @supports (font-size: clamp(1rem, 2rem, 3rem)) {
     @include fluid(margin-bottom, 3, 5);
+  }
+}
+@mixin margin-title {
+  margin-bottom: 3rem;
+  @include xs {
+    margin-bottom: 1.7rem;
+  }
+  @supports (font-size: clamp(1rem, 2rem, 3rem)) {
+    @include fluid(margin-bottom, 1.7, 3);
   }
 }
 @mixin post-page {

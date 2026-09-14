@@ -90,55 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     toggleButtonState();
   }
-  document.addEventListener('DOMContentLoaded', function () {
-    initTextFormatting();
     initBackToTop();
-  });
-  const emblem = document.querySelector('.header__emblem');
-  const emblemRotate = emblem?.querySelector('.header__emblem-rotate');
-  const emblemPath = emblem?.querySelector('#emblem-circle');
-  const emblemItems = emblem?.querySelectorAll('.header__emblem-item textPath');
-  if (emblem && emblemRotate && emblemPath && emblemItems.length) {
-    const duration = 38000;
-    let startTime = null;
-    let pausedAt = null;
-    const distributeItems = () => {
-      const pathLength = emblemPath.getTotalLength();
-      const widths = [...emblemItems].map((item) => {
-        return item.getComputedTextLength();
-      });
-      const totalWidth = widths.reduce((sum, width) => sum + width, 0);
-      const gap = (pathLength - totalWidth) / emblemItems.length;
-      let position = 0;
-      emblemItems.forEach((item, index) => {
-        position += widths[index] / 2;
-        item.setAttribute('startOffset', `${(position / pathLength) * 100}%`);
-        position += widths[index] / 2 + gap;
-      });
-    };
-    const rotateEmblem = (time) => {
-      if (startTime === null) {
-        startTime = time;
-      }
-      if (pausedAt === null) {
-        const angle = (((time - startTime) % duration) / duration) * 360;
-        emblemRotate.setAttribute('transform', `rotate(${angle} 50 50)`);
-      }
-      requestAnimationFrame(rotateEmblem);
-    };
-    emblem.addEventListener('mouseenter', () => {
-      pausedAt = performance.now();
-    });
-    emblem.addEventListener('mouseleave', () => {
-      if (pausedAt !== null) {
-        startTime += performance.now() - pausedAt;
-        pausedAt = null;
-      }
-    });
-    document.fonts.ready.then(distributeItems);
-    window.addEventListener('resize', distributeItems);
-    requestAnimationFrame(rotateEmblem);
-  }
 
     const doctor = document.querySelector('.hero__doctor');
   const visual = document.querySelector('.hero__visual');
@@ -155,7 +107,26 @@ document.addEventListener('DOMContentLoaded', function () {
       doctor.addEventListener('load', setDoctorWidth);
     }
   }
-  
+const about = document.querySelector('.about');
+
+if (about) {
+  const aboutTitle = about.querySelector('.about__title h2');
+
+  if (aboutTitle) {
+    const setAboutTitleHeight = () => {
+      about.style.setProperty(
+        '--about-title-height',
+        `${aboutTitle.offsetHeight}px`
+      );
+    };
+
+    setAboutTitleHeight();
+
+    const titleObserver = new ResizeObserver(setAboutTitleHeight);
+
+    titleObserver.observe(aboutTitle);
+  }
+}
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -288,6 +259,36 @@ document.addEventListener('DOMContentLoaded', function () {
     if (formUid) {
         formUid.value = Math.floor(Date.now() / 1000);
     }
+});
+
+const customSelects = document.querySelectorAll('[data-custom-select]');
+
+customSelects.forEach(select => {
+  const trigger = select.querySelector('[data-custom-select-trigger]');
+  const value = select.querySelector('[data-custom-select-value]');
+  const dropdown = select.querySelector('[data-custom-select-dropdown]');
+  const input = select.querySelector('[data-custom-select-input]');
+  const options = select.querySelectorAll('.custom-select__option');
+
+  trigger.addEventListener('click', () => {
+    const isOpen = select.classList.toggle('is-open');
+
+    trigger.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      value.textContent = option.textContent.trim();
+      input.value = option.dataset.value;
+
+      options.forEach(item => {
+        item.classList.toggle('is-selected', item === option);
+      });
+
+      select.classList.remove('is-open');
+      trigger.setAttribute('aria-expanded', 'false');
+    });
+  });
 });
 const header = document.querySelector('[data-header]');
 
@@ -659,3 +660,94 @@ class Modal {
 
 const modal = new Modal();
 
+const compares = document.querySelectorAll('.before-after__compare');
+
+compares.forEach(compare => {
+  const before = compare.querySelector('.before-after__before');
+  const drag = compare.querySelector('.before-after__drag');
+
+  if (!before || !drag) return;
+
+  let active = false;
+
+  const startPosition = 10;
+
+  before.style.clipPath = `inset(0 ${100 - startPosition}% 0 0)`;
+  drag.style.left = `${startPosition}%`;
+
+  const move = x => {
+    const rect = compare.getBoundingClientRect();
+
+    let position = ((x - rect.left) / rect.width) * 100;
+
+    position = Math.max(0, Math.min(100, position));
+
+    before.style.clipPath = `inset(0 ${100 - position}% 0 0)`;
+    drag.style.left = `${position}%`;
+  };
+
+  drag.addEventListener('pointerdown', e => {
+    active = true;
+    drag.setPointerCapture(e.pointerId);
+  });
+
+  drag.addEventListener('pointermove', e => {
+    if (!active) return;
+
+    move(e.clientX);
+  });
+
+  drag.addEventListener('pointerup', () => {
+    active = false;
+  });
+
+  drag.addEventListener('pointercancel', () => {
+    active = false;
+  });
+});
+
+const resultsSlider = document.querySelector('.results__slider');
+
+if (resultsSlider) {
+  new Swiper(resultsSlider, {
+  slidesPerView: 'auto',
+  spaceBetween: 20,
+    noSwiping: true,
+    noSwipingClass: 'before-after__compare',
+
+    navigation: {
+      nextEl: '.results__next',
+      prevEl: '.results__prev',
+    },
+
+    pagination: {
+      el: '.results__pagination',
+      clickable: true,
+    },
+
+    breakpoints: {
+      768: {
+          spaceBetween: 30,
+      },
+    },
+  });
+}
+const videoBlock = document.querySelector('[data-video-block]');
+
+if (videoBlock) {
+  const video = videoBlock.querySelector('[data-video]');
+  const preview = videoBlock.querySelector('[data-video-preview]');
+  const playButton = videoBlock.querySelector('[data-video-play]');
+
+  playButton?.addEventListener('click', () => {
+    if (!video.src) {
+      video.src = video.dataset.src;
+    }
+
+    preview.style.display = 'none';
+    playButton.style.display = 'none';
+    video.style.display = 'block';
+
+    video.play();
+  });
+}
