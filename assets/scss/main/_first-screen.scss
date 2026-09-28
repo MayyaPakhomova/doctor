@@ -55,7 +55,7 @@
 
   &__title {
     margin-bottom: 3rem;
-    color        : var(--white);
+  @include h2-linear-gradient;
 
     span {
       display    : block;
@@ -82,10 +82,6 @@
       margin-left : auto;
       margin-right: auto;
       text-align  : center;
-    }
-
-    @include xs {
-      margin-bottom: 3rem;
     }
   }
 

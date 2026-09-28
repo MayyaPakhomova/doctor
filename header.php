@@ -1,4 +1,4 @@
- <header class="header" data-header> <!--header__white -->
+ <header class="header header__white" data-header> <!--header__white -->
    <div class="header__top">
      <div class="container">
        <div class="header__top-container">

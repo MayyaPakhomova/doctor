@@ -10,26 +10,31 @@ if (header) {
   const megaContainer = header.querySelector('[data-mega-container]');
   const megaGrid = header.querySelector('.header__grid');
   const mobile = window.matchMedia('(max-width: 1160px)');
+  const hero = document.querySelector('.hero');
   const fixedOffset = 300;
 
   let closeTimer;
   let megaScrollLocked = false;
 
-  const setHeaderSizes = () => {
-    const topHeight = headerTop?.offsetHeight || 0;
-    const bottomHeight = headerBottom?.offsetHeight || 0;
+const setHeaderSizes = () => {
+  const topHeight = headerTop?.offsetHeight || 0;
+  const bottomHeight = headerBottom?.offsetHeight || 0;
 
+  document.documentElement.style.setProperty(
+    '--header-bottom-height',
+    `${bottomHeight}px`
+  );
+
+  if (
+    !header.classList.contains('fixed') &&
+    !headerBottom?.classList.contains('fixed')
+  ) {
     document.documentElement.style.setProperty(
       '--header-height',
       `${topHeight + bottomHeight}px`
     );
-
-    document.documentElement.style.setProperty(
-      '--header-bottom-height',
-      `${bottomHeight}px`
-    );
-  };
-
+  }
+};
   const lockMegaMenuScroll = () => {
     if (megaScrollLocked) {
       return;
@@ -88,18 +93,22 @@ if (header) {
     submenuToggle?.setAttribute('aria-expanded', 'false');
   };
 
-  const handleHeaderScroll = () => {
-    const isFixed = window.scrollY > fixedOffset;
+const handleHeaderScroll = () => {
+  const fixedOffset = hero
+    ? hero.offsetHeight - (headerBottom?.offsetHeight || 0)
+    : 300;
 
-    if (mobile.matches) {
-      headerBottom?.classList.remove('fixed');
-      header.classList.toggle('fixed', isFixed);
-      return;
-    }
+  const isFixed = window.scrollY > fixedOffset;
 
-    header.classList.remove('fixed');
-    headerBottom?.classList.toggle('fixed', isFixed);
-  };
+  if (mobile.matches) {
+    headerBottom?.classList.remove('fixed');
+    header.classList.toggle('fixed', isFixed);
+    return;
+  }
+
+  header.classList.remove('fixed');
+  headerBottom?.classList.toggle('fixed', isFixed);
+};
 
   services?.addEventListener('mouseenter', () => {
     if (mobile.matches) {

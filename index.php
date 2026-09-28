@@ -412,294 +412,294 @@ include $_SERVER['DOCUMENT_ROOT'] . '/header.php';
   </section>
   <div class="reviews-faq">
     <div class="fluid-decor">
-            <div class="fluid-glow"></div>
-          </div>
-  <section class="reviews section">
-    <div class="container">
-      <div class="reviews__title top-title text-format">
-        <h2>Отзывы пациентов</h2>
-        <div class="top-title__text">
-          <p>Здесь собраны отзывы пациентов о врачах, лечении и самой клинике, а также их впечатления после посещения.</p>
-          <p>Оригиналы отзывов можно посмотреть на независимых площадках.</p>
-        </div>
-      </div>
-      <div class="reviews__items">
-        <article class="reviews-card">
-          <div class="reviews-card__top">
-            <a
-              class="reviews-card__source"
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Посмотреть отзыв на Яндекс Картах">
-              <?php include 'svg/logo-yandex.php'; ?>
-            </a>
-            <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
-              ★★★★★
-            </div>
-          </div>
-          <div class="reviews-card__text text-format">
-            <p>Воронов Дмитрий Анатольевич Виртуоз своего дела, разобрался с очень сложной ситуацией, которую не смог решить челюстно лицевой хирург.</p>
-            <p>Рекомендую доктора и данную клинику в целом!!!!!</p>
-          </div>
-          <h3 class="reviews-card__author">
-            Ксения Корниенко
-          </h3>
-        </article>
-        <article class="reviews-card">
-          <div class="reviews-card__top">
-            <a
-              class="reviews-card__source"
-              href="https://go.2gis.com/UPXTe"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Посмотреть отзыв в 2ГИС">
-              <?php include 'svg/logo-2gis.php'; ?>
-            </a>
-            <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
-              ★★★★★
-            </div>
-          </div>
-          <div class="reviews-card__text text-format">
-            <p>Отличные врачи, все было сделано быстро и качественно.</p>
-          </div>
-          <h3 class="reviews-card__author">
-            Элеонора Путинцева
-          </h3>
-        </article>
-        <article class="reviews-card">
-          <div class="reviews-card__top">
-            <a
-              class="reviews-card__source"
-              href="https://prodoctorov.ru/moskva/lpu/77901-moscow-dental-clinic/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Посмотреть отзыв на ПроДокторов">
-              <?php include 'svg/logo-prodoctorov.php'; ?>
-            </a>
-            <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
-              ★★★★★
-            </div>
-          </div>
-          <div class="reviews-card__text text-format">
-            <p>Устанавливал имплантат. Все прошло очень быстро и безболезненно. Очень понравилось отношение доктора и профессионализм!</p>
-            <p>Хожу с новым зубом и радуюсь!</p>
-          </div>
-          <h3 class="reviews-card__author">
-            Пациент
-          </h3>
-        </article>
-        <article class="reviews-card">
-          <div class="reviews-card__top">
-            <a
-              class="reviews-card__source"
-              href="https://go.2gis.com/UPXTe"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Посмотреть отзыв в 2ГИС">
-              <?php include 'svg/logo-2gis.php'; ?>
-            </a>
-            <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
-              ★★★★★
-            </div>
-          </div>
-          <div class="reviews-card__text text-format">
-            <p>Клиника очень понравилась. Крутое оборудование и материалы. Вылечили зубки, поставили имплантанты, виниры и коронки. Боялась жутко, но зря).</p>
-            <p>Не навязывают никаких доп услуг. Рассказывают, что надо сделать и выбор остается за тобой.</p>
-          </div>
-          <h3 class="reviews-card__author">
-            Светлана
-          </h3>
-        </article>
-        <article class="reviews-card">
-          <div class="reviews-card__top">
-            <a
-              class="reviews-card__source"
-              href="https://prodoctorov.ru/moskva/lpu/77901-moscow-dental-clinic/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Посмотреть отзыв на ПроДокторов">
-              <?php include 'svg/logo-prodoctorov.php'; ?>
-            </a>
-            <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
-              ★★★★★
-            </div>
-          </div>
-          <div class="reviews-card__text text-format">
-            <p>Врач ведёт меня с мезиальным прикусом. Было проведено удаление трёх восьмёрок и установлены ортодонтические минивинты — всё быстро и безболезненно.</p>
-            <p>Очень располагает к себе, бережное отношение и действительно убирает страх перед хирургическими вмешательствами.</p>
-          </div>
-          <h3 class="reviews-card__author">
-            Пациент
-          </h3>
-        </article>
-        <article class="reviews-card">
-          <div class="reviews-card__top">
-            <a
-              class="reviews-card__source"
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Посмотреть отзыв на Яндекс Картах">
-              <?php include 'svg/logo-yandex.php'; ?>
-            </a>
-            <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
-              ★★★★★
-            </div>
-          </div>
-          <div class="reviews-card__text text-format">
-            <p>Записался заранее к врачу по рекомендации. Сделали слепок, поставили временную коронку, а через 4 дня вернулся за своей постоянной коронкой.</p>
-            <p>От своего зуба не отличить. Сильно благодарен.</p>
-          </div>
-          <h3 class="reviews-card__author">
-            Максим А.
-          </h3>
-        </article>
-      </div>
+      <div class="fluid-glow"></div>
     </div>
-  </section>
-  <section class="faq section-big">
-    <div class="container">
-      <div class="faq__title top-title text-format">
-        <h2>Часто спрашивают</h2>
-
-        <div class="top-title__text">
-          <p>Отвечаем на основные вопросы о приёме, лечении и подготовке к посещению клиники.</p>
-          <p>Если вашего вопроса здесь нет, его можно задать врачу на консультации.</p>
+    <section class="reviews section">
+      <div class="container">
+        <div class="reviews__title top-title text-format">
+          <h2>Отзывы пациентов</h2>
+          <div class="top-title__text">
+            <p>Здесь собраны отзывы пациентов о врачах, лечении и самой клинике, а также их впечатления после посещения.</p>
+            <p>Оригиналы отзывов можно посмотреть на независимых площадках.</p>
+          </div>
+        </div>
+        <div class="reviews__items">
+          <article class="reviews-card">
+            <div class="reviews-card__top">
+              <a
+                class="reviews-card__source"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Посмотреть отзыв на Яндекс Картах">
+                <?php include 'svg/logo-yandex.php'; ?>
+              </a>
+              <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
+                ★★★★★
+              </div>
+            </div>
+            <div class="reviews-card__text text-format">
+              <p>Воронов Дмитрий Анатольевич Виртуоз своего дела, разобрался с очень сложной ситуацией, которую не смог решить челюстно лицевой хирург.</p>
+              <p>Рекомендую доктора и данную клинику в целом!!!!!</p>
+            </div>
+            <h3 class="reviews-card__author">
+              Ксения Корниенко
+            </h3>
+          </article>
+          <article class="reviews-card">
+            <div class="reviews-card__top">
+              <a
+                class="reviews-card__source"
+                href="https://go.2gis.com/UPXTe"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Посмотреть отзыв в 2ГИС">
+                <?php include 'svg/logo-2gis.php'; ?>
+              </a>
+              <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
+                ★★★★★
+              </div>
+            </div>
+            <div class="reviews-card__text text-format">
+              <p>Отличные врачи, все было сделано быстро и качественно.</p>
+            </div>
+            <h3 class="reviews-card__author">
+              Элеонора Путинцева
+            </h3>
+          </article>
+          <article class="reviews-card">
+            <div class="reviews-card__top">
+              <a
+                class="reviews-card__source"
+                href="https://prodoctorov.ru/moskva/lpu/77901-moscow-dental-clinic/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Посмотреть отзыв на ПроДокторов">
+                <?php include 'svg/logo-prodoctorov.php'; ?>
+              </a>
+              <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
+                ★★★★★
+              </div>
+            </div>
+            <div class="reviews-card__text text-format">
+              <p>Устанавливал имплантат. Все прошло очень быстро и безболезненно. Очень понравилось отношение доктора и профессионализм!</p>
+              <p>Хожу с новым зубом и радуюсь!</p>
+            </div>
+            <h3 class="reviews-card__author">
+              Пациент
+            </h3>
+          </article>
+          <article class="reviews-card">
+            <div class="reviews-card__top">
+              <a
+                class="reviews-card__source"
+                href="https://go.2gis.com/UPXTe"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Посмотреть отзыв в 2ГИС">
+                <?php include 'svg/logo-2gis.php'; ?>
+              </a>
+              <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
+                ★★★★★
+              </div>
+            </div>
+            <div class="reviews-card__text text-format">
+              <p>Клиника очень понравилась. Крутое оборудование и материалы. Вылечили зубки, поставили имплантанты, виниры и коронки. Боялась жутко, но зря).</p>
+              <p>Не навязывают никаких доп услуг. Рассказывают, что надо сделать и выбор остается за тобой.</p>
+            </div>
+            <h3 class="reviews-card__author">
+              Светлана
+            </h3>
+          </article>
+          <article class="reviews-card">
+            <div class="reviews-card__top">
+              <a
+                class="reviews-card__source"
+                href="https://prodoctorov.ru/moskva/lpu/77901-moscow-dental-clinic/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Посмотреть отзыв на ПроДокторов">
+                <?php include 'svg/logo-prodoctorov.php'; ?>
+              </a>
+              <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
+                ★★★★★
+              </div>
+            </div>
+            <div class="reviews-card__text text-format">
+              <p>Врач ведёт меня с мезиальным прикусом. Было проведено удаление трёх восьмёрок и установлены ортодонтические минивинты — всё быстро и безболезненно.</p>
+              <p>Очень располагает к себе, бережное отношение и действительно убирает страх перед хирургическими вмешательствами.</p>
+            </div>
+            <h3 class="reviews-card__author">
+              Пациент
+            </h3>
+          </article>
+          <article class="reviews-card">
+            <div class="reviews-card__top">
+              <a
+                class="reviews-card__source"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Посмотреть отзыв на Яндекс Картах">
+                <?php include 'svg/logo-yandex.php'; ?>
+              </a>
+              <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
+                ★★★★★
+              </div>
+            </div>
+            <div class="reviews-card__text text-format">
+              <p>Записался заранее к врачу по рекомендации. Сделали слепок, поставили временную коронку, а через 4 дня вернулся за своей постоянной коронкой.</p>
+              <p>От своего зуба не отличить. Сильно благодарен.</p>
+            </div>
+            <h3 class="reviews-card__author">
+              Максим А.
+            </h3>
+          </article>
         </div>
       </div>
+    </section>
+    <section class="faq section-big">
+      <div class="container">
+        <div class="faq__title top-title text-format">
+          <h2>Часто спрашивают</h2>
 
-      <div class="faq-accordion">
-        <div class="faq-accordion__item is-open">
-          <button class="faq-accordion__head" type="button">
-            <span class="faq-accordion__title">
-              Сколько стоит лечение?
-            </span>
-
-            <span class="faq-accordion__icon"></span>
-          </button>
-
-          <div class="faq-accordion__content">
-            <div class="faq-accordion__inner text-format">
-              Стоимость зависит от состояния зубов, выбранного метода лечения и объёма необходимых процедур. Точную стоимость врач сможет определить после осмотра и диагностики.
-            </div>
+          <div class="top-title__text">
+            <p>Отвечаем на основные вопросы о приёме, лечении и подготовке к посещению клиники.</p>
+            <p>Если вашего вопроса здесь нет, его можно задать врачу на консультации.</p>
           </div>
         </div>
 
-        <div class="faq-accordion__item">
-          <button class="faq-accordion__head" type="button">
-            <span class="faq-accordion__title">
-              Что происходит на первом приёме?
-            </span>
+        <div class="faq-accordion">
+          <div class="faq-accordion__item is-open">
+            <button class="faq-accordion__head" type="button">
+              <span class="faq-accordion__title">
+                Сколько стоит лечение?
+              </span>
 
-            <span class="faq-accordion__icon"></span>
-          </button>
+              <span class="faq-accordion__icon"></span>
+            </button>
 
-          <div class="faq-accordion__content">
-            <div class="faq-accordion__inner text-format">
-              Врач проводит осмотр, уточняет жалобы и при необходимости назначает дополнительную диагностику. После этого обсуждаются возможные варианты лечения, последовательность процедур и ориентировочная стоимость
+            <div class="faq-accordion__content">
+              <div class="faq-accordion__inner text-format">
+                Стоимость зависит от состояния зубов, выбранного метода лечения и объёма необходимых процедур. Точную стоимость врач сможет определить после осмотра и диагностики.
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="faq-accordion__item">
-          <button class="faq-accordion__head" type="button">
-            <span class="faq-accordion__title">
-              Нужно ли делать снимок перед лечением?
-            </span>
+          <div class="faq-accordion__item">
+            <button class="faq-accordion__head" type="button">
+              <span class="faq-accordion__title">
+                Что происходит на первом приёме?
+              </span>
 
-            <span class="faq-accordion__icon"></span>
-          </button>
+              <span class="faq-accordion__icon"></span>
+            </button>
 
-          <div class="faq-accordion__content">
-            <div class="faq-accordion__inner text-format">
-              Не всегда. Необходимость рентгеновского снимка или другой диагностики определяет врач после осмотра. Исследование назначается, если без него нельзя точно оценить состояние зубов и окружающих тканей
+            <div class="faq-accordion__content">
+              <div class="faq-accordion__inner text-format">
+                Врач проводит осмотр, уточняет жалобы и при необходимости назначает дополнительную диагностику. После этого обсуждаются возможные варианты лечения, последовательность процедур и ориентировочная стоимость
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="faq-accordion__item">
-          <button class="faq-accordion__head" type="button">
-            <span class="faq-accordion__title">
-              Больно ли лечить зубы?
-            </span>
+          <div class="faq-accordion__item">
+            <button class="faq-accordion__head" type="button">
+              <span class="faq-accordion__title">
+                Нужно ли делать снимок перед лечением?
+              </span>
 
-            <span class="faq-accordion__icon"></span>
-          </button>
+              <span class="faq-accordion__icon"></span>
+            </button>
 
-          <div class="faq-accordion__content">
-            <div class="faq-accordion__inner text-format">
-              Большинство стоматологических процедур проводится с обезболиванием. Вид анестезии и необходимость её применения врач подбирает с учётом предстоящего лечения и индивидуальных особенностей пациента
+            <div class="faq-accordion__content">
+              <div class="faq-accordion__inner text-format">
+                Не всегда. Необходимость рентгеновского снимка или другой диагностики определяет врач после осмотра. Исследование назначается, если без него нельзя точно оценить состояние зубов и окружающих тканей
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="faq-accordion__item">
-          <button class="faq-accordion__head" type="button">
-            <span class="faq-accordion__title">
-              Сколько времени занимает лечение?
-            </span>
+          <div class="faq-accordion__item">
+            <button class="faq-accordion__head" type="button">
+              <span class="faq-accordion__title">
+                Больно ли лечить зубы?
+              </span>
 
-            <span class="faq-accordion__icon"></span>
-          </button>
+              <span class="faq-accordion__icon"></span>
+            </button>
 
-          <div class="faq-accordion__content">
-            <div class="faq-accordion__inner text-format">
-              Продолжительность зависит от задачи. Некоторые процедуры выполняются за один приём, а комплексное лечение, протезирование, имплантация или ортодонтическая коррекция могут проходить в несколько этапов
+            <div class="faq-accordion__content">
+              <div class="faq-accordion__inner text-format">
+                Большинство стоматологических процедур проводится с обезболиванием. Вид анестезии и необходимость её применения врач подбирает с учётом предстоящего лечения и индивидуальных особенностей пациента
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="faq-accordion__item">
-          <button class="faq-accordion__head" type="button">
-            <span class="faq-accordion__title">
-              Что делать, если зуб заболел внезапно?
-            </span>
+          <div class="faq-accordion__item">
+            <button class="faq-accordion__head" type="button">
+              <span class="faq-accordion__title">
+                Сколько времени занимает лечение?
+              </span>
 
-            <span class="faq-accordion__icon"></span>
-          </button>
+              <span class="faq-accordion__icon"></span>
+            </button>
 
-          <div class="faq-accordion__content">
-            <div class="faq-accordion__inner text-format">
-              Свяжитесь с клиникой и опишите симптомы администратору. Мы постараемся подобрать ближайшее доступное время для осмотра, чтобы врач смог определить причину боли и необходимое лечение
+            <div class="faq-accordion__content">
+              <div class="faq-accordion__inner text-format">
+                Продолжительность зависит от задачи. Некоторые процедуры выполняются за один приём, а комплексное лечение, протезирование, имплантация или ортодонтическая коррекция могут проходить в несколько этапов
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="faq-accordion__item">
-          <button class="faq-accordion__head" type="button">
-            <span class="faq-accordion__title">
-              Можно ли обратиться только за консультацией?
-            </span>
+          <div class="faq-accordion__item">
+            <button class="faq-accordion__head" type="button">
+              <span class="faq-accordion__title">
+                Что делать, если зуб заболел внезапно?
+              </span>
 
-            <span class="faq-accordion__icon"></span>
-          </button>
+              <span class="faq-accordion__icon"></span>
+            </button>
 
-          <div class="faq-accordion__content">
-            <div class="faq-accordion__inner text-format">
-              Да. Можно записаться на консультацию, получить мнение врача, обсудить результаты диагностики и возможные варианты лечения. Решение о дальнейшем лечении остаётся за пациентом
+            <div class="faq-accordion__content">
+              <div class="faq-accordion__inner text-format">
+                Свяжитесь с клиникой и опишите симптомы администратору. Мы постараемся подобрать ближайшее доступное время для осмотра, чтобы врач смог определить причину боли и необходимое лечение
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="faq-accordion__item">
-          <button class="faq-accordion__head" type="button">
-            <span class="faq-accordion__title">
-              Как подготовиться к приёму?
-            </span>
+          <div class="faq-accordion__item">
+            <button class="faq-accordion__head" type="button">
+              <span class="faq-accordion__title">
+                Можно ли обратиться только за консультацией?
+              </span>
 
-            <span class="faq-accordion__icon"></span>
-          </button>
+              <span class="faq-accordion__icon"></span>
+            </button>
 
-          <div class="faq-accordion__content">
-            <div class="faq-accordion__inner text-format">
-              Специальная подготовка обычно не требуется. Если у вас есть результаты предыдущих исследований, снимки или сведения о проведённом лечении, их можно взять с собой. Также важно сообщить врачу о принимаемых препаратах и особенностях здоровья
+            <div class="faq-accordion__content">
+              <div class="faq-accordion__inner text-format">
+                Да. Можно записаться на консультацию, получить мнение врача, обсудить результаты диагностики и возможные варианты лечения. Решение о дальнейшем лечении остаётся за пациентом
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-accordion__item">
+            <button class="faq-accordion__head" type="button">
+              <span class="faq-accordion__title">
+                Как подготовиться к приёму?
+              </span>
+
+              <span class="faq-accordion__icon"></span>
+            </button>
+
+            <div class="faq-accordion__content">
+              <div class="faq-accordion__inner text-format">
+                Специальная подготовка обычно не требуется. Если у вас есть результаты предыдущих исследований, снимки или сведения о проведённом лечении, их можно взять с собой. Также важно сообщить врачу о принимаемых препаратах и особенностях здоровья
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
   </div>
 </main>
 

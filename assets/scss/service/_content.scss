@@ -1,0 +1,30 @@
+@use 'base/index'as *;
+.service-content {
+  &__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 39rem;
+    align-items: start;
+    gap: 6rem;
+
+    @supports (gap: clamp(1rem, 2vw, 3rem)) {
+      @include fluid(gap, 4, 6);
+    }
+
+    @include main {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__main {
+    min-width: 0;
+  }
+
+  &__sidebar {
+    position: sticky;
+    top: calc(var(--header-height) + 2rem);
+
+    @include main {
+      position: static;
+    }
+  }
+}

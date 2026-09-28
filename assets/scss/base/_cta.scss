@@ -1,0 +1,64 @@
+
+@use 'mixin'as *;
+
+.appointment-cta {
+  position: relative;
+  overflow: hidden;
+  padding: 8rem 0;
+  background-color: var(--dark);
+
+  @include main {
+    padding: 6rem 0;
+  }
+
+  @include sm {
+    padding: 5rem 0;
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+
+    @include main{
+      flex-direction: column;
+      gap: 3rem;
+    }
+  }
+
+  &__title {
+    max-width: 85rem;
+@include h2-linear-gradient;
+@include main{
+  text-align: center;
+}
+  }
+
+  &__button {
+    flex-shrink: 0;
+  }
+
+&__decor {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  opacity: .4;
+  pointer-events: none;
+
+  @include main {
+    right: 2%;
+  }
+
+  @include sm {
+    right: -5rem;
+    opacity: .12;
+  }
+}
+}

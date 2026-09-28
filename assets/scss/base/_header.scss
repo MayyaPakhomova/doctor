@@ -70,7 +70,7 @@
     justify-content: center;
     gap            : 2rem;
     padding        : 1.2rem 0;
-    color          : var(--light-soft);
+    color          : rgba(var(--light-soft-rgb), .8);
     font-size      : 0.9em;
 
     >* {
@@ -189,10 +189,10 @@
     display    : flex;
     align-items: center;
     gap        : .8rem;
-    color      : var(--white);
+    color      : var(--accent);
 
     @include hover {
-      color: var(--accent);
+      color: var(--accent-light);
     }
 
     @include main {
@@ -368,7 +368,7 @@
   display    : flex;
   align-items: center;
   height     : 100%;
-  color      : var(--white);
+  color      : var(--bg-warm);
   white-space: nowrap;
 
   &:not(&--com) {
@@ -460,7 +460,7 @@
   flex           : 0 0 auto;
   width          : 2rem;
   height         : 2rem;
-  color          : var(--white);
+  color          : var(--light-soft);
   cursor         : pointer;
 
   svg {

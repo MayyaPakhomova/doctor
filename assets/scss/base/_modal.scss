@@ -105,9 +105,11 @@
   margin          : 0 auto;
   padding         : 4rem;
   background-color: var(--bg-light);
-  box-shadow      : 0 0.8rem 1.8rem -0.8rem rgba(var(--black-rgb), 0.12);
+  box-shadow      : 0 0.8rem 1.8rem -0.8rem rgba(var(--dark-rgb), 0.12);
     overflow-y: auto;
   max-height: 80vh;
+  height: auto;
+         scrollbar-color: var(--bg-warm)  var(--white);
   @include border-radius(1.2, 0.8);
 
 

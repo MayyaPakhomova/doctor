@@ -10,21 +10,33 @@ if (typeof Inputmask !== 'undefined') {
     }
   }, 500);
 }
-  document.addEventListener(
-    'wpcf7mailsent',
-    function (response) {
-      // Удаляем классы у сообщений
-      const messages = document.querySelectorAll('.wpcf7-response-output');
-      messages.forEach((message) => {
-        message.classList.add('transparent-background', 'transparent-background-hidden');
-        setTimeout(function () {
-          message.textContent = '';
-          message.classList.remove('transparent-background', 'transparent-background-hidden');
-        }, 3500);
-      })
-    },
-    false
-  );
+document.addEventListener(
+  'wpcf7mailsent',
+  function (response) {
+    const messages = document.querySelectorAll('.wpcf7-response-output');
+    const button = response.target.querySelector('.button');
+
+    button?.classList.add('button--no-shadow');
+
+    messages.forEach((message) => {
+      message.classList.add(
+        'transparent-background',
+        'transparent-background-hidden'
+      );
+
+      setTimeout(function () {
+        message.textContent = '';
+        message.classList.remove(
+          'transparent-background',
+          'transparent-background-hidden'
+        );
+
+        button?.classList.remove('button--no-shadow');
+      }, 3500);
+    });
+  },
+  false
+);
   const forms = document.querySelectorAll('.wpcf7-submit');
   const messages = document.querySelectorAll('.wpcf7-response-output');
   forms.forEach((form) => {
@@ -159,3 +171,26 @@ customSelects.forEach(select => {
     });
   });
 });
+
+
+const appointmentLinks = document.querySelectorAll('[data-appointment-link]');
+const appointment = document.querySelector('#appointment');
+const pageTitle = document.querySelector('h1');
+
+if (pageTitle) {
+  document.querySelectorAll('[name="consult-page-title"]').forEach((input) => {
+    input.value = pageTitle.textContent.trim();
+  });
+}
+
+if (!appointment) {
+  appointmentLinks.forEach((link) => {
+    link.setAttribute('href', '#');
+    link.setAttribute('data-path', 'appointment');
+
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+    });
+  });
+}
+

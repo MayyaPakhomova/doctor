@@ -19,7 +19,14 @@ import {
     Play,
 Settings,
 MapPin,
-Users
+Users,
+LayoutGrid,
+ListChecks,
+ScanLine,
+Baby,
+ScanEye,
+Network,
+Clock3,
 
 } from 'lucide';
 
@@ -45,6 +52,13 @@ createIcons({
     Play,
 Settings,
 MapPin,
-Users
+Users,
+LayoutGrid,
+ListChecks,
+ScanLine,
+Baby,
+ScanEye,
+Network,
+Clock3,
   },
 });

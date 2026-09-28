@@ -1,7 +1,7 @@
 @use 'base/index'as *;
 
 .police {
-  @include mini-page;
+  @include mini-page-official;
 }
 
 .police-row {
@@ -46,9 +46,10 @@
     &--link {
       li {
         color: var(--accent-dark);
-   @include hover {
-      color: var(--accent);
-    }
+
+        @include hover {
+          color: var(--accent);
+        }
       }
 
       a {

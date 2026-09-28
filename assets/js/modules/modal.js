@@ -112,11 +112,25 @@ class Modal {
     if (this.modal) this.modal.classList.remove('is-open');
 
     // Сброс формы
-    if (this.modal) {
-      this.modal.querySelectorAll('.feedback-form').forEach(function (form) {
-        form.reset();
-      });
-    }
+if (this.modalContainer) {
+  this.modalContainer.querySelectorAll('form').forEach((form) => {
+    form.reset();
+
+    form.classList.remove('invalid', 'sent', 'failed', 'aborted', 'spam', 'unaccepted', 'submitting');
+
+    form.querySelectorAll('.wpcf7-not-valid').forEach((field) => {
+      field.classList.remove('wpcf7-not-valid');
+      field.removeAttribute('aria-invalid');
+      field.removeAttribute('aria-describedby');
+    });
+
+    form.querySelectorAll('.wpcf7-not-valid-tip').forEach((error) => error.remove());
+
+    const response = form.querySelector('.wpcf7-response-output');
+
+    if (response) response.textContent = '';
+  });
+}
 
     setTimeout(() => {
       if (this.modalContainer) {

@@ -1,0 +1,75 @@
+@use 'mixin' as *;
+
+.breadcrumbs {
+  max-width: 80%;
+  color: var(--dark);
+
+  @include margin;
+
+  @include sm {
+    margin-bottom: 2.4rem;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.8rem;
+    font-size: 0.9em;
+    line-height: 1;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include xs {
+      gap: 0.6rem;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 0.8rem;
+
+    &:not(:last-child)::after {
+      content: "/";
+      flex-shrink: 0;
+      opacity: 0.35;
+    }
+
+    @include xs {
+      gap: 0.6rem;
+    }
+  }
+
+  &__link {
+    color: inherit;
+    opacity: 0.65;
+
+    @include hover {
+      color: var(--accent);
+      opacity: 1;
+    }
+  }
+
+  &__current {
+    opacity: 0.4;
+  }
+
+  &.dark {
+    color: var(--light-soft);
+
+    .breadcrumbs__link {
+      @include hover {
+        color: var(--accent-light);
+      }
+    }
+  }
+}

@@ -21,6 +21,7 @@ button {
   outline   : none;
   border    : none;
   background: transparent;
+  font: inherit;
 }
 
 ul,
@@ -165,13 +166,12 @@ body.menu-open {
   @include margin;
 
   & {
-    @include safe-gap-column(2rem,1rem);
+    @include safe-gap-column(1.5rem,1rem);
   }
 
   &__text {
     font-size  : 1.1em;
     max-width  : 90rem;
-    padding-top: 1rem;
     p{
       @include p;
     }

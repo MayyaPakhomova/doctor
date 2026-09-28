@@ -19,6 +19,27 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   document.querySelectorAll('.text-format').forEach((el) => processNode(el));
   /* -------------------------
+     1. Типографика .text-clean
+     Удаление точек
+       -------------------------- */
+  document.querySelectorAll('.text-clean').forEach((item) => {
+  const walker = document.createTreeWalker(item, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+
+  while (walker.nextNode()) {
+    if (walker.currentNode.textContent.trim()) {
+      nodes.push(walker.currentNode);
+    }
+  }
+
+  const lastNode = nodes.at(-1);
+
+  if (lastNode) {
+    lastNode.textContent = lastNode.textContent.replace(/\.(\s*)$/, '$1');
+  }
+});
+
+  /* -------------------------
     Кнопка "наверх"
   -------------------------- */
   function initBackToTop() {

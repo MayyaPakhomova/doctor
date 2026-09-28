@@ -73,6 +73,27 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   document.querySelectorAll('.text-format').forEach((el) => processNode(el));
   /* -------------------------
+     1. Типографика .text-clean
+     Удаление точек
+       -------------------------- */
+  document.querySelectorAll('.text-clean').forEach((item) => {
+  const walker = document.createTreeWalker(item, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+
+  while (walker.nextNode()) {
+    if (walker.currentNode.textContent.trim()) {
+      nodes.push(walker.currentNode);
+    }
+  }
+
+  const lastNode = nodes.at(-1);
+
+  if (lastNode) {
+    lastNode.textContent = lastNode.textContent.replace(/\.(\s*)$/, '$1');
+  }
+});
+
+  /* -------------------------
     Кнопка "наверх"
   -------------------------- */
   function initBackToTop() {
@@ -141,21 +162,33 @@ if (typeof Inputmask !== 'undefined') {
     }
   }, 500);
 }
-  document.addEventListener(
-    'wpcf7mailsent',
-    function (response) {
-      // Удаляем классы у сообщений
-      const messages = document.querySelectorAll('.wpcf7-response-output');
-      messages.forEach((message) => {
-        message.classList.add('transparent-background', 'transparent-background-hidden');
-        setTimeout(function () {
-          message.textContent = '';
-          message.classList.remove('transparent-background', 'transparent-background-hidden');
-        }, 3500);
-      })
-    },
-    false
-  );
+document.addEventListener(
+  'wpcf7mailsent',
+  function (response) {
+    const messages = document.querySelectorAll('.wpcf7-response-output');
+    const button = response.target.querySelector('.button');
+
+    button?.classList.add('button--no-shadow');
+
+    messages.forEach((message) => {
+      message.classList.add(
+        'transparent-background',
+        'transparent-background-hidden'
+      );
+
+      setTimeout(function () {
+        message.textContent = '';
+        message.classList.remove(
+          'transparent-background',
+          'transparent-background-hidden'
+        );
+
+        button?.classList.remove('button--no-shadow');
+      }, 3500);
+    });
+  },
+  false
+);
   const forms = document.querySelectorAll('.wpcf7-submit');
   const messages = document.querySelectorAll('.wpcf7-response-output');
   forms.forEach((form) => {
@@ -290,6 +323,93 @@ customSelects.forEach(select => {
     });
   });
 });
+
+
+const appointmentLinks = document.querySelectorAll('[data-appointment-link]');
+const appointment = document.querySelector('#appointment');
+const pageTitle = document.querySelector('h1');
+
+if (pageTitle) {
+  document.querySelectorAll('[name="consult-page-title"]').forEach((input) => {
+    input.value = pageTitle.textContent.trim();
+  });
+}
+
+if (!appointment) {
+  appointmentLinks.forEach((link) => {
+    link.setAttribute('href', '#');
+    link.setAttribute('data-path', 'appointment');
+
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+    });
+  });
+}
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const mapElement = document.getElementById('map');
+  const mapContainer = document.querySelector('.map');
+
+  if (!mapElement || !mapContainer) return;
+
+  ymaps.ready(function () {
+    const myMap = new ymaps.Map('map', {
+      center: [55.678913, 37.546616],
+      zoom: 17,
+      controls: []
+    });
+
+    const myPlacemark = new ymaps.Placemark(
+      [55.678913, 37.546616],
+      {},
+      {
+        iconLayout: 'default#image',
+      iconImageHref: '/wp-content/themes/moscowdentalclinic_theme/assets/img/security-pin.svg',
+        iconImageSize: [40, 40],
+        iconImageOffset: [-15, -44]
+      }
+    );
+
+    myMap.geoObjects.add(myPlacemark);
+  });
+
+  mapElement.style.pointerEvents = 'none';
+
+  const styleElement = document.createElement('style');
+
+  styleElement.innerHTML = `
+    [class*="ground-pane"] {
+      filter: grayscale(.6) sepia(.1) saturate(.7) brightness(1.05);
+    }
+  `;
+
+  document.head.appendChild(styleElement);
+
+  const mapTitle = document.createElement('div');
+
+  mapTitle.className = 'map__title';
+  mapTitle.textContent = 'Для активации карты нажмите на нее';
+
+  mapContainer.appendChild(mapTitle);
+
+  mapContainer.onclick = function () {
+    mapElement.style.pointerEvents = 'auto';
+
+    mapTitle.remove();
+    styleElement.remove();
+  };
+
+  mapContainer.onmousemove = function (event) {
+    mapTitle.style.display = 'block';
+    mapTitle.style.top = `${event.clientY - this.getBoundingClientRect().top + 20}px`;
+    mapTitle.style.left = `${event.clientX - this.getBoundingClientRect().left + 20}px`;
+  };
+
+  mapContainer.onmouseleave = function () {
+    mapTitle.style.display = 'none';
+  };
+});
 const header = document.querySelector('[data-header]');
 
 if (header) {
@@ -302,26 +422,31 @@ if (header) {
   const megaContainer = header.querySelector('[data-mega-container]');
   const megaGrid = header.querySelector('.header__grid');
   const mobile = window.matchMedia('(max-width: 1160px)');
+  const hero = document.querySelector('.hero');
   const fixedOffset = 300;
 
   let closeTimer;
   let megaScrollLocked = false;
 
-  const setHeaderSizes = () => {
-    const topHeight = headerTop?.offsetHeight || 0;
-    const bottomHeight = headerBottom?.offsetHeight || 0;
+const setHeaderSizes = () => {
+  const topHeight = headerTop?.offsetHeight || 0;
+  const bottomHeight = headerBottom?.offsetHeight || 0;
 
+  document.documentElement.style.setProperty(
+    '--header-bottom-height',
+    `${bottomHeight}px`
+  );
+
+  if (
+    !header.classList.contains('fixed') &&
+    !headerBottom?.classList.contains('fixed')
+  ) {
     document.documentElement.style.setProperty(
       '--header-height',
       `${topHeight + bottomHeight}px`
     );
-
-    document.documentElement.style.setProperty(
-      '--header-bottom-height',
-      `${bottomHeight}px`
-    );
-  };
-
+  }
+};
   const lockMegaMenuScroll = () => {
     if (megaScrollLocked) {
       return;
@@ -380,18 +505,22 @@ if (header) {
     submenuToggle?.setAttribute('aria-expanded', 'false');
   };
 
-  const handleHeaderScroll = () => {
-    const isFixed = window.scrollY > fixedOffset;
+const handleHeaderScroll = () => {
+  const fixedOffset = hero
+    ? hero.offsetHeight - (headerBottom?.offsetHeight || 0)
+    : 300;
 
-    if (mobile.matches) {
-      headerBottom?.classList.remove('fixed');
-      header.classList.toggle('fixed', isFixed);
-      return;
-    }
+  const isFixed = window.scrollY > fixedOffset;
 
-    header.classList.remove('fixed');
-    headerBottom?.classList.toggle('fixed', isFixed);
-  };
+  if (mobile.matches) {
+    headerBottom?.classList.remove('fixed');
+    header.classList.toggle('fixed', isFixed);
+    return;
+  }
+
+  header.classList.remove('fixed');
+  headerBottom?.classList.toggle('fixed', isFixed);
+};
 
   services?.addEventListener('mouseenter', () => {
     if (mobile.matches) {
@@ -641,11 +770,25 @@ class Modal {
     if (this.modal) this.modal.classList.remove('is-open');
 
     // Сброс формы
-    if (this.modal) {
-      this.modal.querySelectorAll('.feedback-form').forEach(function (form) {
-        form.reset();
-      });
-    }
+if (this.modalContainer) {
+  this.modalContainer.querySelectorAll('form').forEach((form) => {
+    form.reset();
+
+    form.classList.remove('invalid', 'sent', 'failed', 'aborted', 'spam', 'unaccepted', 'submitting');
+
+    form.querySelectorAll('.wpcf7-not-valid').forEach((field) => {
+      field.classList.remove('wpcf7-not-valid');
+      field.removeAttribute('aria-invalid');
+      field.removeAttribute('aria-describedby');
+    });
+
+    form.querySelectorAll('.wpcf7-not-valid-tip').forEach((error) => error.remove());
+
+    const response = form.querySelector('.wpcf7-response-output');
+
+    if (response) response.textContent = '';
+  });
+}
 
     setTimeout(() => {
       if (this.modalContainer) {
@@ -729,6 +872,41 @@ if (resultsSlider) {
       768: {
           spaceBetween: 30,
       },
+    },
+  });
+}
+
+
+
+const pageServicesSlider = document.querySelector('[data-services-slider]');
+
+if (pageServicesSlider) {
+  new Swiper(pageServicesSlider, {
+    effect: 'creative',
+    speed: 1300,
+    grabCursor: true,
+        loop: true,
+
+    creativeEffect: {
+      prev: {
+        translate: ['35%', '25%', 0],
+        opacity: 0,
+      },
+
+      next: {
+        translate: ['-35%', '-25%', 0],
+        opacity: 0,
+      },
+    },
+
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+
+    pagination: {
+      el: '.services-hero__pagination',
+      clickable: true,
     },
   });
 }

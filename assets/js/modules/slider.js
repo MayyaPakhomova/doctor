@@ -70,3 +70,38 @@ if (resultsSlider) {
     },
   });
 }
+
+
+
+const pageServicesSlider = document.querySelector('[data-services-slider]');
+
+if (pageServicesSlider) {
+  new Swiper(pageServicesSlider, {
+    effect: 'creative',
+    speed: 1300,
+    grabCursor: true,
+        loop: true,
+
+    creativeEffect: {
+      prev: {
+        translate: ['35%', '25%', 0],
+        opacity: 0,
+      },
+
+      next: {
+        translate: ['-35%', '-25%', 0],
+        opacity: 0,
+      },
+    },
+
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+
+    pagination: {
+      el: '.services-hero__pagination',
+      clickable: true,
+    },
+  });
+}
