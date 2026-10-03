@@ -1,0 +1,293 @@
+[
+  {
+    "key": "group_mdc_header_menu",
+    "title": "Меню",
+    "fields": [
+      {
+        "key": "field_mdc_header_menu",
+        "label": "Меню в шапке",
+        "name": "header_menu",
+        "aria-label": "",
+        "type": "group",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "layout": "block",
+        "sub_fields": [
+          {
+            "key": "field_mdc_menu_items",
+            "label": "Пункты меню",
+            "name": "menu_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Порядок строк = порядок пунктов в шапке.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_mdc_menu_item_title",
+            "button_label": "Добавить пункт",
+            "rows_per_page": 20,
+            "sub_fields": [
+              {
+                "key": "field_mdc_menu_item_title",
+                "label": "Название",
+                "name": "item_title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                  "width": "35",
+                  "class": "",
+                  "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+              },
+              {
+                "key": "field_mdc_menu_item_page",
+                "label": "Страница",
+                "name": "item_page",
+                "aria-label": "",
+                "type": "post_object",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                  "width": "45",
+                  "class": "",
+                  "id": ""
+                },
+                "post_type": [
+                  "page"
+                ],
+                "post_status": [
+                  "publish"
+                ],
+                "taxonomy": "",
+                "return_format": "id",
+                "multiple": 0,
+                "allow_null": 0,
+                "bidirectional": 0,
+                "ui": 1
+              },
+              {
+                "key": "field_mdc_menu_item_type",
+                "label": "Тип пункта",
+                "name": "item_type",
+                "aria-label": "",
+                "type": "select",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                  "width": "20",
+                  "class": "",
+                  "id": ""
+                },
+                "choices": {
+                  "link": "Обычная ссылка",
+                  "services": "Услуги с мегаменю"
+                },
+                "default_value": "link",
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": ""
+              },
+              {
+                "key": "field_mdc_mega_menu",
+                "label": "Мегаменю услуг",
+                "name": "mega_menu",
+                "aria-label": "",
+                "type": "group",
+                "instructions": "Колонки, направления и услуги задаются вручную. Страницу можно убрать из меню, не снимая её с публикации.",
+                "required": 0,
+                "conditional_logic": [
+                  [
+                    {
+                      "field": "field_mdc_menu_item_type",
+                      "operator": "==",
+                      "value": "services"
+                    }
+                  ]
+                ],
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                  {
+                    "key": "field_mdc_mega_columns",
+                    "label": "Колонки",
+                    "name": "columns",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Порядок строк = порядок колонок.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    },
+                    "layout": "block",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Добавить колонку",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                      {
+                        "key": "field_mdc_column_directions",
+                        "label": "Направления",
+                        "name": "directions",
+                        "aria-label": "",
+                        "type": "repeater",
+                        "instructions": "Порядок направлений внутри колонки можно менять перетаскиванием.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                          "width": "",
+                          "class": "",
+                          "id": ""
+                        },
+                        "layout": "block",
+                        "pagination": 0,
+                        "min": 0,
+                        "max": 0,
+                        "collapsed": "field_mdc_direction_page",
+                        "button_label": "Добавить направление",
+                        "rows_per_page": 20,
+                        "sub_fields": [
+                          {
+                            "key": "field_mdc_direction_page",
+                            "label": "Страница направления",
+                            "name": "direction_page",
+                            "aria-label": "",
+                            "type": "post_object",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                              "width": "60",
+                              "class": "",
+                              "id": ""
+                            },
+                            "post_type": [
+                              "page"
+                            ],
+                            "post_status": [
+                              "publish"
+                            ],
+                            "taxonomy": "",
+                            "return_format": "id",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "bidirectional": 0,
+                            "ui": 1
+                          },
+                          {
+                            "key": "field_mdc_direction_title",
+                            "label": "Название в меню",
+                            "name": "direction_title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Необязательно. Если пусто, выводится название страницы.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                              "width": "40",
+                              "class": "",
+                              "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                          },
+                          {
+                            "key": "field_mdc_direction_services",
+                            "label": "Услуги",
+                            "name": "services",
+                            "aria-label": "",
+                            "type": "relationship",
+                            "instructions": "Выберите только те страницы, которые должны быть в меню. Порядок выбранных страниц можно менять перетаскиванием.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                              "width": "",
+                              "class": "",
+                              "id": ""
+                            },
+                            "post_type": [
+                              "page"
+                            ],
+                            "post_status": [
+                              "publish"
+                            ],
+                            "taxonomy": "",
+                            "filters": [
+                              "search"
+                            ],
+                            "return_format": "id",
+                            "min": 0,
+                            "max": 0,
+                            "elements": "",
+                            "bidirectional": 0,
+                            "bidirectional_target": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "options_page",
+          "operator": "==",
+          "value": "theme-menu-settings"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0
+  }
+]

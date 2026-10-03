@@ -1,0 +1,262 @@
+@use 'base/index'as *;
+
+.doctors-page-template {
+  .fluid-glow {
+    left: -20rem;
+    right: 0;
+    top: calc(1px - var(--header-height));
+    width: 70rem;
+    height: 70rem;
+    background-color: rgba(var(--accent-rgb), .15);
+
+    @supports (background: color-mix(in oklab, red, white)) {
+      background-color: color-mix(in oklab, var(--accent) 15%, transparent);
+    }
+  }
+}
+
+.doctor-info {
+  position: relative;
+  @include section;
+
+
+  &__grid {
+    display: grid;
+    align-items: start;
+    grid-template-columns: minmax(0, 1fr) 32rem;
+    gap: 8rem;
+
+    @include main {
+      grid-template-columns: minmax(0, 1fr) 28rem;
+      gap: 5rem;
+    }
+
+    @include md {
+      grid-template-columns: 1fr;
+      gap: 5rem;
+    }
+
+    @supports (gap: clamp(1rem, 2rem, 3rem)) {
+      @include fluid(column-gap, 4, 8);
+    }
+  }
+
+  &__content {
+    min-width: 0;
+  }
+
+  &__section {
+    padding: 5rem 0;
+    border-bottom: 1px solid rgba(var(--accent-rgb), 0.4);
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    @include xs {
+      padding: 3.5rem 0;
+    }
+
+    @supports (padding: clamp(1rem, 2rem, 3rem)) {
+      @include fluid(padding-top, 3.5, 5);
+      @include fluid(padding-bottom, 3.5, 5);
+    }
+  }
+
+  &__title {
+    margin-bottom: 3rem;
+
+    @include xs {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__text {
+    max-width: 80rem;
+
+    p {
+      @include p;
+    }
+  }
+
+  &__education {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__education-item {
+    display: grid;
+    grid-template-columns: 15rem minmax(0, 1fr);
+    gap: 3rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(var(--accent-rgb), 0.15);
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    @include xs {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+
+  &__year {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  &__services {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 3rem;
+
+    @include sm {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__service {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 1.2rem;
+    color: var(--text);
+    transition: color 0.3s ease;
+
+    svg {
+      width: 2.2rem;
+      height: 2.2rem;
+      flex: 0 0 auto;
+      color: var(--accent);
+      stroke-width: 1.5;
+    }
+
+    span {
+      @include link-underline;
+    }
+
+    @include hover {
+      color: var(--accent);
+    }
+  }
+
+  &__prices {
+    border-top: 1px solid rgba(var(--accent-rgb), 0.29);
+  }
+
+  &__price {
+    display: flex;
+    padding: 2rem 0;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 3rem;
+    border-bottom: 1px solid rgba(var(--accent-rgb), 0.29);
+
+    strong {
+      flex: 0 0 auto;
+      color: var(--accent);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    @include xs {
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+  }
+
+  &__aside {
+    min-width: 0;
+    position: sticky;
+    top: calc(var(--header-bottom-height) + 1rem);
+
+    @include md {
+      display: none;
+    }
+  }
+
+  &__doctor {
+    visibility: hidden;
+    padding: 3rem;
+    opacity: 0;
+    pointer-events: none;
+    background-color: var(--dark);
+    transform: translateY(-6rem);
+    transition:
+      opacity 0.55s ease,
+      transform 0.65s ease,
+      visibility 0.55s ease;
+    @include border-radius(1.6, 1.2);
+
+    .doctor-info__aside.is-visible & {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .button {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    @include main {
+      padding: 2.5rem;
+    }
+  }
+
+  &__image {
+    aspect-ratio: 5 / 4;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+    background-color: rgba(186, 147, 107, 0.8);
+    @include border-radius(1.2, 1);
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      filter: grayscale(0.15);
+    }
+  }
+
+  &__name {
+    margin-bottom: 1rem;
+    font-size: 1.2em;
+    line-height: 1.15;
+    @include h2-linear-gradient;
+
+    span {
+      display: block;
+    }
+  }
+
+  &__position {
+    margin-bottom: 2.5rem;
+    color: var(--light-soft);
+    font-size: 0.95em;
+    line-height: 1.4;
+  }
+
+  .button.trans-white.mini {
+    margin-top: 3rem;
+  }
+}
+
+.doctor-info__education-item[hidden],
+[data-education-toggle][hidden] {
+  display: none;
+}

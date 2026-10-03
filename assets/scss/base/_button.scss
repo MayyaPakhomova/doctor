@@ -1,0 +1,123 @@
+@use 'mixin'as *;
+@use 'fonts'as *;
+@use 'variable'as *;
+.button {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  max-width: max-content;
+  width: 100%;
+  flex-shrink: 0;
+  padding: 2.5rem 3.8rem;
+  border: .1rem solid var(--accent-dark);
+  border-radius: $border-radius-5;
+  background-color: var(--accent);
+  color: var(--dark-secondary);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: .9;
+  letter-spacing: .09em;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+  font-family: $font-family-secondary;
+  box-shadow:
+    0 .6rem 1.8rem rgba(var(--dark-rgb), .18),
+    inset 0 .1rem 0 rgba(var(--white-rgb), .18);
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 35%;
+    height: 200%;
+    opacity: .18;
+    filter: blur(.8rem);
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(var(--white-rgb), .75) 50%,
+        transparent 100%);
+    transform: rotate(12deg);
+    pointer-events: none;
+  }
+  @include hover {
+    background-color: var(--accent-hover);
+    box-shadow: 0 .4rem 1.2rem rgba(var(--dark-rgb), .22);
+    &::before {
+      animation: button-glow 2s ease-in-out infinite;
+    }
+  }
+  @include sm {
+    max-width: 100%;
+    padding: 1.5rem 2.8rem;
+  }
+  @include xs {
+    padding: 1.4rem 2rem;
+    font-size: 1.2rem;
+  }
+  &.dark {
+    border-color: var(--accent);
+    background-color: var(--dark);
+    color: var(--accent-light);
+    @include hover {
+      background-color: var(--accent);
+    }
+  }
+  &.trans {
+    border-color: var(--accent);
+    background-color: transparent;
+    color: var(--accent);
+    backdrop-filter: blur(3px);
+  }
+  &.trans-white {
+    border-color: var(--accent);
+    background-color: transparent;
+    color: var(--accent);
+    backdrop-filter: blur(3px);
+    box-shadow: none;
+    &::before {
+      opacity: .55;
+      background: linear-gradient(90deg,
+          transparent 0%,
+          rgba(var(--accent-rgb), .12) 50%,
+          transparent 100%);
+    }
+    @include hover {
+      background-color: rgba(var(--accent-rgb), .08);
+    }
+  }
+  &.trans-light {
+    border-color: var(--accent-light);
+    background-color: transparent;
+    color: var(--accent-light);
+  }
+  &.mini {
+    padding: 1.2rem 2.2rem;
+    text-transform: none;
+    font-size: 0.9em;
+    font-weight: 500;
+    letter-spacing: .02em;
+    @include xs {
+      padding: 1rem 2rem;
+    }
+  }
+  &.center {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  &.button--no-shadow {
+    box-shadow: none;
+  }
+}
+@keyframes button-glow {
+  0% {
+    left: -60%;
+  }
+  35% {
+    left: 125%;
+  }
+  100% {
+    left: 125%;
+  }
+}

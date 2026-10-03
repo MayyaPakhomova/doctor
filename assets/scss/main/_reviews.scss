@@ -1,16 +1,86 @@
 @use 'base/index'as *;
 .reviews {
+  overflow: hidden;
   position: relative;
-  z-index : 2;
+  z-index: 2;
+
+  &__slider {
+    overflow: visible;
+  }
+
   &__items {
-    display              : grid;
+    display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap                  : 2rem;
+    gap: 2rem;
+
     @include main {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
     @include sm {
-      grid-template-columns: 1fr;
+      display: flex;
+      gap: 0;
+    }
+  }
+
+  &__bottom {
+    display: none;
+
+    @include sm {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    position: static;
+    width: auto;
+
+    .swiper-pagination-bullet {
+      width: 0.8rem;
+      height: 0.8rem;
+      margin: 0 0.5rem;
+      opacity: 1;
+      background-color: var(--border);
+      @include transition;
+    }
+
+    .swiper-pagination-bullet-active {
+      width: 2.4rem;
+      border-radius: 1rem;
+      background-color: var(--accent);
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__prev,
+  &__next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.6rem;
+    height: 4.6rem;
+    color: var(--accent);
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: $border-radius-5;
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    &.swiper-button-disabled {
+      opacity: 0.5;
+      pointer-events: none;
     }
   }
 }
@@ -52,14 +122,23 @@
     &--yandex {
       width : 8rem;
       height: 2.5rem;
+         @include xs {
+            width : 6rem;
+      }
     }
     &--2gis {
       width : 8rem;
       height: 2.26rem;
+            @include xs {
+            width : 6rem;
+      }
     }
     &--prodoctorov {
       width : 14rem;
       height: 2rem;
+      @include xs {
+            width : 12rem;
+      }
     }
   }
   &__rating {
@@ -67,6 +146,9 @@
     line-height   : 1;
     letter-spacing: 0.4rem;
     color         : rgba(var(--dark-rgb), 0.45);
+       @include xs {
+          font-size     : 1.6rem;
+       }
   }
   &__text {
     margin-bottom: 3rem;

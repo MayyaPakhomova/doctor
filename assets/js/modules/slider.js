@@ -82,17 +82,17 @@ if (pageServicesSlider) {
     grabCursor: true,
         loop: true,
 
-    creativeEffect: {
-      prev: {
-        translate: ['35%', '25%', 0],
-        opacity: 0,
-      },
+creativeEffect: {
+  prev: {
+    translate: ['-35%', '25%', 0],
+    opacity: 0,
+  },
 
-      next: {
-        translate: ['-35%', '-25%', 0],
-        opacity: 0,
-      },
-    },
+  next: {
+    translate: ['35%', '-25%', 0],
+    opacity: 0,
+  },
+},
 
     autoplay: {
       delay: 3000,
@@ -104,4 +104,38 @@ if (pageServicesSlider) {
       clickable: true,
     },
   });
+}
+
+
+const reviewsSlider = document.querySelector('.reviews__slider');
+
+if (reviewsSlider) {
+  const mobile = window.matchMedia('(max-width: 768px)');
+  let reviewsSwiper = null;
+
+  const initReviewsSlider = () => {
+    if (mobile.matches && !reviewsSwiper) {
+      reviewsSwiper = new Swiper(reviewsSlider, {
+        slidesPerView: 1.1,
+        spaceBetween: 16,
+        speed: 700,
+        pagination: {
+          el: '.reviews__pagination',
+          clickable: true,
+        },
+        navigation: {
+          prevEl: '.reviews__prev',
+          nextEl: '.reviews__next',
+        },
+      });
+    }
+
+    if (!mobile.matches && reviewsSwiper) {
+      reviewsSwiper.destroy(true, true);
+      reviewsSwiper = null;
+    }
+  };
+
+  initReviewsSlider();
+  mobile.addEventListener('change', initReviewsSlider);
 }

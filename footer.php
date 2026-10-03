@@ -36,7 +36,9 @@
       <nav class="footer__nav" aria-label="Навигация в подвале"><a href="#">О клинике</a><a href="#">Услуги</a><a href="#">Врачи</a><a href="#">Статьи</a><a href="#">Наши работы</a><a href="#">Отзывы</a><a href="#">Контакты</a></nav>
       <div class="footer__contacts"><a class="footer__phone" href="tel:+74993978888"> +7 499 397 88 88 </a><a class="footer__address" href="https://yandex.ru/maps/-/CTdNUTJR" target="_blank" rel="noopener"> Москва, ул. Вавилова, д. 79 к. 1 </a>
         <div class="footer__schedule"> Ежедневно с 10:00 до 22:00 </div>
-        <div class="footer__socials"><a class="footer__social social-icon" href="#" target="_blank" rel="noopener noreferrer" aria-label="Дзен"><?php include 'svg/dzen.php'; ?></a><a class="footer__social social-icon" href="#" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><?php include 'svg/telegram.php'; ?></a><a class="footer__social social-icon" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><?php include 'svg/instagram.php'; ?></a></div>
+        <div class="footer__socials"><a class="footer__social social-icon" href="#" target="_blank" rel="noopener noreferrer" aria-label="Дзен"><?php include 'svg/dzen.php'; ?></a><a class="footer__social social-icon" href="#" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><?php include 'svg/telegram.php'; ?></a>  <div class="footer__social-wrap">
+    <a class="footer__social social-icon" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><?php include 'svg/instagram.php'; ?></a>
+  </div></div>
       </div>
     </div>
     <div class="footer__info">

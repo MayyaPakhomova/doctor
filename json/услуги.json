@@ -1,0 +1,329 @@
+[
+  {
+    "key": "group_mdc_service_content",
+    "title": "Контент страницы услуги",
+    "fields": [
+      {
+        "key": "field_mdc_service_content_blocks",
+        "label": "Контент",
+        "name": "service_content_blocks",
+        "aria-label": "",
+        "type": "flexible_content",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "layouts": {
+          "layout_mdc_service_content_text": {
+            "key": "layout_mdc_service_content_text",
+            "name": "service_content_text",
+            "label": "Текст",
+            "display": "block",
+            "sub_fields": [
+              {
+                "key": "field_mdc_service_content_text_content",
+                "label": "Текст",
+                "name": "service_content_text_content",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 0,
+                "delay": 0
+              }
+            ],
+            "min": "",
+            "max": ""
+          },
+          "layout_mdc_service_content_image": {
+            "key": "layout_mdc_service_content_image",
+            "name": "service_content_image",
+            "label": "Изображение",
+            "display": "block",
+            "sub_fields": [
+              {
+                "key": "field_mdc_service_content_image_file",
+                "label": "Изображение",
+                "name": "service_content_image_file",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                },
+                "return_format": "array",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "jpg,jpeg,png,webp",
+                "preview_size": "medium"
+              },
+              {
+                "key": "field_mdc_service_content_image_caption",
+                "label": "Подпись",
+                "name": "service_content_image_caption",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+              }
+            ],
+            "min": "",
+            "max": ""
+          },
+          "layout_mdc_service_content_video": {
+            "key": "layout_mdc_service_content_video",
+            "name": "service_content_video",
+            "label": "Видео",
+            "display": "block",
+            "sub_fields": [
+              {
+                "key": "field_mdc_service_content_video_file",
+                "label": "Видео",
+                "name": "service_content_video_file",
+                "aria-label": "",
+                "type": "file",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                },
+                "return_format": "array",
+                "library": "all",
+                "min_size": "",
+                "max_size": "",
+                "mime_types": "mp4,webm,ogg"
+              },
+              {
+                "key": "field_mdc_service_content_video_caption",
+                "label": "Подпись",
+                "name": "service_content_video_caption",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+              }
+            ],
+            "min": "",
+            "max": ""
+          },
+          "layout_mdc_service_content_table": {
+            "key": "layout_mdc_service_content_table",
+            "name": "service_content_table",
+            "label": "Таблица",
+            "display": "block",
+            "sub_fields": [
+              {
+                "key": "field_mdc_service_content_table_headers",
+                "label": "Заголовки колонок",
+                "name": "service_content_table_headers",
+                "aria-label": "",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                },
+                "layout": "table",
+                "pagination": 0,
+                "min": 0,
+                "max": 0,
+                "collapsed": "",
+                "button_label": "Добавить колонку",
+                "rows_per_page": 20,
+                "sub_fields": [
+                  {
+                    "key": "field_mdc_service_content_table_header_text",
+                    "label": "Заголовок",
+                    "name": "service_content_table_header_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_mdc_service_content_table_headers"
+                  }
+                ]
+              },
+              {
+                "key": "field_mdc_service_content_table_rows",
+                "label": "Строки таблицы",
+                "name": "service_content_table_rows",
+                "aria-label": "",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                },
+                "layout": "block",
+                "pagination": 0,
+                "min": 0,
+                "max": 0,
+                "collapsed": "",
+                "button_label": "Добавить строку",
+                "rows_per_page": 20,
+                "sub_fields": [
+                  {
+                    "key": "field_mdc_service_content_table_row_cells",
+                    "label": "Ячейки",
+                    "name": "service_content_table_row_cells",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                      "width": "",
+                      "class": "",
+                      "id": ""
+                    },
+                    "layout": "table",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Добавить ячейку",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                      {
+                        "key": "field_mdc_service_content_table_cell_text",
+                        "label": "Текст",
+                        "name": "service_content_table_cell_text",
+                        "aria-label": "",
+                        "type": "textarea",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                          "width": "",
+                          "class": "",
+                          "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "rows": 2,
+                        "placeholder": "",
+                        "new_lines": "br",
+                        "parent_repeater": "field_mdc_service_content_table_row_cells"
+                      }
+                    ],
+                    "parent_repeater": "field_mdc_service_content_table_rows"
+                  }
+                ]
+              }
+            ],
+            "min": "",
+            "max": ""
+          },
+          "layout_mdc_service_content_highlight": {
+            "key": "layout_mdc_service_content_highlight",
+            "name": "service_content_highlight",
+            "label": "Выделенный текст",
+            "display": "block",
+            "sub_fields": [
+              {
+                "key": "field_mdc_service_content_highlight_text",
+                "label": "Текст",
+                "name": "service_content_highlight_text",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                  "width": "",
+                  "class": "",
+                  "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "basic",
+                "media_upload": 0,
+                "delay": 0
+              }
+            ],
+            "min": "",
+            "max": ""
+          }
+        },
+        "button_label": "Добавить блок",
+        "min": "",
+        "max": ""
+      }
+    ],
+    "location": [],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1790775000
+  }
+]

@@ -1,0 +1,201 @@
+@use 'base/index'as *;
+
+.page-new {
+  background: linear-gradient(180deg, var(--bg-light) 0%, var(--white) 100%);
+  @include mini-page-official;
+
+  & {
+    overflow: visible;
+    padding-bottom: 0;
+    @include section;
+  }
+
+  h1 {
+    @include margin;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 8rem;
+
+    @supports (gap: clamp(1rem, 2rem, 3rem)) {
+      @include fluid(gap, 4, 8);
+    }
+
+    @include main {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__left {
+    position: sticky;
+    top: calc(var(--header-bottom-height) + 1rem);
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
+    border: 1px solid var(--border);
+    background-color: var(--white);
+    @include border-radius(1.6, 1.2);
+
+    @include main {
+      position: static;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__right {
+    min-width: 0;
+  }
+}
+
+.page-new-back {
+  position: relative;
+  overflow: clip;
+  display: flow-root;
+
+  .fluid-decor {
+    position: absolute;
+    inset: 0;
+    top: calc(1px - var(--header-height));
+    pointer-events: none;
+    z-index: 105;
+  }
+
+  .fluid-glow {
+    position: absolute;
+    top: calc(1px - var(--header-height));
+    left: -20rem;
+    width: 70rem;
+    height: 70rem;
+    background-color: rgba(var(--accent-rgb), .30);
+    filter: blur(12rem);
+    animation: glow-pulse 5s ease-in-out infinite;
+    pointer-events: none;
+    border-radius: 50%;
+
+    @supports (background: color-mix(in oklab, red, white)) {
+      background-color: color-mix(in oklab, var(--accent) 30%, transparent);
+    }
+
+    @include main {
+      top: 110rem;
+      right: -15rem;
+      width: 40rem;
+      height: 40rem;
+    }
+
+    @include xs {
+      display: none;
+    }
+  }
+}
+
+.article-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem 3rem;
+  background: var(--dark);
+
+  @include safe-gap-column(3rem, 2rem);
+
+  & {
+    @include border-radius(1.6, 1.2);
+  }
+
+  @include main {
+    flex-direction: row;
+  }
+
+  @include xs {
+    flex-direction: column;
+    padding-bottom: 2rem;
+  }
+
+  @include hover {
+    .article-card__title {
+      color: var(--accent);
+    }
+
+    .article-card__excerpt {
+      color: var(--white);
+    }
+
+    >img {
+      transform: scale(1.05) rotate(1deg);
+      filter: brightness(1.1) contrast(1.15) saturate(1.1);
+    }
+  }
+
+  &__link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__image {
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: var(--white);
+    @include border-radius(1.4, 1);
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.4s ease;
+    }
+    @include main{
+      max-width: 40%;
+    }
+    @include xs{
+      max-width: 100%;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    line-height: 1.7;
+
+    @include safe-gap-column(1.5rem);
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+    color: var(--light-soft);
+    transition: all 0.4s ease;
+
+    @include main {
+      min-height: 0;
+    }
+  }
+
+  &__excerpt {
+    color: var(--light-soft);
+    transition: all 0.4s ease;
+  }
+
+  &__button {
+    position: relative;
+    z-index: 2;
+    align-self: flex-start;
+    margin-top: auto;
+
+  }
+}

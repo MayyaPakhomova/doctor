@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   mapContainer.onclick = function () {
     mapElement.style.pointerEvents = 'auto';
+      mapContainer.setAttribute('data-lenis-prevent-wheel', '');
 
     mapTitle.remove();
     styleElement.remove();

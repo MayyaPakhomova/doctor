@@ -1,0 +1,224 @@
+@use 'mixin'as *;
+@use 'fonts'as *;
+@use 'variable'as *;
+.wysiwyg-component {
+  h1 {
+    margin: 0 0 2rem;
+    @include h2;
+    &:not(:first-child) {
+      padding-top: 3.5rem;
+    }
+  }
+  h2 {
+    margin: 0 0 2rem;
+    &:not(:first-child) {
+      padding-top: 3.5rem;
+    }
+  }
+  h3 {
+    margin: 0 0 1.5rem;
+    &:not(:first-child) {
+      padding-top: 2rem;
+    }
+  }
+  h4,
+  h5,
+  h6 {
+    margin: 0 0 1.25rem;
+    &:not(:first-child) {
+      padding-top: 2rem;
+    }
+  }
+  p {
+    margin: 0 0 1.5rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  ul,
+  ol {
+    margin: 1.5rem 0 2rem;
+    &:first-child {
+      padding-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+    li {
+      margin-bottom: 1rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  ul {
+    padding-left: 0;
+    list-style: none;
+    li {
+      position: relative;
+      padding-left: 2rem;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0.65em;
+        left: 0;
+        width: 0.7rem;
+        height: 0.7rem;
+        border-radius: 50%;
+        background-color: var(--accent);
+      }
+    }
+  }
+  ol {
+    padding-left: 2rem;
+    list-style: decimal;
+    li::marker {
+      color: var(--accent);
+    }
+  }
+  a {
+    display: inline;
+    font-style: italic;
+    color: var(--accent-dark);
+    @include link-underline;
+  }
+  em,
+  i {
+    font-style: normal;
+  }
+  blockquote {
+    margin: 0 0 2rem;
+    padding-left: 1.5rem;
+    border-left: 5px solid var(--accent);
+    @include xs {
+      margin-bottom: 1.2rem;
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+    cite {
+      display: block;
+      margin-top: 1rem;
+    }
+  }
+  hr {
+    margin: 3rem 0;
+    border: 0;
+    border-top: 1px solid var(--border);
+  }
+  img,
+  video {
+    margin-top: 3rem;
+    display: block;
+    height: auto;
+    max-width: 100%;
+    @include border-radius(1.6, 1.2);
+    &.is-landscape {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+    }
+    &.is-vertical {
+      width: auto;
+      max-height: 50vh;
+    }
+  }
+  figure {
+    margin: 0 0 2rem;
+    @include xs {
+      margin-bottom: 1.2rem;
+    }
+  }
+  figure img {
+    margin-bottom: 0;
+  }
+  figcaption,
+  .wp-element-caption {
+    font-size: 0.95em;
+    margin-top: 1rem;
+    color: var(--text-muted);
+  }
+  table {
+    width: 100%;
+    margin-bottom: 2rem;
+    border-collapse: collapse;
+    @include xs {
+      margin-bottom: 1.2rem;
+    }
+    @include main {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      &::-webkit-scrollbar {
+        width: 1px;
+        height: 1px;
+      }
+      &::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+      }
+    }
+    thead {
+      border-bottom: 1px solid var(--border);
+      background-color: rgba(var(--accent-rgb), 0.12);
+    }
+    th,
+    td {
+      padding: 1rem 1.2rem;
+      border: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      font-weight: 400;
+    }
+    tbody tr:nth-child(even) {
+      background-color: var(--white);
+    }
+  }
+  iframe {
+    margin-top: 3rem;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    @include border-radius(1.6, 1.2);
+  }
+  &--article {
+    h1,h2 {
+      font-size: 3rem;
+      @include main {
+        font-size: 2.6rem;
+      }
+      @include sm {
+        font-size: 1.9rem;
+      }
+      @supports (font-size: clamp(1rem, 2rem, 3rem)) {
+        @include fluid(font-size, 1.9, 3);
+      }
+      &:not(:first-child) {
+        padding-top: 3rem;
+      }
+    }
+    h3,
+    h4,
+    h5,
+    h6 {
+      &:not(:first-child) {
+        padding-top: 1.5rem;
+      }
+    }
+    img,
+    video,
+    iframe {
+      margin-top: 2.5rem;
+    }
+    figure {
+      margin-bottom: 2.5rem;
+    }
+  }
+}

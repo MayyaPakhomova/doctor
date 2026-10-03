@@ -475,7 +475,7 @@ background-color: var(--bg-light) !important;
       padding: 1.4rem;
       color: var(--dark);
       border: 1px solid rgba(var(--white-rgb), 0.25);
-      border-radius: 0.5rem;
+        border-radius: $border-radius-5;
       outline: none;
       background-color: rgba(var(--white-rgb), 0.95);
       transition:
@@ -512,11 +512,6 @@ background-color: var(--bg-light) !important;
     color: var(--light-soft) !important;
     background-color: var(--dark) !important;
     @include border-radius(1.6, 1.2);
-
-    & {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-    }
   }
 
   .feedback-form__checkbox {

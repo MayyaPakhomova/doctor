@@ -55,126 +55,79 @@
                    <div class="fluid-glow"></div>
                  </div>
                  <div class="container" data-mega-container>
-                   <div class="header__grid">
-                     <div class="header__column">
-                       <div class="header__group">
-                         <a class="header__title" href="#">Приём и консультация</a>
-                         <ul class="header__links">
-                           <li><a href="#">Терапевт</a></li>
-                           <li><a href="#">Хирург</a></li>
-                           <li><a href="#">Ортопед</a></li>
-                           <li><a href="#">Ортодонт</a></li>
-                         </ul>
-                       </div>
-                       <div class="header__group">
-                         <a class="header__title" href="#">Диагностика и рентген</a>
-                         <ul class="header__links">
-                           <li><a href="#">Прицельный снимок</a></li>
-                           <li><a href="#">ОПТГ</a></li>
-                           <li><a href="#">КТ</a></li>
-                           <li><a href="#">3D-сканирование</a></li>
-                         </ul>
-                       </div>
-                       <div class="header__group">
-                         <a class="header__title" href="#">Терапия и эндодонтия</a>
-                         <ul class="header__links">
-                           <li><a href="#">Лечение кариеса</a></li>
-                           <li><a href="#">Лечение пульпита</a></li>
-                           <li><a href="#">Лечение каналов</a></li>
-                           <li><a href="#">Лечение под микроскопом</a></li>
-                         </ul>
-                       </div>
-                       <div class="header__group">
-                         <a class="header__title" href="#">Гигиена и пародонтология</a>
-                         <ul class="header__links">
-                           <li><a href="#">Профессиональная гигиена</a></li>
-                           <li><a href="#">Отбеливание зубов</a></li>
-                           <li><a href="#">Лечение дёсен</a></li>
-                           <li><a href="#">Лечение на аппарате Vector</a></li>
-                         </ul>
-                       </div>
-                     </div>
-                     <div class="header__column">
-                       <div class="header__group">
-                         <a class="header__title" href="#">Хирургия</a>
-                         <ul class="header__links">
-                           <li><a href="#">Удаление зубов</a></li>
-                           <li><a href="#">Удаление зубов мудрости</a></li>
-                           <li><a href="#">Синус-лифтинг</a></li>
-                           <li><a href="#">Костная пластика</a></li>
-                         </ul>
-                       </div>
-                       <div class="header__group">
-                         <a class="header__title" href="#">Челюстно-лицевая хирургия</a>
-                         <ul class="header__links">
-                           <li><a href="#">Пластика десны</a></li>
-                           <li><a href="#">Пластика альвеолярного гребня</a></li>
-                           <li><a href="#">Удаление кист</a></li>
-                           <li><a href="#">Костная регенерация</a></li>
-                         </ul>
-                       </div>
-                       <div class="header__group">
-                         <a class="header__title" href="#">Имплантация</a>
-                         <ul class="header__links">
-                           <li><a href="#">Straumann</a></li>
-                           <li><a href="#">Dentium</a></li>
-                           <li><a href="#">All-on-4</a></li>
-                           <li><a href="#">All-on-6</a></li>
-                         </ul>
-                       </div>
-                       <div class="header__group">
-                         <a class="header__title" href="#">Гнатология / ВНЧС</a>
-                         <ul class="header__links">
-                           <li><a href="#">Диагностика ВНЧС</a></li>
-                           <li><a href="#">Сплинт-терапия</a></li>
-                           <li><a href="#">Лечение дисфункции ВНЧС</a></li>
-                         </ul>
-                       </div>
-                     </div>
-                     <div class="header__column">
-                       <div class="header__group">
-                         <a class="header__title" href="#">Протезирование</a>
-                         <ul class="header__links">
-                           <li><a href="#">Коронки</a></li>
-                           <li><a href="#">Виниры</a></li>
-                           <li><a href="#">Съёмное протезирование</a></li>
-                           <li><a href="#">Протезирование на имплантах</a></li>
-                         </ul>
-                       </div>
-                       <div class="header__group">
-                         <a class="header__title" href="#">Ортодонтия</a>
-                         <ul class="header__links">
-                           <li><a href="#">Брекеты</a></li>
-                           <li><a href="#">Элайнеры</a></li>
-                           <li><a href="#">Ретейнеры и каппы</a></li>
-                         </ul>
-                       </div>
-                       <div class="header__group">
-                         <a class="header__title" href="#">Детская стоматология</a>
-                         <ul class="header__links">
-                           <li><a href="#">Лечение зубов</a></li>
-                           <li><a href="#">Профессиональная гигиена</a></li>
-                           <li><a href="#">Пластика уздечки</a></li>
-                           <li><a href="#">Детская ортодонтия</a></li>
-                         </ul>
-                       </div>
-                       <div class="header__group">
-                         <a class="header__title" href="#">ЛОР-стоматология</a>
-                         <ul class="header__links">
-                           <li>
-                             <a href="#">
-                               Удаление инородных тел и санация гайморовой пазухи
-                             </a>
-                           </li>
-                           <li>
-                             <a href="#">
-                               Удаление новообразований и санация гайморовой пазухи
-                             </a>
-                           </li>
-                         </ul>
-                       </div>
-                     </div>
-                   </div>
+         <div class="header__grid">
+  <div class="header__column">
+    <div class="header__group">
+      <a class="header__title" href="#">Ортопедия</a>
+      <ul class="header__links">
+        <li><a href="#">Виниры</a></li>
+        <li><a href="#">Люминиры</a></li>
+        <li><a href="#">Коронка из циркония</a></li>
+        <li><a href="#">Коронка на имплантате</a></li>
+        <li><a href="#">Съёмные протезы</a></li>
+      </ul>
+    </div>
+
+    <div class="header__group">
+      <a class="header__title" href="#">Терапия</a>
+      <ul class="header__links">
+        <li><a href="#">Лечение кариеса</a></li>
+        <li><a href="#">Лечение пульпита</a></li>
+        <li><a href="#">Восстановление зуба</a></li>
+      </ul>
+    </div>
+
+    <div class="header__group">
+      <a class="header__title" href="#">Комфорт</a>
+      <ul class="header__links">
+        <li><a href="#">Лечение зубов под седацией</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="header__column">
+    <div class="header__group">
+      <a class="header__title" href="#">Хирургия</a>
+      <ul class="header__links">
+        <li><a href="#">Имплантация зубов</a></li>
+        <li><a href="#">Удаление зубов</a></li>
+        <li><a href="#">Удаление зуба мудрости</a></li>
+        <li><a href="#">Костная пластика</a></li>
+        <li><a href="#">Синус-лифтинг</a></li>
+        <li><a href="#">Тоннельная пластика</a></li>
+        <li><a href="#">Пластика мягких тканей</a></li>
+        <li><a href="#">All-on-4/6</a></li>
+      </ul>
+    </div>
+
+    <div class="header__group">
+      <a class="header__title" href="#">Гигиена</a>
+      <ul class="header__links">
+        <li><a href="#">Профессиональная гигиена полный комплекс</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="header__column">
+    <div class="header__group">
+      <a class="header__title" href="#">Ортодонтия</a>
+      <ul class="header__links">
+        <li><a href="#">Брекеты</a></li>
+        <li><a href="#">Элайнеры</a></li>
+        <li><a href="#">Пластинки</a></li>
+        <li><a href="#">Расширение челюсти</a></li>
+      </ul>
+    </div>
+
+    <div class="header__group">
+      <a class="header__title" href="#">Отбеливание</a>
+      <ul class="header__links">
+        <li><a href="#">Лазерное отбеливание</a></li>
+        <li><a href="#">Отбеливание светом</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
                  </div>
                </div>
              </li>

@@ -27,7 +27,13 @@ Baby,
 ScanEye,
 Network,
 Clock3,
-
+Award,
+GraduationCap,
+Activity,
+WalletCards,
+Star,
+    CalendarDays,
+    SquareCheckBig,
 } from 'lucide';
 
 createIcons({
@@ -60,5 +66,12 @@ Baby,
 ScanEye,
 Network,
 Clock3,
+Award,
+GraduationCap,
+Activity,
+WalletCards,
+Star,
+    CalendarDays,
+    SquareCheckBig,
   },
 });

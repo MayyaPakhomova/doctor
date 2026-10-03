@@ -438,3 +438,52 @@ $fluid-max-screen: 1440;
     @include fluid(padding-bottom, 4, 8);
   }
 }
+
+@mixin page-heading {
+  &__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+
+    @include main {
+      align-items: center;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 2rem;
+    color: var(--accent);
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+    @include h2-linear-gradient;
+
+    [data-light_theme] & {
+      color: var(--dark);
+      background: none;
+      -webkit-text-fill-color: currentColor;
+    }
+  }
+
+  &__text {
+    color: var(--light-soft);
+    font-size: 1.2em;
+    line-height: 1.3;
+    @include margin;
+
+    [data-light_theme] & {
+      color: var(--text-muted);
+    }
+p{
+  @include p;
+}
+    @include main {
+      text-align: center;
+    }
+  }
+}

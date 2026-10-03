@@ -148,8 +148,145 @@ if (about) {
     titleObserver.observe(aboutTitle);
   }
 }
+
+
 });
 
+const wysiwygImages = document.querySelectorAll('.wysiwyg-component img');
+const wysiwygVideos = document.querySelectorAll('.wysiwyg-component video');
+
+wysiwygImages.forEach((wysiwygImage) => {
+  const setWysiwygImageType = () => {
+    if (wysiwygImage.naturalWidth > wysiwygImage.naturalHeight) {
+      wysiwygImage.classList.add('is-landscape');
+    } else {
+      wysiwygImage.classList.add('is-vertical');
+    }
+  };
+
+  if (wysiwygImage.complete) {
+    setWysiwygImageType();
+  } else {
+    wysiwygImage.addEventListener('load', setWysiwygImageType);
+  }
+});
+
+wysiwygVideos.forEach((wysiwygVideo) => {
+  const setWysiwygVideoType = () => {
+    if (wysiwygVideo.videoWidth > wysiwygVideo.videoHeight) {
+      wysiwygVideo.classList.add('is-landscape');
+    } else {
+      wysiwygVideo.classList.add('is-vertical');
+    }
+  };
+
+  if (wysiwygVideo.readyState >= 1) {
+    setWysiwygVideoType();
+  } else {
+    wysiwygVideo.addEventListener('loadedmetadata', setWysiwygVideoType);
+  }
+});
+
+
+window.addEventListener('load', () => {
+  const lenis = new Lenis({
+    lerp: 0.08,
+    smoothWheel: true,
+    wheelMultiplier: 0.9,
+    touchMultiplier: 1
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+});
+const doctorSingle = document.querySelector('.doctor-single');
+const doctorInfoAside = document.querySelector('.doctor-info__aside');
+if (doctorSingle && doctorInfoAside) {
+  let ticking = false;
+  const toggleDoctorAside = () => {
+    const headerHeight = parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue('--header-height')
+    ) || 0;
+    const doctorBottom = doctorSingle.getBoundingClientRect().bottom;
+    doctorInfoAside.classList.toggle(
+      'is-visible',
+      doctorBottom <= headerHeight
+    );
+    ticking = false;
+  };
+  const handleDoctorScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(toggleDoctorAside);
+  };
+  toggleDoctorAside();
+  window.addEventListener('scroll', handleDoctorScroll, { passive: true });
+  window.addEventListener('resize', toggleDoctorAside);
+}
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('[data-education-toggle]').forEach((button) => {
+    const section = button.closest('.doctor-info__section');
+    const list = section.querySelector('.doctor-info__education');
+    const items = list.querySelectorAll('.doctor-info__education-item');
+    if (items.length <= 4) return;
+    const extraItems = Array.from(items).slice(4);
+    let expanded = false;
+    extraItems.forEach((item) => {
+      item.hidden = true;
+    });
+    button.hidden = false;
+    button.setAttribute('aria-expanded', 'false');
+    button.addEventListener('click', async () => {
+      if (button.disabled) return;
+      button.disabled = true;
+      const startHeight = list.getBoundingClientRect().height;
+      const previousOverflow = list.style.overflow;
+      expanded = !expanded;
+      extraItems.forEach((item) => {
+        item.hidden = !expanded;
+      });
+      const endHeight = list.getBoundingClientRect().height;
+      extraItems.forEach((item) => {
+        item.hidden = false;
+      });
+      list.style.overflow = 'hidden';
+      const animation = list.animate(
+        [
+          { height: `${startHeight}px` },
+          { height: `${endHeight}px` }
+        ],
+        {
+          duration: 350,
+          easing: 'ease-in-out'
+        }
+      );
+      extraItems.forEach((item) => {
+        item.animate(
+          [
+            { opacity: expanded ? 0 : 1 },
+            { opacity: expanded ? 1 : 0 }
+          ],
+          {
+            duration: 350,
+            easing: 'ease-in-out'
+          }
+        );
+      });
+      await animation.finished;
+      extraItems.forEach((item) => {
+        item.hidden = !expanded;
+      });
+      list.style.overflow = previousOverflow;
+      button.setAttribute('aria-expanded', String(expanded));
+      button.textContent = expanded ? 'Свернуть' : 'Смотреть все';
+      button.disabled = false;
+    });
+  });
+});
 document.addEventListener("DOMContentLoaded", function () {
   let selectors = document.querySelectorAll('input[type="tel"]');
 if (typeof Inputmask !== 'undefined') {
@@ -225,12 +362,11 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('click', e => {
-  const btn = e.target.closest('[data-path="modal-form"]');
+const btn = e.target.closest('[data-path="modal-form"], [data-path="doctor-appointment"]');
 
   if (!btn) return;
 
-  const modal = document.querySelector('.modal-form');
-
+const modal = document.querySelector(`.modal-form[data-target="${btn.dataset.path}"]`);
   if (!modal) return;
 
   const title = modal.querySelector('.modal-form__title');
@@ -395,6 +531,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   mapContainer.onclick = function () {
     mapElement.style.pointerEvents = 'auto';
+      mapContainer.setAttribute('data-lenis-prevent-wheel', '');
 
     mapTitle.remove();
     styleElement.remove();
@@ -887,17 +1024,17 @@ if (pageServicesSlider) {
     grabCursor: true,
         loop: true,
 
-    creativeEffect: {
-      prev: {
-        translate: ['35%', '25%', 0],
-        opacity: 0,
-      },
+creativeEffect: {
+  prev: {
+    translate: ['-35%', '25%', 0],
+    opacity: 0,
+  },
 
-      next: {
-        translate: ['-35%', '-25%', 0],
-        opacity: 0,
-      },
-    },
+  next: {
+    translate: ['35%', '-25%', 0],
+    opacity: 0,
+  },
+},
 
     autoplay: {
       delay: 3000,
@@ -910,6 +1047,40 @@ if (pageServicesSlider) {
     },
   });
 }
+
+
+const reviewsSlider = document.querySelector('.reviews__slider');
+
+if (reviewsSlider) {
+  const mobile = window.matchMedia('(max-width: 768px)');
+  let reviewsSwiper = null;
+
+  const initReviewsSlider = () => {
+    if (mobile.matches && !reviewsSwiper) {
+      reviewsSwiper = new Swiper(reviewsSlider, {
+        slidesPerView: 1.1,
+        spaceBetween: 16,
+        speed: 700,
+        pagination: {
+          el: '.reviews__pagination',
+          clickable: true,
+        },
+        navigation: {
+          prevEl: '.reviews__prev',
+          nextEl: '.reviews__next',
+        },
+      });
+    }
+
+    if (!mobile.matches && reviewsSwiper) {
+      reviewsSwiper.destroy(true, true);
+      reviewsSwiper = null;
+    }
+  };
+
+  initReviewsSlider();
+  mobile.addEventListener('change', initReviewsSlider);
+}
 const videoBlock = document.querySelector('[data-video-block]');
 
 if (videoBlock) {
@@ -917,15 +1088,13 @@ if (videoBlock) {
   const preview = videoBlock.querySelector('[data-video-preview]');
   const playButton = videoBlock.querySelector('[data-video-play]');
 
-  playButton?.addEventListener('click', () => {
-    if (!video.src) {
-      video.src = video.dataset.src;
-    }
+  videoBlock.addEventListener('click', () => {
+    video.src = video.dataset.src;
 
     preview.style.display = 'none';
     playButton.style.display = 'none';
     video.style.display = 'block';
 
     video.play();
-  });
+  }, { once: true });
 }

@@ -2,6 +2,7 @@
 include $_SERVER['DOCUMENT_ROOT'] . '/head.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/header.php';
 ?>
+<main>
 <section class="services-hero">
   <div class="container">
     <div class="services-hero__inner">
@@ -38,40 +39,79 @@ include $_SERVER['DOCUMENT_ROOT'] . '/header.php';
 </section>
 <section class="direction-services">
   <div class="container">
-    <div class="direction-services__list direction-services__list--4 ">
-      <a class="direction-services__item" href="#">
-        <h3 class="direction-services__name h3-small">Пластика десны</h3>
-        <div class="direction-services__text text-format text-clean">
-          Коррекция формы и объёма мягких тканей вокруг зубов и имплантов.
-        </div>
-        <div class="direction-services__button">Подробнее <i data-lucide="arrow-right"></i></div>
-      </a>
-      <a class="direction-services__item" href="#">
-        <h3 class="direction-services__name h3-small">Пластика альвеолярного гребня</h3>
-        <div class="direction-services__text text-format text-clean">
-          Восстановление формы и объёма тканей перед дальнейшим лечением.
-        </div>
-         <div class="direction-services__button">Подробнее <i data-lucide="arrow-right"></i></div>
-      </a>
-      <a class="direction-services__item" href="#">
-        <h3 class="direction-services__name h3-small">Удаление кист</h3>
-        <div class="direction-services__text text-format text-clean">
-          Хирургическое удаление кистозных образований с сохранением окружающих тканей.
-        </div>
-         <div class="direction-services__button">Подробнее <i data-lucide="arrow-right"></i></div>
-      </a>
-      <a class="direction-services__item" href="#">
-        <h3 class="direction-services__name h3-small">Костная регенерация</h3>
-        <div class="direction-services__text text-format text-clean">
-          Восстановление необходимого объёма костной ткани для последующего лечения.
-        </div>
-         <div class="direction-services__button">Подробнее <i data-lucide="arrow-right"></i></div>
-      </a>
+    <div class="direction-services__inner">
+      <div class="direction-services__list direction-services__list--4">
+        <a class="direction-services__item" href="#">
+          <h3 class="direction-services__name h3-small">Имплантация зубов</h3>
+          <div class="direction-services__text text-format text-clean">
+            Восстановление утраченных зубов с помощью имплантатов и последующего протезирования.
+          </div>
+          <div class="direction-services__button">Подробнее <i data-lucide="arrow-right"></i></div>
+        </a>
+
+        <a class="direction-services__item" href="#">
+          <h3 class="direction-services__name h3-small">Удаление зубов</h3>
+          <div class="direction-services__text text-format text-clean">
+            Бережное удаление зубов по показаниям с сохранением окружающих тканей.
+          </div>
+          <div class="direction-services__button">Подробнее <i data-lucide="arrow-right"></i></div>
+        </a>
+
+        <a class="direction-services__item" href="#">
+          <h3 class="direction-services__name h3-small">Удаление зуба мудрости</h3>
+          <div class="direction-services__text text-format text-clean">
+            Удаление зубов мудрости, в том числе при сложном положении и неполном прорезывании.
+          </div>
+          <div class="direction-services__button">Подробнее <i data-lucide="arrow-right"></i></div>
+        </a>
+
+        <a class="direction-services__item" href="#">
+          <h3 class="direction-services__name h3-small">Костная пластика</h3>
+          <div class="direction-services__text text-format text-clean">
+            Восстановление необходимого объёма костной ткани перед установкой имплантатов.
+          </div>
+          <div class="direction-services__button">Подробнее <i data-lucide="arrow-right"></i></div>
+        </a>
+
+        <a class="direction-services__item" href="#">
+          <h3 class="direction-services__name h3-small">Синус-лифтинг</h3>
+          <div class="direction-services__text text-format text-clean">
+            Увеличение объёма костной ткани в боковых отделах верхней челюсти перед имплантацией.
+          </div>
+          <div class="direction-services__button">Подробнее <i data-lucide="arrow-right"></i></div>
+        </a>
+
+        <a class="direction-services__item" href="#">
+          <h3 class="direction-services__name h3-small">Тоннельная пластика</h3>
+          <div class="direction-services__text text-format text-clean">
+            Малотравматичная коррекция мягких тканей с сохранением естественного контура десны.
+          </div>
+          <div class="direction-services__button">Подробнее <i data-lucide="arrow-right"></i></div>
+        </a>
+
+        <a class="direction-services__item" href="#">
+          <h3 class="direction-services__name h3-small">Пластика мягких тканей</h3>
+          <div class="direction-services__text text-format text-clean">
+            Восстановление объёма и формы мягких тканей вокруг зубов и имплантатов.
+          </div>
+          <div class="direction-services__button">Подробнее <i data-lucide="arrow-right"></i></div>
+        </a>
+
+        <a class="direction-services__item" href="#">
+          <h3 class="direction-services__name h3-small">All-on-4/6</h3>
+          <div class="direction-services__text text-format text-clean">
+            Восстановление зубного ряда на четырёх или шести имплантатах с опорой для несъёмной конструкции.
+          </div>
+          <div class="direction-services__button">Подробнее <i data-lucide="arrow-right"></i></div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 <section class="service-content section">
+
   <div class="container">
+
     <div class="service-content__inner">
       <div class="service-content__main wysiwyg-component text-format">
         <h2>Тестовый заголовок второго уровня</h2>
@@ -199,9 +239,10 @@ include $_SERVER['DOCUMENT_ROOT'] . '/header.php';
         </div>
       </aside>
     </div>
+
   </div>
 </section>
-<section class="faq section-big">
+<section class="faq section">
   <div class="container">
     <div class="faq__title top-title text-format">
       <h2>Часто спрашивают</h2>
@@ -269,6 +310,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/header.php';
     </div>
   </div>
 </section>
+</main>
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
 ?>

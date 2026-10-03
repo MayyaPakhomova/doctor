@@ -94,4 +94,58 @@ if (about) {
     titleObserver.observe(aboutTitle);
   }
 }
+
+
+});
+
+const wysiwygImages = document.querySelectorAll('.wysiwyg-component img');
+const wysiwygVideos = document.querySelectorAll('.wysiwyg-component video');
+
+wysiwygImages.forEach((wysiwygImage) => {
+  const setWysiwygImageType = () => {
+    if (wysiwygImage.naturalWidth > wysiwygImage.naturalHeight) {
+      wysiwygImage.classList.add('is-landscape');
+    } else {
+      wysiwygImage.classList.add('is-vertical');
+    }
+  };
+
+  if (wysiwygImage.complete) {
+    setWysiwygImageType();
+  } else {
+    wysiwygImage.addEventListener('load', setWysiwygImageType);
+  }
+});
+
+wysiwygVideos.forEach((wysiwygVideo) => {
+  const setWysiwygVideoType = () => {
+    if (wysiwygVideo.videoWidth > wysiwygVideo.videoHeight) {
+      wysiwygVideo.classList.add('is-landscape');
+    } else {
+      wysiwygVideo.classList.add('is-vertical');
+    }
+  };
+
+  if (wysiwygVideo.readyState >= 1) {
+    setWysiwygVideoType();
+  } else {
+    wysiwygVideo.addEventListener('loadedmetadata', setWysiwygVideoType);
+  }
+});
+
+
+window.addEventListener('load', () => {
+  const lenis = new Lenis({
+    lerp: 0.08,
+    smoothWheel: true,
+    wheelMultiplier: 0.9,
+    touchMultiplier: 1
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
 });

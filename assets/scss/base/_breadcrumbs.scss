@@ -1,7 +1,7 @@
 @use 'mixin' as *;
 
 .breadcrumbs {
-  max-width: 80%;
+  max-width: 90%;
   color: var(--dark);
 
   @include margin;

@@ -122,4 +122,4 @@ include $_SERVER['DOCUMENT_ROOT'] . '/data.php';
 </symbol>
 </svg>
 
-<body>
+<body data-light_theme>

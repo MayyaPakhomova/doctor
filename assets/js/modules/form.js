@@ -73,12 +73,11 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('click', e => {
-  const btn = e.target.closest('[data-path="modal-form"]');
+const btn = e.target.closest('[data-path="modal-form"], [data-path="doctor-appointment"]');
 
   if (!btn) return;
 
-  const modal = document.querySelector('.modal-form');
-
+const modal = document.querySelector(`.modal-form[data-target="${btn.dataset.path}"]`);
   if (!modal) return;
 
   const title = modal.querySelector('.modal-form__title');

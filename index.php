@@ -423,138 +423,148 @@ include $_SERVER['DOCUMENT_ROOT'] . '/header.php';
             <p>Оригиналы отзывов можно посмотреть на независимых площадках.</p>
           </div>
         </div>
-        <div class="reviews__items">
-          <article class="reviews-card">
-            <div class="reviews-card__top">
-              <a
-                class="reviews-card__source"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Посмотреть отзыв на Яндекс Картах">
-                <?php include 'svg/logo-yandex.php'; ?>
-              </a>
-              <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
-                ★★★★★
+        <div class="reviews__slider swiper">
+          <div class="reviews__items swiper-wrapper">
+            <article class="reviews-card swiper-slide">
+              <div class="reviews-card__top">
+                <a
+                  class="reviews-card__source"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Посмотреть отзыв на Яндекс Картах">
+                  <?php include 'svg/logo-yandex.php'; ?>
+                </a>
+                <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
+                  ★★★★★
+                </div>
               </div>
-            </div>
-            <div class="reviews-card__text text-format">
-              <p>Воронов Дмитрий Анатольевич Виртуоз своего дела, разобрался с очень сложной ситуацией, которую не смог решить челюстно лицевой хирург.</p>
-              <p>Рекомендую доктора и данную клинику в целом!!!!!</p>
-            </div>
-            <h3 class="reviews-card__author">
-              Ксения Корниенко
-            </h3>
-          </article>
-          <article class="reviews-card">
-            <div class="reviews-card__top">
-              <a
-                class="reviews-card__source"
-                href="https://go.2gis.com/UPXTe"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Посмотреть отзыв в 2ГИС">
-                <?php include 'svg/logo-2gis.php'; ?>
-              </a>
-              <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
-                ★★★★★
+              <div class="reviews-card__text text-format">
+                <p>Воронов Дмитрий Анатольевич Виртуоз своего дела, разобрался с очень сложной ситуацией, которую не смог решить челюстно лицевой хирург.</p>
+                <p>Рекомендую доктора и данную клинику в целом!!!!!</p>
               </div>
-            </div>
-            <div class="reviews-card__text text-format">
-              <p>Отличные врачи, все было сделано быстро и качественно.</p>
-            </div>
-            <h3 class="reviews-card__author">
-              Элеонора Путинцева
-            </h3>
-          </article>
-          <article class="reviews-card">
-            <div class="reviews-card__top">
-              <a
-                class="reviews-card__source"
-                href="https://prodoctorov.ru/moskva/lpu/77901-moscow-dental-clinic/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Посмотреть отзыв на ПроДокторов">
-                <?php include 'svg/logo-prodoctorov.php'; ?>
-              </a>
-              <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
-                ★★★★★
+              <h3 class="reviews-card__author">
+                Ксения Корниенко
+              </h3>
+            </article>
+            <article class="reviews-card swiper-slide">
+              <div class="reviews-card__top">
+                <a
+                  class="reviews-card__source"
+                  href="https://go.2gis.com/UPXTe"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Посмотреть отзыв в 2ГИС">
+                  <?php include 'svg/logo-2gis.php'; ?>
+                </a>
+                <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
+                  ★★★★★
+                </div>
               </div>
-            </div>
-            <div class="reviews-card__text text-format">
-              <p>Устанавливал имплантат. Все прошло очень быстро и безболезненно. Очень понравилось отношение доктора и профессионализм!</p>
-              <p>Хожу с новым зубом и радуюсь!</p>
-            </div>
-            <h3 class="reviews-card__author">
-              Пациент
-            </h3>
-          </article>
-          <article class="reviews-card">
-            <div class="reviews-card__top">
-              <a
-                class="reviews-card__source"
-                href="https://go.2gis.com/UPXTe"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Посмотреть отзыв в 2ГИС">
-                <?php include 'svg/logo-2gis.php'; ?>
-              </a>
-              <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
-                ★★★★★
+              <div class="reviews-card__text text-format">
+                <p>Отличные врачи, все было сделано быстро и качественно.</p>
               </div>
-            </div>
-            <div class="reviews-card__text text-format">
-              <p>Клиника очень понравилась. Крутое оборудование и материалы. Вылечили зубки, поставили имплантанты, виниры и коронки. Боялась жутко, но зря).</p>
-              <p>Не навязывают никаких доп услуг. Рассказывают, что надо сделать и выбор остается за тобой.</p>
-            </div>
-            <h3 class="reviews-card__author">
-              Светлана
-            </h3>
-          </article>
-          <article class="reviews-card">
-            <div class="reviews-card__top">
-              <a
-                class="reviews-card__source"
-                href="https://prodoctorov.ru/moskva/lpu/77901-moscow-dental-clinic/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Посмотреть отзыв на ПроДокторов">
-                <?php include 'svg/logo-prodoctorov.php'; ?>
-              </a>
-              <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
-                ★★★★★
+              <h3 class="reviews-card__author">
+                Элеонора Путинцева
+              </h3>
+            </article>
+            <article class="reviews-card swiper-slide">
+              <div class="reviews-card__top">
+                <a
+                  class="reviews-card__source"
+                  href="https://prodoctorov.ru/moskva/lpu/77901-moscow-dental-clinic/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Посмотреть отзыв на ПроДокторов">
+                  <?php include 'svg/logo-prodoctorov.php'; ?>
+                </a>
+                <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
+                  ★★★★★
+                </div>
               </div>
-            </div>
-            <div class="reviews-card__text text-format">
-              <p>Врач ведёт меня с мезиальным прикусом. Было проведено удаление трёх восьмёрок и установлены ортодонтические минивинты — всё быстро и безболезненно.</p>
-              <p>Очень располагает к себе, бережное отношение и действительно убирает страх перед хирургическими вмешательствами.</p>
-            </div>
-            <h3 class="reviews-card__author">
-              Пациент
-            </h3>
-          </article>
-          <article class="reviews-card">
-            <div class="reviews-card__top">
-              <a
-                class="reviews-card__source"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Посмотреть отзыв на Яндекс Картах">
-                <?php include 'svg/logo-yandex.php'; ?>
-              </a>
-              <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
-                ★★★★★
+              <div class="reviews-card__text text-format">
+                <p>Устанавливал имплантат. Все прошло очень быстро и безболезненно. Очень понравилось отношение доктора и профессионализм!</p>
+                <p>Хожу с новым зубом и радуюсь!</p>
               </div>
-            </div>
-            <div class="reviews-card__text text-format">
-              <p>Записался заранее к врачу по рекомендации. Сделали слепок, поставили временную коронку, а через 4 дня вернулся за своей постоянной коронкой.</p>
-              <p>От своего зуба не отличить. Сильно благодарен.</p>
-            </div>
-            <h3 class="reviews-card__author">
-              Максим А.
-            </h3>
-          </article>
+              <h3 class="reviews-card__author">
+                Пациент
+              </h3>
+            </article>
+            <article class="reviews-card swiper-slide">
+              <div class="reviews-card__top">
+                <a
+                  class="reviews-card__source"
+                  href="https://go.2gis.com/UPXTe"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Посмотреть отзыв в 2ГИС">
+                  <?php include 'svg/logo-2gis.php'; ?>
+                </a>
+                <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
+                  ★★★★★
+                </div>
+              </div>
+              <div class="reviews-card__text text-format">
+                <p>Клиника очень понравилась. Крутое оборудование и материалы. Вылечили зубки, поставили имплантанты, виниры и коронки. Боялась жутко, но зря).</p>
+                <p>Не навязывают никаких доп услуг. Рассказывают, что надо сделать и выбор остается за тобой.</p>
+              </div>
+              <h3 class="reviews-card__author">
+                Светлана
+              </h3>
+            </article>
+            <article class="reviews-card swiper-slide">
+              <div class="reviews-card__top">
+                <a
+                  class="reviews-card__source"
+                  href="https://prodoctorov.ru/moskva/lpu/77901-moscow-dental-clinic/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Посмотреть отзыв на ПроДокторов">
+                  <?php include 'svg/logo-prodoctorov.php'; ?>
+                </a>
+                <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
+                  ★★★★★
+                </div>
+              </div>
+              <div class="reviews-card__text text-format">
+                <p>Врач ведёт меня с мезиальным прикусом. Было проведено удаление трёх восьмёрок и установлены ортодонтические минивинты — всё быстро и безболезненно.</p>
+                <p>Очень располагает к себе, бережное отношение и действительно убирает страх перед хирургическими вмешательствами.</p>
+              </div>
+              <h3 class="reviews-card__author">
+                Пациент
+              </h3>
+            </article>
+            <article class="reviews-card swiper-slide">
+              <div class="reviews-card__top">
+                <a
+                  class="reviews-card__source"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Посмотреть отзыв на Яндекс Картах">
+                  <?php include 'svg/logo-yandex.php'; ?>
+                </a>
+                <div class="reviews-card__rating" aria-label="Оценка 5 из 5">
+                  ★★★★★
+                </div>
+              </div>
+              <div class="reviews-card__text text-format">
+                <p>Записался заранее к врачу по рекомендации. Сделали слепок, поставили временную коронку, а через 4 дня вернулся за своей постоянной коронкой.</p>
+                <p>От своего зуба не отличить. Сильно благодарен.</p>
+              </div>
+              <h3 class="reviews-card__author">
+                Максим А.
+              </h3>
+            </article>
+          </div>
+        </div>
+        <div class="reviews__bottom">
+          <div class="reviews__pagination swiper-pagination"></div>
+
+          <div class="reviews__navigation">
+            <button class="reviews__prev" type="button" aria-label="Предыдущий отзыв"><i data-lucide="arrow-left"></i></button>
+            <button class="reviews__next" type="button" aria-label="Следующий отзыв"><i data-lucide="arrow-right"></i></button>
+          </div>
         </div>
       </div>
     </section>
